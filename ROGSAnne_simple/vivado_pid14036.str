@@ -1,0 +1,101 @@
+/*
+
+Vivado v2017.2 (64-bit)
+SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+
+Process ID: 14036
+License: Customer
+
+Current time: 	12/19/19 1:00:15 PM CET
+Time zone: 	Central European Time (Europe/Paris)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 71 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/java.exe
+Java library paths: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o;C:/WINDOWS/Sun/Java/bin;C:/WINDOWS/system32;C:/WINDOWS;C:/Xilinx/Vivado/2017.2/bin;C:/Xilinx/Vivado/2017.2/lib/win64.o;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/server;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin;C:/Xilinx/SDK/2017.2/bin;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/lib/nt64;C:/Xilinx/Vivado_HLS/2017.2/bin;C:/Program Files (x86)/Common Files/Oracle/Java/javapath;C:/TwinCAT/Common64;C:/TwinCAT/Common32;C:/ProgramData/Oracle/Java/javapath;C:/Windows/system32;C:/Windows;C:/Windows/System32/Wbem;C:/Windows/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common;C:/Program Files/dotnet/;C:/Program Files/Microsoft SQL Server/130/Tools/Binn/;C:/Program Files/MATLAB/R2018b/bin;C:/WINDOWS/System32/OpenSSH/;C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR;C:/ProgramData/MATLAB/SupportP;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files/Intel/Intel(R) Management Engine Components/DAL;C:/ProgramData/MATLAB/SupportPackages/R2018b/3P.instrset/ev3sourcerylite.instrset/CodeSourcery/bin;C:/ProgramData/MATLAB/SupportPackages/R2017b/3P.instrset/ev3sourcerylite.instrset/CodeSourcery/bin;C:/Users/stinu/AppData/Local/Microsoft/WindowsApps;C:/Users/stinu/AppData/Local/Programs/MiKTeX 2.9/miktex/bin/x64/;;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/bin;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/libexec/gcc/x86_64-w64-mingw32/6.2.0;.
+
+User name: 	stinu
+User home directory: C:/Users/stinu
+User working directory: C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple
+User country: 	GB
+User language: 	en
+User locale: 	en_GB
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.2
+RDI_DATADIR: C:/Xilinx/Vivado/2017.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.2/bin
+
+User preferences location: C:/Users/stinu/AppData/Roaming/Xilinx/Vivado
+Vivado preferences directory: C:/Users/stinu/AppData/Roaming/Xilinx/Vivado/2017.2/vivado.xml
+Vivado layouts directory: C:/Users/stinu/AppData/Roaming/Xilinx/Vivado/2017.2/layouts
+PlanAhead jar location: 	C:/Xilinx/Vivado/2017.2/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/.Xil/Vivado-14036-DESKTOP-LRES5IC
+
+GUI allocated memory:	188 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 533 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\stinu\OneDrive\Desktop\Computerteknologi\ERTS\ERTS_ProjektCode\ROGSAnne_simple\ROGSAnne_simple.xpr. Version: Vivado v2017.2 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// [GUI Memory]: 47 MB (+46497kb) [00:00:06]
+// [Engine Memory]: 508 MB (+380963kb) [00:00:06]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 79 MB (+31617kb) [00:00:10]
+// [Engine Memory]: 561 MB (+28934kb) [00:00:10]
+// [Engine Memory]: 601 MB (+12966kb) [00:00:12]
+// Tcl Message: open_project C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/ROGSAnne_simple.xpr 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple' INFO: [Project 1-313] Project file moved from 'C:/Users/Mathi/Desktop/Skole/ERTS/project/ERTS_ProjektCode/ROGSAnne_simple' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// HMemoryUtils.trashcanNow. Engine heap size: 617 MB. GUI used memory: 43 MB. Current time: 12/19/19 1:00:20 PM CET
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 825.348 ; gain = 45.621 
+// Project name: ROGSAnne_simple; location: C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple; part: xc7z010clg400-1
+// [Engine Memory]: 632 MB (+696kb) [00:00:14]
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Tcl Message: update_compile_order -fileset sources_1 
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, "Open Recent Project"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, "Open Recent File"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa:p (cg:JFrame): Launch SDK: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, aa:p)
+// 'o' command handler elapsed time: 34 seconds
+// Elapsed time: 32 seconds
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_HARDWARE_SYSTEM_OUT_OF_DATE_Yes", "Yes"); // JButton:AbstractButton (JPanel:JComponent, H:JDialog)
+dismissDialog("Launch SDK"); // aa:p (cg:JFrame)
+// Tcl Message: launch_sdk -workspace C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/ROGSAnne_simple.sdk -hwspec C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/ROGSAnne_simple.sdk/system_wrapper.hdf 
+// Tcl Message: INFO: [Vivado 12-393] Launching SDK... INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/ROGSAnne_simple.sdk -hwspec C:/Users/stinu/OneDrive/Desktop/Computerteknologi/ERTS/ERTS_ProjektCode/ROGSAnne_simple/ROGSAnne_simple.sdk/system_wrapper.hdf INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages. 
+// HMemoryUtils.trashcanNow. Engine heap size: 651 MB. GUI used memory: 43 MB. Current time: 12/19/19 1:01:32 PM CET
+// [GUI Memory]: 86 MB (+2444kb) [00:11:24]
+// [GUI Memory]: 90 MB (+249kb) [00:18:50]
+// [Engine Memory]: 668 MB (+5036kb) [00:21:05]

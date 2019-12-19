@@ -1,0 +1,17 @@
+/*
+ * ObjectiveFunc.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef OBJECTIVEFUNC_H_
+#define OBJECTIVEFUNC_H_
+
+class ObjectiveFunc {
+public:
+	ObjectiveFunc();
+	virtual ~ObjectiveFunc();
+};
+
+#endif /* OBJECTIVEFUNC_H_ */

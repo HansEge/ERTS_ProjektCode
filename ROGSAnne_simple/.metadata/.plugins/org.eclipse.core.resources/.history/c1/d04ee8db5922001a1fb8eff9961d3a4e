@@ -1,0 +1,18 @@
+/*
+ * BabyMaker.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "BabyMaker.h"
+
+BabyMaker::BabyMaker() {
+	// TODO Auto-generated constructor stub
+
+}
+
+BabyMaker::~BabyMaker() {
+	// TODO Auto-generated destructor stub
+}
+

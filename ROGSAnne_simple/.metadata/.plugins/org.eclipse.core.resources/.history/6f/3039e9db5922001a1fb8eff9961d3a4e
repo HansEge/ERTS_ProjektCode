@@ -1,0 +1,17 @@
+/*
+ * BabyMaker.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef BABYMAKER_H_
+#define BABYMAKER_H_
+
+class BabyMaker {
+public:
+	BabyMaker();
+	virtual ~BabyMaker();
+};
+
+#endif /* BABYMAKER_H_ */
