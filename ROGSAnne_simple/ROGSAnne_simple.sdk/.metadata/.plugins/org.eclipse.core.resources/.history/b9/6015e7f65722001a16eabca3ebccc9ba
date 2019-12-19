@@ -12,18 +12,9 @@ class SystemContext {
 public:
 	SystemContext();
 	virtual ~SystemContext();
-
-	// Current state of system
-	//State* curState;
-
-	// Singletons of states
-	//State* setupState;
-	//State* generationReadyState;
-	//State* GenerationMakerState;
-	//State* EvaluatorState;
-
-	//void setState(State*);
+	int get_a();
 private:
+	int a;
 };
 
 #endif /* SYSTEMCONTEXT_H_ */

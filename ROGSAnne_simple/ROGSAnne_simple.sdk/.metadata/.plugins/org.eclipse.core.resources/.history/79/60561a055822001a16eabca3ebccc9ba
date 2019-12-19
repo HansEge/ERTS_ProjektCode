@@ -23,6 +23,8 @@ int main (void)
 	  u32 uPinDirection = 0x1;
 
 	  xil_printf("-- Start of the Program --\r\n");
+	  int val = pSysContext->get_a();
+	  xil_printf("-- TEST: is 3 = %d?\r\n",val);
 
 	  // AXI GPIO switches Intialization
 	  XGpio_Initialize(&sw, XPAR_SWITCHES_DEVICE_ID);
