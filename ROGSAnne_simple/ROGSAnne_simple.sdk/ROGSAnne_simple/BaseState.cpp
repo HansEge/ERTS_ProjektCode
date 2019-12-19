@@ -7,12 +7,30 @@
 
 #include "BaseState.h"
 
-BaseState::BaseState() {
-	// TODO Auto-generated constructor stub
-
+BaseState::BaseState(SystemContext* pSC) {
+	this->pSysContext = pSC;
 }
 
 BaseState::~BaseState() {
 	// TODO Auto-generated destructor stub
 }
 
+void BaseState::FitnessCalculated(){
+	throw "FitnessCalculated is invalid function for current state";
+}
+
+void BaseState::NewGenerationReady(){
+	throw "NewGenerationReady is invalid function for current state";
+}
+
+void BaseState::SetupDone(){
+	throw "SetupDone is invalid function for current state";
+}
+
+void BaseState::StopConditionMet(){
+	throw "StopConditionMet is invalid function for current state";
+}
+
+void BaseState::StopConditionNotMet(){
+	throw "StopConditionNotMet is invalid function for current state";
+}

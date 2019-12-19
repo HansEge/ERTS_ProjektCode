@@ -14,3 +14,14 @@ SystemContext::SystemContext() {
 SystemContext::~SystemContext() {
 	// TODO Auto-generated destructor stub
 }
+
+void SystemContext::setState(BaseState* newState){
+	// Call onExit for "old" state
+	this->curState->onExit();
+
+	// Change state
+	this->setState(newState);
+
+	// Call onEnter for "new" state
+	this->curState->onEnter();
+}

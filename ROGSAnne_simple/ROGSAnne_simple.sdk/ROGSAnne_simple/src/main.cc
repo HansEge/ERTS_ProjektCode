@@ -2,6 +2,7 @@
 #include "xgpio.h"
 #include "xgpiops.h"
 #include "../SystemContext.h"
+#include "../BaseState.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
 #endif
@@ -13,7 +14,10 @@ static int iPinNumber = 7; /*Led LD9 on ZedBoard and LD4 on Zybo is connected to
 
 int main (void)
 {
-	  SystemContext* pSysContext = new SystemContext();
+	  SystemContext* sys = new SystemContext();
+
+	  //BaseState* state = new BaseState(sys);
+
       XGpio sw, led;
 	  int i, pshb_check, sw_check;
 	  XGpioPs_Config*GpioConfigPtr;
