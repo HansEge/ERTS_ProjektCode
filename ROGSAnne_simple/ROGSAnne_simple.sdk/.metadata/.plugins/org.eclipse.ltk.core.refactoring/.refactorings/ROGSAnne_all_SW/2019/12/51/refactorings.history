@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ROGSAnne_all_SW/src/ROGSAnne_simple.c&apos; to &apos;ROGSAnne_simple.cc&apos;" description="Rename resource &apos;ROGSAnne_simple.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ROGSAnne_simple.c" name="ROGSAnne_simple.cc" stamp="1576749403699" updateReferences="true"/>
+</session>
