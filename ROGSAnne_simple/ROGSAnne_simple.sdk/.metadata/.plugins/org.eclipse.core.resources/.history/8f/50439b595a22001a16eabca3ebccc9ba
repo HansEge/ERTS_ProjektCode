@@ -13,16 +13,13 @@ public:
 	SystemContext();
 	virtual ~SystemContext();
 
-	// Current state of system
 	//State* curState;
 
-	// Singletons of states
 	//State* setupState;
-	//State* generationReadyState;
-	//State* GenerationMakerState;
+	//State* objectiveFuncState;
+	//State* fitnessState;
+	//State* BabyMakerState;
 	//State* EvaluatorState;
-
-	//void setState(State*);
 private:
 };
 

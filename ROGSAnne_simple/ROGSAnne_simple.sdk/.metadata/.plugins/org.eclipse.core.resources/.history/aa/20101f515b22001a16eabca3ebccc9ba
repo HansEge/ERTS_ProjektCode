@@ -19,10 +19,9 @@ public:
 	// Singletons of states
 	//State* setupState;
 	//State* generationReadyState;
-	//State* GenerationMakerState;
+	//State* fitnessState;
+	//State* BabyMakerState;
 	//State* EvaluatorState;
-
-	//void setState(State*);
 private:
 };
 

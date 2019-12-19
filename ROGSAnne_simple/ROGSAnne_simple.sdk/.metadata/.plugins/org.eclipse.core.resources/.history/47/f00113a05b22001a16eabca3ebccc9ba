@@ -21,8 +21,6 @@ public:
 	//State* generationReadyState;
 	//State* GenerationMakerState;
 	//State* EvaluatorState;
-
-	//void setState(State*);
 private:
 };
 

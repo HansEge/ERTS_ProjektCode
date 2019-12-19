@@ -9,8 +9,15 @@
 
 SystemContext::SystemContext() {
 	// TODO Auto-generated constructor stub
+	a = 3;
+
 }
 
 SystemContext::~SystemContext() {
 	// TODO Auto-generated destructor stub
 }
+
+int SystemContext::get_a() {
+	return a;
+}
+
