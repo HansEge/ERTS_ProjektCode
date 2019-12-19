@@ -8,23 +8,21 @@
 #ifndef SYSTEMCONTEXT_H_
 #define SYSTEMCONTEXT_H_
 
-#include "BaseState.h"
-
 class SystemContext {
 public:
 	SystemContext();
 	virtual ~SystemContext();
 
 	// Current state of system
-	BaseState* curState;
+	//State* curState;
 
 	// Singletons of states
-	//BaseState* setupState;
-	//BaseState* generationReadyState;
-	//BaseState* GenerationMakerState;
-	//BaseState* EvaluatorState;
+	//State* setupState;
+	//State* generationReadyState;
+	//State* GenerationMakerState;
+	//State* EvaluatorState;
 
-	void setState(BaseState*);
+	//void setState(State*);
 private:
 };
 

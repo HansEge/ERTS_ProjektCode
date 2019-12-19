@@ -8,11 +8,9 @@
 #ifndef BASESTATE_H_
 #define BASESTATE_H_
 
-class SystemContext;
-
 class BaseState {
 public:
-	BaseState(SystemContext* pSC);
+	BaseState();
 	virtual ~BaseState();
 
 	SystemContext* pSysContext;

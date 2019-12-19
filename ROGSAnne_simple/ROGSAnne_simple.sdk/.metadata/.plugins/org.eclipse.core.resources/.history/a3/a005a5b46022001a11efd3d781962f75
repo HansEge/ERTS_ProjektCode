@@ -8,8 +8,6 @@
 #ifndef SYSTEMCONTEXT_H_
 #define SYSTEMCONTEXT_H_
 
-#include "BaseState.h"
-
 class SystemContext {
 public:
 	SystemContext();

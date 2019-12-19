@@ -8,17 +8,13 @@
 #ifndef BASESTATE_H_
 #define BASESTATE_H_
 
-class SystemContext;
-
 class BaseState {
 public:
-	BaseState(SystemContext* pSC);
+	BaseState();
 	virtual ~BaseState();
 
-	SystemContext* pSysContext;
-
-	virtual void onEnter() = 0;
-	virtual void onExit() = 0;
+	void onEnter();
+	void onExit();
 
 	virtual void SetupDone();
 	virtual void FitnessCalculated();

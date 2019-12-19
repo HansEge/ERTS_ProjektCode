@@ -15,7 +15,7 @@ SystemContext::~SystemContext() {
 	// TODO Auto-generated destructor stub
 }
 
-void SystemContext::setState(BaseState* newState){
+SystemContext::setState(BaseState* newState){
 	// Call onExit for "old" state
 	this->curState->onExit();
 

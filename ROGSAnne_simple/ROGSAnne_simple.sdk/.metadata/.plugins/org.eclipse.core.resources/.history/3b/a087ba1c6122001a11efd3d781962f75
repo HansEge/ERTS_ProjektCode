@@ -16,7 +16,7 @@ public:
 	virtual ~SystemContext();
 
 	// Current state of system
-	BaseState* curState;
+	//BaseState* curState;
 
 	// Singletons of states
 	//BaseState* setupState;
@@ -24,7 +24,7 @@ public:
 	//BaseState* GenerationMakerState;
 	//BaseState* EvaluatorState;
 
-	void setState(BaseState*);
+	//void setState(BaseState*);
 private:
 };
 

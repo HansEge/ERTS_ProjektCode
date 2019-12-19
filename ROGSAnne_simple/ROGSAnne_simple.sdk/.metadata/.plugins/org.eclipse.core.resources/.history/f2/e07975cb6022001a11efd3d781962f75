@@ -8,7 +8,7 @@
 #ifndef BASESTATE_H_
 #define BASESTATE_H_
 
-class SystemContext;
+#include "SystemContext.h"
 
 class BaseState {
 public:

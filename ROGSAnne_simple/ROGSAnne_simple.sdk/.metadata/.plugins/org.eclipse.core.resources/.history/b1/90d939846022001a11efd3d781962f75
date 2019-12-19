@@ -16,7 +16,7 @@ int main (void)
 {
 	  SystemContext* sys = new SystemContext();
 
-	  //BaseState* state = new BaseState(sys);
+	  BaseState* state = new BaseState(sys);
 
       XGpio sw, led;
 	  int i, pshb_check, sw_check;
