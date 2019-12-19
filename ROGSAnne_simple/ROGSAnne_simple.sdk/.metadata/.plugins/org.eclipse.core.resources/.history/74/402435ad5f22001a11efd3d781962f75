@@ -1,0 +1,29 @@
+/*
+ * BaseState.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "BaseState.h"
+
+BaseState::BaseState() {
+	// TODO Auto-generated constructor stub
+
+}
+
+BaseState::~BaseState() {
+	// TODO Auto-generated destructor stub
+}
+
+void BaseState::FitnessCalculated(){
+	throw "FitnessCalculated is invalid function for current state";
+}
+
+void BaseState::NewGenerationReady(){
+	throw "NewGenerationReady is invalid function for current state";
+}
+
+void BaseState::SetupDone(){
+	throw "SetupDone is invalid function for current state";
+}

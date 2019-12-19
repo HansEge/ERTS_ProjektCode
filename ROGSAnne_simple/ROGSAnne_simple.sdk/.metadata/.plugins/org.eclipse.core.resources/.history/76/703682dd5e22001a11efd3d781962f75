@@ -1,0 +1,23 @@
+/*
+ * BaseState.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef BASESTATE_H_
+#define BASESTATE_H_
+
+class BaseState {
+public:
+	BaseState();
+	virtual ~BaseState();
+
+	void SetupDone();
+	void FitnessCalculated();
+	void StopConditionMet();
+	void StopConditionNotMet();
+	void NewGenerationReady();
+};
+
+#endif /* BASESTATE_H_ */
