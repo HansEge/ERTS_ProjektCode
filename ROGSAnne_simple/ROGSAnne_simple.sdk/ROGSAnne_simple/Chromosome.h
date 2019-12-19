@@ -8,10 +8,14 @@
 #ifndef CHROMOSOME_H_
 #define CHROMOSOME_H_
 
+#include <string>
+
 class Chromosome {
 public:
 	Chromosome();
-	virtual ~Chromosome();
+	Chromosome(std::string Data);
+	~Chromosome();
+	std::string data;
 };
 
 #endif /* CHROMOSOME_H_ */

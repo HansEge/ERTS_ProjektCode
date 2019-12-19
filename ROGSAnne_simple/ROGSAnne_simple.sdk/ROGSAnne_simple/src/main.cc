@@ -14,6 +14,7 @@ static int iPinNumber = 7; /*Led LD9 on ZedBoard and LD4 on Zybo is connected to
 
 int main (void)
 {
+	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
 
 	  //BaseState* state = new BaseState(sys);

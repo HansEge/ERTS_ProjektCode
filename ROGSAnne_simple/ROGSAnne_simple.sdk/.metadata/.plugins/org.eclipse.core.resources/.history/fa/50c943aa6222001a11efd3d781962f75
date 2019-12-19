@@ -1,0 +1,22 @@
+/*
+ * Population.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef POPULATION_H_
+#define POPULATION_H_
+
+#include "Chromosome.h"
+
+class Population {
+public:
+	Population();
+	virtual ~Population();
+
+	Chromosome chromosomes[50];
+
+};
+
+#endif /* POPULATION_H_ */

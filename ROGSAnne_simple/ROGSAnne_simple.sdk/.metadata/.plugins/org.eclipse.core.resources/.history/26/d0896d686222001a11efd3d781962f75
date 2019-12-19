@@ -1,0 +1,34 @@
+/*
+ * SystemContext.h
+ *
+ *  Created on: Dec 19, 2019
+ *      Author: Mathi
+ */
+
+#ifndef SYSTEMCONTEXT_H_
+#define SYSTEMCONTEXT_H_
+
+#include "BaseState.h"
+
+class SystemContext {
+public:
+	SystemContext();
+	virtual ~SystemContext();
+
+	// Current state of system
+	BaseState* curState;
+
+	// Singletons of states
+	//BaseState* setupState;
+	//BaseState* generationReadyState;
+	//BaseState* GenerationMakerState;
+	//BaseState* EvaluatorState;
+
+	Population popA;
+	Population popB;
+
+	void setState(BaseState*);
+private:
+};
+
+#endif /* SYSTEMCONTEXT_H_ */

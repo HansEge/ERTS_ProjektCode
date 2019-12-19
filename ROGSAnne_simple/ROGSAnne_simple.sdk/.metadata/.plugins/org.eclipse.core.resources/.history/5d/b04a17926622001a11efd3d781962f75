@@ -1,0 +1,17 @@
+/*
+ * Coordinate.h
+ *
+ *  Created on: Dec 19, 2019
+ *      Author: Mathi
+ */
+
+#ifndef COORDINATE_H_
+#define COORDINATE_H_
+
+class Coordinate {
+public:
+	Coordinate();
+	virtual ~Coordinate();
+};
+
+#endif /* COORDINATE_H_ */

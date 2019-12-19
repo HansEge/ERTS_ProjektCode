@@ -1,0 +1,18 @@
+/*
+ * Population.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "Population.h"
+
+Population::Population() {
+	// TODO Auto-generated constructor stub
+	chromosomes = new chromosomes[POPULATION_SIZE]{chromosome("asd",3)};
+}
+
+Population::~Population() {
+	// TODO Auto-generated destructor stub
+}
+
