@@ -1,0 +1,18 @@
+/*
+ * ObjectiveFunc.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "ObjectiveFunc.h"
+
+ObjectiveFunc::ObjectiveFunc() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ObjectiveFunc::~ObjectiveFunc() {
+	// TODO Auto-generated destructor stub
+}
+
