@@ -16,7 +16,7 @@ int main (void)
 {
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
-
+	  //Setup* setup = new Setup(sys);
 	  //BaseState* state = new BaseState(sys);
 
       XGpio sw, led;

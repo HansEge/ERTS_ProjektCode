@@ -1,0 +1,44 @@
+/*
+ * Setup.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "Setup.h"
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+
+
+Setup::Setup(SystemContext* pSC) {
+	this->_pSC = pSC;
+}
+
+Setup::~Setup() {
+	// TODO Auto-generated destructor stub
+}
+
+Population Setup::InitialPop(){
+
+	Population* p = new Population();
+
+
+	for(int i = 0; i <= POPULATION_SIZE; i++)
+	{
+		p->chromosomes[i] =
+	}
+
+
+}
+
+void RNG(){
+
+	int number = 0;
+
+	/* initialize random seed: */
+	  srand (time(NULL));
+
+	  /* generate number between 1 and numberOfCoords: */
+	  number = rand() % 10 + 1;
+}

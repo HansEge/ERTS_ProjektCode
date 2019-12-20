@@ -14,6 +14,8 @@ SystemContext::SystemContext() {
 	this->popB = new Population();
 	this->initializeCoordinates();
 
+	this->whichPopulationIsOldGen = A;
+
 	// Create map iterator
 	std::map<std::string, Coordinate*>::iterator it = this->coordinates.begin();
 
@@ -56,4 +58,26 @@ void SystemContext::setState(BaseState* newState){
 
 	// Call onEnter for "new" state
 	this->curState->onEnter();
+}
+
+Population* SystemContext::getOldGenerationPointer(){
+	if(this->whichPopulationIsOldGen==A)
+	{
+		return this->popA;
+	}
+	else
+	{
+		return this->popB;
+	}
+}
+
+Population* SystemContext::getNewGenerationPointer(){
+	if(this->whichPopulationIsOldGen==A)
+	{
+		return this->popB;
+	}
+	else
+	{
+		return this->popA;
+	}
 }
