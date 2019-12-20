@@ -96,13 +96,10 @@ unsigned int Setup::ConvertRandNum(){
 
 
 void Setup::OnEnter(){
-	this->InitialPop();
+	InitialPop();
 	SetupDone();
 }
 
-void Setup::OnExit(){
-	//Nothing
-}
 
 void Setup::SetupDone(){
 	this->_pSC->setState(this->_pSC->generationReadyState);

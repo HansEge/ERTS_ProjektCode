@@ -16,8 +16,10 @@
 
 class Setup : public BaseState {
 public:
+	Setup();
 	Setup(SystemContext* pSC);
 	virtual ~Setup();
+
 
 	SystemContext* _pSC;
 	virtual void OnEnter();

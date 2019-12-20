@@ -96,7 +96,7 @@ unsigned int Setup::ConvertRandNum(){
 
 
 void Setup::OnEnter(){
-	this->InitialPop();
+	InitialPop();
 	SetupDone();
 }
 

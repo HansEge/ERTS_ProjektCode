@@ -19,6 +19,7 @@ public:
 	Setup(SystemContext* pSC);
 	virtual ~Setup();
 
+
 	SystemContext* _pSC;
 	virtual void OnEnter();
 	virtual void OnExit();
