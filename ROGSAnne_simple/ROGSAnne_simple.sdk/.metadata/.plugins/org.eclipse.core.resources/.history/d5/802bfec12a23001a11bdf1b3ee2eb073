@@ -14,10 +14,7 @@ SystemContext::SystemContext() {
 	this->popB = new Population();
 	this->initializeCoordinates();
 
-	this->setupState = new Setup(this);
-	//this->EvaluatorState = new Evaluator(this);
-	this->GenerationMakerState = new GenerationMaker(this);
-	//this->generationReadyState = new GenerationReady(this);
+	setupState = new Setup(this);
 
 	this->whichPopulationIsOldGen = A;
 

@@ -8,7 +8,7 @@
 #include "Evaluator.h"
 
 Evaluator::Evaluator(SystemContext* pSC) : BaseState(pSC){
-	//this->_pSC = pSC;
+	this->_pSC = pSC;
 }
 
 Evaluator::~Evaluator() {
@@ -17,12 +17,12 @@ Evaluator::~Evaluator() {
 
 void Evaluator::onEnter() {
 
-	//stopCondition();
+	stopCondition();
 	if(stopConditionMet == true){
-		//stopCondtionMet();
+		stopCondtionMet();
 	}
 	else {
-		//stopConditionNotMet();
+		stopConditionNotMet();
 	}
 }
 
@@ -30,7 +30,6 @@ void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
 }
 
-/*
 void Evaluator::stopConditionNotMet(){
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
@@ -70,4 +69,3 @@ bool Evaluator::stopCondition() {
 	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 	oldBestCandidateSolution = newBestCandSolution;
 }
-*/

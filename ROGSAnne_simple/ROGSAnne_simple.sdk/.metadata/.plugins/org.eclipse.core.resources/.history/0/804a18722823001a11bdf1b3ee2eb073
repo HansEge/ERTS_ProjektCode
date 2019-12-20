@@ -19,10 +19,10 @@ void Evaluator::onEnter() {
 
 	//stopCondition();
 	if(stopConditionMet == true){
-		//stopCondtionMet();
+		stopCondtionMet();
 	}
 	else {
-		//stopConditionNotMet();
+		stopConditionNotMet();
 	}
 }
 
