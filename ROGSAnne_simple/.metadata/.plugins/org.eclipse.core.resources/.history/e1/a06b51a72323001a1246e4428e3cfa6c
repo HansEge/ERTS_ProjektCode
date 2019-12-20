@@ -29,10 +29,10 @@ public:
 	BaseState* curState;
 
 	// Singletons of states
-	BaseState* setupState;
-	BaseState* generationReadyState;
-	BaseState* GenerationMakerState;
-	BaseState* EvaluatorState;
+	//BaseState* setupState;
+	//BaseState* generationReadyState;
+	//BaseState* GenerationMakerState;
+	//BaseState* EvaluatorState;
 
 	Population* popA;
 	Population* popB;

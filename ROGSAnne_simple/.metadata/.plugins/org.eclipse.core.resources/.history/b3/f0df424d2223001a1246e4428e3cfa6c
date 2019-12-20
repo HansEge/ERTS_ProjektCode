@@ -14,7 +14,7 @@
 
 
 
-class Setup : public BaseState {
+class Setup :: public BaseState {
 public:
 	Setup();
 	Setup(SystemContext* pSC);
@@ -22,8 +22,6 @@ public:
 
 
 	SystemContext* _pSC;
-	void OnEnter();
-	void SetupDone();
 
 	void InitialPop(void);
 	unsigned int RNG(void);

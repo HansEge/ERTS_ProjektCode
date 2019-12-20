@@ -11,7 +11,7 @@
 
 #define NUM_COORDS 5
 
-Setup::Setup(SystemContext* pSC) : BaseState(pSC) {
+Setup::Setup(SystemContext* pSC) : BaseState {
 	this->_pSC = pSC;
 }
 
@@ -102,5 +102,5 @@ void Setup::OnEnter(){
 
 
 void Setup::SetupDone(){
-	this->_pSC->setState(this->_pSC->generationReadyState);
+	//this->_pSC->setState(this->_pSC->curState->)
 }
