@@ -22,7 +22,7 @@ public:
 	void onEnter();
 	void stopCondtionMet();
 	void stopConditionNotMet();
-	bool stopCondition();
+	void stopCondition();
 
 private:
 	Population* pNewGen;

@@ -8,7 +8,7 @@
 #include "Evaluator.h"
 
 Evaluator::Evaluator(SystemContext* pSC) : BaseState(pSC){
-	// Inherit constructor from base class
+	this->_pSC = pSC;
 }
 
 Evaluator::~Evaluator() {
@@ -17,24 +17,31 @@ Evaluator::~Evaluator() {
 
 void Evaluator::onEnter() {
 
+	stopCondition();
+	if(stopConditionMet == true){
+		stopCondtionMet();
+	}
+	else {
+		stopConditionNotMet();
+	}
 }
 
 void Evaluator::stopCondtionMet() {
-	//curState->setState(curState->??)
+	//this->_pSC->setState(this->_pSC->??);
 }
 
 void Evaluator::stopConditionNotMet(){
-	//curState->setState(curState->??)
+	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
 bool Evaluator::stopCondition() {
 
+	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
-	// temp variables, has to be substituted with real array size and cost-function array
-	int costFuncArr[POPULATION_SIZE];
+	float newDistances = pNewGen->distances;
 
-	//find best cost function out of population
-	int newBestCandSolution = costFuncArr[0];
+	//find shortest distance out of population
+	int newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
 	      if(newBestCandSolution>costFuncArr[i]) {
 	    	  newBestCandSolution=costFuncArr[i];
@@ -61,6 +68,4 @@ bool Evaluator::stopCondition() {
 
 	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 	oldBestCandidateSolution = newBestCandSolution;
-
-	return stopConditionMet;
 }
