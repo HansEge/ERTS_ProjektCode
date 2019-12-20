@@ -17,12 +17,12 @@ public:
 	Evaluator(SystemContext* pSC);
 	virtual ~Evaluator();
 
-	//SystemContext* pSysContext;
-
-	void onEnter();
-	void stopCondtionMet();
-	void stopConditionNotMet();
-	//void stopCondition();
+	SystemContext* _pSC;
+	virtual void onEnter();
+	virtual void onExit();
+	virtual void stopCondtionMet();
+	virtual void stopConditionNotMet();
+	virtual void stopCondition();
 
 private:
 	Population* pNewGen;

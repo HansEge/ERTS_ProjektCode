@@ -26,6 +26,9 @@ void Evaluator::onEnter() {
 	}
 }
 
+void Evaluator::onExit(){
+}
+
 void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
 }
