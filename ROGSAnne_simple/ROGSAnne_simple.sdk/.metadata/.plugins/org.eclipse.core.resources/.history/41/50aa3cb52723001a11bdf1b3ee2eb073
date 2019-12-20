@@ -17,15 +17,16 @@
 
 class Setup : public BaseState {
 public:
+	//Setup();
 	Setup(SystemContext* pSC);
 	~Setup();
+
 
 	SystemContext* _pSC;
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void SetupDone();
 
-private:
 	void InitialPop(void);
 	unsigned int RNG(void);
 	unsigned int ConvertRandNum(void);

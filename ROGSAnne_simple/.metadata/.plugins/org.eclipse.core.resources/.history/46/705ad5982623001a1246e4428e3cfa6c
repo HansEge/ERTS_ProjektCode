@@ -11,19 +11,20 @@
 #include "Population.h"
 #include "BaseState.h"
 #include "SystemContext.h"
-#include "xgpio.h"
 
 
 
 class Setup : public BaseState {
 public:
+	Setup();
 	Setup(SystemContext* pSC);
-	~Setup();
+	virtual ~Setup();
+
 
 	SystemContext* _pSC;
-	virtual void onEnter();
-	virtual void onExit();
-	virtual void SetupDone();
+	virtual void OnEnter();
+	virtual void OnExit();
+	void SetupDone();
 
 private:
 	void InitialPop(void);
