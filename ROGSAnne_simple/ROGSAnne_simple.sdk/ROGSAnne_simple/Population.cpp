@@ -9,7 +9,6 @@
 
 Population::Population() {
 	// TODO Auto-generated constructor stub
-
 }
 
 Population::~Population() {

@@ -8,8 +8,11 @@
 #include "Chromosome.h"
 
 Chromosome::Chromosome() {
-	// TODO Auto-generated constructor stub
+	this->data = "Uninitialized";
+}
 
+Chromosome::Chromosome(std::string Data){
+	this->data = Data;
 }
 
 Chromosome::~Chromosome() {

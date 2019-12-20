@@ -1,0 +1,19 @@
+/*
+ * Chromosome.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "Chromosome.h"
+
+Chromosome::Chromosome(char* data, int size) {
+	this->data = new char[size]{data};
+	// TODO Auto-generated constructor stub
+
+}
+
+Chromosome::~Chromosome() {
+	// TODO Auto-generated destructor stub
+}
+

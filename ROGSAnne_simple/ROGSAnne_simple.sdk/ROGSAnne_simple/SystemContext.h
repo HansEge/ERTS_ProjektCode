@@ -9,11 +9,19 @@
 #define SYSTEMCONTEXT_H_
 
 #include "BaseState.h"
+#include "Population.h"
+#include "Coordinate.h"
+#include <string>
+#include <map>
 
 class SystemContext {
 public:
 	SystemContext();
-	virtual ~SystemContext();
+	~SystemContext();
+	void initializeCoordinates();
+
+	// Mapping from strings to coordinate
+	std::map<std::string, Coordinate*> coordinates;
 
 	// Current state of system
 	BaseState* curState;
@@ -23,6 +31,9 @@ public:
 	//BaseState* generationReadyState;
 	//BaseState* GenerationMakerState;
 	//BaseState* EvaluatorState;
+
+	Population* popA;
+	Population* popB;
 
 	void setState(BaseState*);
 private:
