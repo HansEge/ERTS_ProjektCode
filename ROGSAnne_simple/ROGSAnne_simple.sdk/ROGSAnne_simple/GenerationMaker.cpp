@@ -6,6 +6,7 @@
  */
 
 #include "GenerationMaker.h"
+#include "xgpio.h"
 
 GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
 	// Inherit constructor from base class
@@ -13,6 +14,14 @@ GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
 
 GenerationMaker::~GenerationMaker() {
 	// TODO Auto-generated destructor stub
+}
+
+void GenerationMaker::onEnter() {
+	this->createNewGeneration();
+}
+
+void GenerationMaker::onExit() {
+	// do nothing
 }
 
 void GenerationMaker::createNewGeneration()
@@ -57,6 +66,14 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Get parent chromosomes
 	Chromosome parentA = getParentAtIndex(parentIndexA);
 	Chromosome parentB = getParentAtIndex(parentIndexB);
+
+	std::string str_A = "Parent A: ";
+	str_A += parentA.data;
+	xil_printf(str_A.c_str());
+
+	std::string str_B = "Parent B: ";
+	str_B += parentB.data;
+	xil_printf(str_B.c_str());
 
 	// Get first part of both parent chromosomes
 	std::string stringChildA = parentA.data.substr(0,crossoverPoint);

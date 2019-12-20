@@ -14,7 +14,9 @@
 class GenerationMaker : public BaseState {
 public:
 	GenerationMaker(SystemContext* pSC);
-	virtual ~GenerationMaker();
+	~GenerationMaker();
+	virtual void onEnter();
+	virtual void onExit();
 
 private:
 	void createNewGeneration();
