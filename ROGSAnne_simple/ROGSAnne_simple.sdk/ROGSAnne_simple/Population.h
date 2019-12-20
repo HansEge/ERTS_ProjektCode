@@ -20,8 +20,8 @@ public:
 	~Population();
 
 	Chromosome chromosomes[POPULATION_SIZE];
-	float fitnesses[POPULATION_SIZE];
-	float distances[POPULATION_SIZE];
+	double fitnesses[POPULATION_SIZE];
+	double distances[POPULATION_SIZE];
 };
 
 #endif /* POPULATION_H_ */

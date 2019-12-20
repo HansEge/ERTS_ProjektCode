@@ -15,4 +15,3 @@ GenerationReady::GenerationReady() {
 GenerationReady::~GenerationReady() {
 	// TODO Auto-generated destructor stub
 }
-

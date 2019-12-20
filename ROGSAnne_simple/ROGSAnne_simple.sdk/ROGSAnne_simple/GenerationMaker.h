@@ -7,11 +7,23 @@
 
 #ifndef GENERATIONMAKER_H_
 #define GENERATIONMAKER_H_
+#include "BaseState.h"
+#include "Population.h"
+#include "SystemContext.h"
 
-class GenerationMaker {
+class GenerationMaker : public BaseState {
 public:
-	GenerationMaker();
+	GenerationMaker(SystemContext* pSC);
 	virtual ~GenerationMaker();
+
+private:
+	void createNewGeneration();
+	Population* pNewGen;
+	Population* pOldGen;
+
+	void createChildren(int parentIndexA, int parentIndexB, int crossoverPoint,int childIndexA, int childIndexB);
+	Chromosome getParentAtIndex(int index);
+	void overWriteChildChromosomeAtIndex(int index, std::string data);
 };
 
 #endif /* GENERATIONMAKER_H_ */

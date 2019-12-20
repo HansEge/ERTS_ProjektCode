@@ -1,0 +1,24 @@
+/*
+ * GenerationMaker.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GenerationMaker.h"
+
+GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
+	// Inherit constructor from base class
+}
+
+GenerationMaker::~GenerationMaker() {
+	// TODO Auto-generated destructor stub
+}
+
+void GenerationMaker::createNewGeneration()
+{
+	class SystemContext;
+	this->pNewGen = this->pSysContext->getNewGenerationPointer();
+	this->pOldGen = this->pSysContext->getOldGenerationPointer();
+}
+

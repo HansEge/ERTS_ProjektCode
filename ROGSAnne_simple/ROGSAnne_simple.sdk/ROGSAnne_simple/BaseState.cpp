@@ -34,3 +34,7 @@ void BaseState::StopConditionMet(){
 void BaseState::StopConditionNotMet(){
 	throw "StopConditionNotMet is invalid function for current state";
 }
+
+SystemContext* BaseState::getSystemContext(){
+	return this->pSysContext;
+}
