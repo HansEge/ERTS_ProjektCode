@@ -42,13 +42,13 @@ bool Evaluator::stopCondition() {
 
 	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
-	float* newDistances = pNewGen->distances;
+	float newDistances = pNewGen->distances;
 
 	//find shortest distance out of population
 	int newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
-	      if(newBestCandSolution>newDistances[i]) {
-	    	  newBestCandSolution=newDistances[i];
+	      if(newBestCandSolution>costFuncArr[i]) {
+	    	  newBestCandSolution=costFuncArr[i];
 	   }
 	}
 
