@@ -20,6 +20,7 @@ int main (void)
 	  SystemContext* sys = new SystemContext();
 	  Setup* setup = new Setup(sys);
 	  GenerationMaker* generationMaker = new GenerationMaker(sys);
+	  setup->onEnter();
 	  generationMaker->onEnter();
 
       XGpio sw, led;
