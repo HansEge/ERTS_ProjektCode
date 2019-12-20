@@ -9,13 +9,11 @@
 #define SETUP_H_
 
 #include "Population.h"
-#include "BaseState.h"
 #include "SystemContext.h"
-#include "xgpio.h"
 
 
 
-class Setup : public BaseState {
+class Setup {
 public:
 	Setup();
 	Setup(SystemContext* pSC);
@@ -23,8 +21,6 @@ public:
 
 
 	SystemContext* _pSC;
-	void OnEnter();
-	void SetupDone();
 
 	void InitialPop(void);
 	unsigned int RNG(void);

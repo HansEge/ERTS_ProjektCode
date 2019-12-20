@@ -11,7 +11,6 @@
 #include "Population.h"
 #include "BaseState.h"
 #include "SystemContext.h"
-#include "xgpio.h"
 
 
 
@@ -23,8 +22,6 @@ public:
 
 
 	SystemContext* _pSC;
-	void OnEnter();
-	void SetupDone();
 
 	void InitialPop(void);
 	unsigned int RNG(void);
