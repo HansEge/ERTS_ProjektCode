@@ -6,9 +6,8 @@
  */
 
 #include "Setup.h"
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
 #include <string>
+#include <limits>
 
 #define NUM_COORDS 5
 
@@ -20,23 +19,41 @@ Setup::~Setup() {
 	// TODO Auto-generated destructor stub
 }
 
-Population Setup::InitialPop(){
+void Setup::InitialPop(){
 
-	int n = 0;
-	std::string coords;
+	int uniqueflag = 0;
+	unsigned int random;
+	std::string coords = "";
+	unsigned int numArray[NUM_COORDS] = {};
+
+
 
 	for(int i = 0; i <= POPULATION_SIZE; i++)
 	{
+
+		for(int l = 0; l < NUM_COORDS; l++) {
+			     do {
+			        //Assume things are unique. reset uniqueflag if not.
+			        uniqueflag = 1;
+			        random = ConvertRandNum();
+
+			        //This loop checks for uniqueness
+			        for (int j = 0; j < l && uniqueflag == 1; j++) {
+			           if (numArray[j] == random) {
+			              uniqueflag = 0;
+			           }
+			        }
+			     } while (uniqueflag != 1);
+			     numArray[l] = random;
+			}
+
 		for(int k = 0; k <= NUM_COORDS; k++)
 		{
-
-			n = ConvertRandNum();
-			coords[k] = 'A' + n;
+			coords[k] = 'A' + numArray[k];
 		}
 
 	    this->_pSC->popA->chromosomes[i] = coords;       // Convert to a character from a-z
 	}
-
 
 }
 
@@ -60,11 +77,18 @@ unsigned int Setup::RNG(void)
 
 unsigned int Setup::ConvertRandNum(){
 
-	unsigned int OldRange, NewRange, NewValue;
-	OldRange = 2^32;
-	NewRange = NUM_COORDS;
-	NewValue = (((RNG()) * NewRange) / OldRange);
+	float OldRange, OldMax, OldMin, OldValue, NewMax, NewMin, NewRange, NewValue = 0;
 
-	return NewValue;
+	OldMax = std::numeric_limits<unsigned int>::max();
+	OldMin = 0;
+	NewMax = NUM_COORDS;
+	NewMin = 0;
+	OldValue = RNG();
+
+	OldRange = (OldMax - OldMin);
+	NewRange = (NewMax - NewMin);
+	NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+
+	return (unsigned int)NewValue;
 
 }

@@ -3,6 +3,8 @@
 #include "xgpiops.h"
 #include "../SystemContext.h"
 #include "../BaseState.h"
+#include "../Setup.h"
+#include "../GenerationMaker.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
 #endif
@@ -16,8 +18,10 @@ int main (void)
 {
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
-	  //Setup* setup = new Setup(sys);
-	  //BaseState* state = new BaseState(sys);
+	  Setup* setup = new Setup(sys);
+	  GenerationMaker* generationMaker = new GenerationMaker(sys);
+	  setup->onEnter();
+	  generationMaker->onEnter();
 
       XGpio sw, led;
 	  int i, pshb_check, sw_check;

@@ -9,7 +9,7 @@
 #ifndef POPULATION_H_
 #define POPULATION_H_
 
-#define POPULATION_SIZE 50
+#define POPULATION_SIZE 10
 
 
 #include "Chromosome.h"
@@ -20,8 +20,8 @@ public:
 	~Population();
 
 	Chromosome chromosomes[POPULATION_SIZE];
-	double fitnesses[POPULATION_SIZE];
-	double distances[POPULATION_SIZE];
+	float fitnesses[POPULATION_SIZE];
+	float distances[POPULATION_SIZE];
 };
 
 #endif /* POPULATION_H_ */
