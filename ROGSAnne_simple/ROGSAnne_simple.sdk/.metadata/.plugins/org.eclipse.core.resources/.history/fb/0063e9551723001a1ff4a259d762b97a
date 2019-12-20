@@ -1,0 +1,32 @@
+/*
+ * GenerationMaker.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef GENERATIONMAKER_H_
+#define GENERATIONMAKER_H_
+#include "BaseState.h"
+#include "Population.h"
+#include "SystemContext.h"
+
+class GenerationMaker : public BaseState {
+public:
+	GenerationMaker(SystemContext* pSC);
+	~GenerationMaker();
+	virtual void onEnter();
+	virtual void inExit();
+
+private:
+	void createNewGeneration();
+	Population* pNewGen;
+	Population* pOldGen;
+
+	void createChildren(int parentIndexA, int parentIndexB, int crossoverPoint,int childIndexA, int childIndexB);
+	Chromosome getParentAtIndex(int index);
+	void overWriteChildChromosomeAtIndex(int index, std::string data);
+};
+
+#endif /* GENERATIONMAKER_H_ */
+

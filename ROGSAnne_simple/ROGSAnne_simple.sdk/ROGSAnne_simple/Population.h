@@ -9,7 +9,7 @@
 #ifndef POPULATION_H_
 #define POPULATION_H_
 
-#define POPULATION_SIZE 30
+#define POPULATION_SIZE 10
 
 
 #include "Chromosome.h"
