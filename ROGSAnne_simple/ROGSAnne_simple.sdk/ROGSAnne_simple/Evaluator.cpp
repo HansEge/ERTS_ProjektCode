@@ -8,7 +8,7 @@
 #include "Evaluator.h"
 
 Evaluator::Evaluator(SystemContext* pSC) : BaseState(pSC){
-	// Inherit constructor from base class
+	this->_pSC = pSC;
 }
 
 Evaluator::~Evaluator() {
@@ -27,19 +27,20 @@ void Evaluator::onEnter() {
 }
 
 void Evaluator::stopCondtionMet() {
-	//curState->setState(curState->??)
+	//this->_pSC->setState(this->_pSC->??);
 }
 
 void Evaluator::stopConditionNotMet(){
-	//curState->setState(curState->??)
+	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
 bool Evaluator::stopCondition() {
 
+	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
 	float newDistances = pNewGen->distances;
 
-	//find best cost function out of population
+	//find shortest distance out of population
 	int newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
 	      if(newBestCandSolution>costFuncArr[i]) {
