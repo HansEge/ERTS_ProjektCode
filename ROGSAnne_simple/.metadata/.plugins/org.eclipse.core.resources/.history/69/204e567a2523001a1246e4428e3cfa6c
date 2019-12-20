@@ -28,7 +28,7 @@ void Setup::InitialPop(){
 
 
 
-	for(int i = 0; i < POPULATION_SIZE; i++)
+	for(int i = 0; i <= POPULATION_SIZE; i++)
 	{
 
 		for(int l = 0; l < NUM_COORDS; l++) {
@@ -52,20 +52,7 @@ void Setup::InitialPop(){
 			coords[k] = 'A' + numArray[k];
 		}
 
-		int n = coords.length();
-
-		// declaring character array
-		char char_array[n + 1];
-
-		// copying the contents of the
-		// string to char array
-		strcpy(char_array, coords.c_str());
-
-		xil_printf("Initial coordinate: ");
-		xil_printf(char_array);
-		xil_printf("\r\n");
-
-	    this->_pSC->popA->chromosomes[i].data = coords;       // Convert to a character from a-z
+	    this->_pSC->popA->chromosomes[i] = coords;       // Convert to a character from a-z
 	}
 
 }
@@ -106,13 +93,13 @@ unsigned int Setup::ConvertRandNum(){
 
 }
 
-void Setup::onEnter(){
+
+
+void Setup::OnEnter(){
 	InitialPop();
 	SetupDone();
 }
 
-void Setup::onExit(){
-}
 
 void Setup::SetupDone(){
 	this->_pSC->setState(this->_pSC->generationReadyState);
