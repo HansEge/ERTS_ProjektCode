@@ -113,9 +113,6 @@ void Setup::onEnter(){
 	SetupDone();
 }
 
-void Setup::onExit(){
-}
-
 
 void Setup::SetupDone(){
 	this->_pSC->setState(this->_pSC->generationReadyState);

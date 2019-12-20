@@ -17,14 +17,13 @@
 
 class Setup : public BaseState {
 public:
-	//Setup();
+	Setup();
 	Setup(SystemContext* pSC);
 	~Setup();
 
 
 	SystemContext* _pSC;
-	virtual void onEnter();
-	virtual void onExit();
+	virtual void OnEnter();
 	virtual void SetupDone();
 
 	void InitialPop(void);

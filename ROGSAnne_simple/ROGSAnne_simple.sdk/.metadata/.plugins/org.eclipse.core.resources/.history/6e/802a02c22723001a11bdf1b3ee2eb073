@@ -108,12 +108,9 @@ unsigned int Setup::ConvertRandNum(){
 
 
 
-void Setup::onEnter(){
+void Setup::OnEnter(){
 	InitialPop();
 	SetupDone();
-}
-
-void Setup::onExit(){
 }
 
 

@@ -24,7 +24,7 @@ public:
 
 	SystemContext* _pSC;
 	virtual void onEnter();
-	virtual void onExit();
+	virtual void onEnter();
 	virtual void SetupDone();
 
 	void InitialPop(void);
