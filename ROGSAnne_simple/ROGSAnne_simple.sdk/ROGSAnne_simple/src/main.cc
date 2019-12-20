@@ -3,6 +3,7 @@
 #include "xgpiops.h"
 #include "../SystemContext.h"
 #include "../BaseState.h"
+#include "../setup.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
 #endif
@@ -16,7 +17,10 @@ int main (void)
 {
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
-	  //Setup* setup = new Setup(sys);
+	  Setup* setup = new Setup(sys);
+
+	  setup->InitialPop();
+
 	  //BaseState* state = new BaseState(sys);
 
       XGpio sw, led;

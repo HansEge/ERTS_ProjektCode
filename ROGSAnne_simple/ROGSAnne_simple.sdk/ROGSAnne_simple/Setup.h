@@ -22,7 +22,7 @@ public:
 
 	SystemContext* _pSC;
 
-	Population InitialPop(void);
+	void InitialPop(void);
 	unsigned int RNG(void);
 	unsigned int ConvertRandNum(void);
 };
