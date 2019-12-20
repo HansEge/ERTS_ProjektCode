@@ -38,7 +38,7 @@ void Evaluator::stopConditionNotMet(){
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
-bool Evaluator::stopCondition() {
+void Evaluator::stopCondition() {
 
 	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
