@@ -17,7 +17,7 @@ public:
 	Population();
 	~Population();
 
-	//Chromosome chromosomes[POPULATION_SIZE];
+	Chromosome chromosomes[POPULATION_SIZE];
 	double fitnesses[POPULATION_SIZE];
 	double distances[POPULATION_SIZE];
 };

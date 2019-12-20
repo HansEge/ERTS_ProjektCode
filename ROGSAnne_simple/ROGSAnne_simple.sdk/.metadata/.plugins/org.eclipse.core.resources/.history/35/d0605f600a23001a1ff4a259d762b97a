@@ -1,0 +1,34 @@
+/*
+ * GenerationMaker.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GenerationMaker.h"
+
+GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
+	// Inherit constructor from base class
+}
+
+GenerationMaker::~GenerationMaker() {
+	// TODO Auto-generated destructor stub
+}
+
+void GenerationMaker::createNewGeneration()
+{
+	// Get pointers to old and new generation
+	this->pNewGen = this->pSysContext->getNewGenerationPointer();
+	this->pOldGen = this->pSysContext->getOldGenerationPointer();
+
+	//
+}
+
+Chromosome GenerationMaker::getParentAtIndex(int index){
+	return this->getSystemContext()->getOldGenerationPointer()->chromosomes[parentIndexA]
+}
+
+void GenerationMaker::createCrossoverBetween(int parentIndexA, int parentIndexB, int childIndexA, int childIndexB){
+	Chromosome parentA = ;
+	Chromosome parentB = this->getSystemContext()->getOldGenerationPointer()->chromosomes[parentIndexB];
+}

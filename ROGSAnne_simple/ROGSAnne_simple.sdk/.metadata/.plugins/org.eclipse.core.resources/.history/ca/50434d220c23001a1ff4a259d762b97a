@@ -1,0 +1,50 @@
+/*
+ * GenerationMaker.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GenerationMaker.h"
+
+GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
+	// Inherit constructor from base class
+}
+
+GenerationMaker::~GenerationMaker() {
+	// TODO Auto-generated destructor stub
+}
+
+void GenerationMaker::createNewGeneration()
+{
+	// Get pointers to old and new generation
+	this->pNewGen = this->pSysContext->getNewGenerationPointer();
+	this->pOldGen = this->pSysContext->getOldGenerationPointer();
+
+	//
+}
+
+Chromosome GenerationMaker::getParentAtIndex(int index){
+	return this->getSystemContext()->getOldGenerationPointer()->chromosomes[index];
+}
+
+void GenerationMaker::createCrossoverBetween(int parentIndexA, int parentIndexB, int crossoverPoint ,int childIndexA, int childIndexB){
+	// Get parent chromosomes
+	Chromosome parentA = getParentAtIndex(parentIndexA);
+	Chromosome parentB = getParentAtIndex(parentIndexB);
+
+	// Get first part of both parent chromosomes
+	std::string stringChildA = parentA.data.substr(0,crossoverPoint);
+	std::string stringChildB = parentB.data.substr(0,crossoverPoint);
+
+	// Get length of chromosomes
+	int chromosomeLength = parentA.data.length();
+	int currentChromosomeLength = stringChildA.length();
+
+	// Fill remaining places with IDs that are not yet in string
+	for(int i = currentChromosomeLength ; i<chromosomeLength; i++)
+	{
+
+	}
+
+}

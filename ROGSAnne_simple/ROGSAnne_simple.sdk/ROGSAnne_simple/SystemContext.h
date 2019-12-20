@@ -14,6 +14,8 @@
 #include <string>
 #include <map>
 
+enum PopulationEnum{A,B};
+
 class SystemContext {
 public:
 	SystemContext();
@@ -36,6 +38,12 @@ public:
 	Population* popB;
 
 	void setState(BaseState*);
+
+	Population* getOldGenerationPointer();
+	Population* getNewGenerationPointer();
+
+	// Used to track which of the populations buffers that contain the old pupolation.
+	PopulationEnum whichPopulationIsOldGen;
 private:
 };
 

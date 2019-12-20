@@ -1,0 +1,18 @@
+/*
+ * GenerationMaker.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef GENERATIONMAKER_H_
+#define GENERATIONMAKER_H_
+
+class GenerationMaker {
+public:
+	GenerationMaker();
+	virtual ~GenerationMaker();
+};
+
+#endif /* GENERATIONMAKER_H_ */
+
