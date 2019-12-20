@@ -17,6 +17,13 @@ Evaluator::~Evaluator() {
 
 void Evaluator::onEnter() {
 
+	stopCondition();
+	if(stopConditionMet == true){
+		stopCondtionMet();
+	}
+	else {
+		stopConditionNotMet();
+	}
 }
 
 void Evaluator::stopCondtionMet() {
@@ -30,11 +37,10 @@ void Evaluator::stopConditionNotMet(){
 bool Evaluator::stopCondition() {
 
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
-	// temp variables, has to be substituted with real array size and cost-function array
-	int costFuncArr[POPULATION_SIZE];
+	float newDistances = pNewGen->distances;
 
 	//find best cost function out of population
-	int newBestCandSolution = costFuncArr[0];
+	int newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
 	      if(newBestCandSolution>costFuncArr[i]) {
 	    	  newBestCandSolution=costFuncArr[i];
@@ -61,6 +67,4 @@ bool Evaluator::stopCondition() {
 
 	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 	oldBestCandidateSolution = newBestCandSolution;
-
-	return stopConditionMet;
 }
