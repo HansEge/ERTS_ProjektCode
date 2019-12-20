@@ -28,7 +28,7 @@ void Setup::InitialPop(){
 
 
 
-	for(int i = 0; i < POPULATION_SIZE; i++)
+	for(int i = 0; i <= POPULATION_SIZE; i++)
 	{
 
 		for(int l = 0; l < NUM_COORDS; l++) {

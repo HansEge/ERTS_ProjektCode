@@ -8,6 +8,7 @@
 #include "Setup.h"
 #include <string>
 #include <limits>
+#include "xgpio.h"
 
 #define NUM_COORDS 5
 
@@ -28,7 +29,7 @@ void Setup::InitialPop(){
 
 
 
-	for(int i = 0; i < POPULATION_SIZE; i++)
+	for(int i = 0; i <= POPULATION_SIZE; i++)
 	{
 
 		for(int l = 0; l < NUM_COORDS; l++) {
@@ -52,18 +53,7 @@ void Setup::InitialPop(){
 			coords[k] = 'A' + numArray[k];
 		}
 
-		int n = coords.length();
-
-		// declaring character array
-		char char_array[n + 1];
-
-		// copying the contents of the
-		// string to char array
-		strcpy(char_array, coords.c_str());
-
-		xil_printf("Initial coordinate: ");
-		xil_printf(char_array);
-		xil_printf("\r\n");
+		xil_printf(coords);
 
 	    this->_pSC->popA->chromosomes[i].data = coords;       // Convert to a character from a-z
 	}
