@@ -8,21 +8,29 @@
 #ifndef EVALUATOR_H_
 #define EVALUATOR_H_
 
-class Evaluator {
-private:
-	int oldBestCandidateSolution=0;
-	int conditionIndex;
+#include "BaseState.h"
+#include "Population.h"
+#include "SystemContext.h"
+
+class Evaluator : public BaseState {
 public:
-	Evaluator();
+	Evaluator(SystemContext* pSC);
 	virtual ~Evaluator();
 
 	//SystemContext* pSysContext;
 
 	void onEnter();
-	void onExit();
 	void stopCondtionMet();
 	void stopConditionNotMet();
 	bool stopCondition();
+
+private:
+	Population* pNewGen;
+	int numOfIterationsStopCondition=10;
+	int oldBestCandidateSolution=0;
+	int conditionIndex;
+	bool stopConditionMet = false;
+
 };
 
 #endif /* EVALUATOR_H_ */
