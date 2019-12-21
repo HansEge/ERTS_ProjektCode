@@ -1,0 +1,39 @@
+/*
+ * GenerationReady.cpp
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GenerationReady.h"
+#include "Population.h"
+
+GenerationReady::GenerationReady(SystemContext pSC) : BaseState(pSC) {
+	this->_pSC = pSC;
+}
+
+GenerationReady::~GenerationReady() {
+	// TODO Auto-generated destructor stub
+}
+
+
+
+void GenerationReady::ComputeCost(){
+	Population* pop = this->_pSC->getNewGenerationPointer()
+}
+
+void GenerationReady::ComputeFitness(){
+
+}
+
+void GenerationReady::OnEnter(){
+
+}
+
+void GenerationReady::OnExit(){
+
+}
+
+void GenerationReady::FitnessCalculated(){
+
+}

@@ -29,7 +29,7 @@ private:
 	int oldBestCandidateSolution=0;
 	int conditionIndex;
 	bool stopConditionMet = false;
-	bool stopCondition();
+	void stopCondition();
 
 };
 

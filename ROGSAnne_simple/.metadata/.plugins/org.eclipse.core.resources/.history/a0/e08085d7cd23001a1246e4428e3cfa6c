@@ -25,7 +25,7 @@ void GenerationReady::ComputeCost(){
 
 	std::string candidateSol = "";
 	int x[NUM_COORDS], y[NUM_COORDS] = {};
-	float distance2 = 0;
+	float distance;
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
@@ -36,13 +36,11 @@ void GenerationReady::ComputeCost(){
 				x[i] = this->_pSC->coordinates[candidateSol[i]].x;
 				y[i] = this->_pSC->coordinates[candidateSol[i]].y;
 			}
-		for(int i = 0; i < NUM_COORDS; i++)
-		{
-			distance2 += pow((y[i]-x[i]), 2);
-		}
-
-		pop->distances[k] = sqrt(distance2);
 	}
+
+
+
+
 }
 
 
