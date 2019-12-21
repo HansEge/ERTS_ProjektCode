@@ -39,13 +39,15 @@ void GenerationReady::ComputeCost(){
 				y[i] = this->_pSC->coordinates.find(candidateSol[i])->second->y;
 			}
 		// Calculate total distance^2
-		for(int i = 0; i < NUM_COORDS; i++)
+		for(int i = 0; i < NUM_COORDS-1; i++)
 		{
-			distance2 += pow((y[i]-x[i]), 2);
+			distance2 += sqrt(pow(x[i+1]-x[i],2) + pow(y[i+1]-y[i],2));
+			//distance2 += pow((y[i]-x[i]), 2);
 		}
 
 		// Calculate distance
-		pop->distances[k] = sqrt(distance2);
+		pop->distances[k] = distance2;
+		//pop->distances[k] = sqrt(distance2);
 	}
 }
 
@@ -73,6 +75,7 @@ void GenerationReady::ComputeFitness(){
 }
 
 void GenerationReady::onEnter(){
+	xil_printf("Entered GenerationReady.\r\n");
 	ComputeCost();
 	ComputeFitness();
 	FitnessCalculated();
@@ -85,26 +88,3 @@ void GenerationReady::onExit(){
 void GenerationReady::FitnessCalculated(){
 	this->_pSC->setState(this->_pSC->EvaluatorState);
 }
-
-int GenerationReady::GetIndexOfParrentCromosome(){
-	Population* pop = this->_pSC->getOldGenerationPointer();
-
-	int Sum_of_fitness = 0;
-
-	for(unsigned int i = 0; i > sizeof(pop->fitnesses); i++)
-	{
-		Sum_of_fitness += pop->fitnesses[i];
-	}
-
-	float rand_number = getRandomFloat(0,Sum_of_fitness);
-
-	int j = 0;
-	do {
-		rand_number = rand_number - pop->fitnesses[j];
-		j++;
-	}
-	while(rand_number > 0);
-
-	return j;
-}
-

@@ -23,6 +23,9 @@ int main (void)
 	  //initTimer();
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
+
+
+
 	  Setup* setup = new Setup(sys);
 	  GenerationReady* genReady = new GenerationReady(sys);
 	  /*

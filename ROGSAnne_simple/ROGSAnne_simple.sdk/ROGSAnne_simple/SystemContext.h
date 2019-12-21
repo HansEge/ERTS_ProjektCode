@@ -50,6 +50,7 @@ public:
 	// Used to track which of the populations buffers that contain the old pupolation.
 	PopulationEnum whichPopulationIsOldGen;
 	myTimer* timer;
+	int epoch_no = 0;
 
 private:
 };

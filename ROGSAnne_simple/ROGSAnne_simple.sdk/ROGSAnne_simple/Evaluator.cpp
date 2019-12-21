@@ -16,7 +16,10 @@ Evaluator::~Evaluator() {
 }
 
 void Evaluator::onEnter() {
-
+	xil_printf("Entered Evaluator.\r\n");
+	xil_printf("Epoch no:");
+	xil_printf(std::to_string(this->pSysContext->epoch_no).c_str());
+	xil_printf("\r\n");
 	checkStopCondition();
 	if(stopConditionMet == true){
 		stopCondtionMet();
@@ -37,22 +40,25 @@ void Evaluator::stopCondtionMet() {
 
 void Evaluator::stopConditionNotMet(){
 	xil_printf("Stop condition not met. Creating another generation. \r\n");
-	this->_pSC->setState(this->_pSC->GenerationMakerState);
+	this->pSysContext->setState(this->pSysContext->GenerationMakerState);
 }
 
 void Evaluator::checkStopCondition() {
 
 	//Get the current new population distances
-	this->pNewGen = this->pSysContext->getNewGenerationPointer();
+	this->pNewGen = this->pSysContext->getOldGenerationPointer();
 	float* newDistances = pNewGen->distances;
 
 	//find shortest distance out of population
-	int newBestCandSolution = newDistances[0];
+	float newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
 	      if(newBestCandSolution>newDistances[i]) {
 	    	  newBestCandSolution=newDistances[i];
 	   }
 	}
+	xil_printf("Current best:");
+		xil_printf(std::to_string(newBestCandSolution).c_str());
+		xil_printf("\r\n");
 
 	// Compare the new best candidate solution with the old best
 	if (newBestCandSolution >= oldBestCandidateSolution){
@@ -70,6 +76,9 @@ void Evaluator::checkStopCondition() {
 		// A new and better solution was found, set iteration to zero, and stop condition not met
 		conditionIndex = 0;
 		stopConditionMet = false;
+		xil_printf("Found new shorter distance: ");
+		xil_printf(std::to_string(newBestCandSolution).c_str());
+		xil_printf("\r\n");
 	}
 
 	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
