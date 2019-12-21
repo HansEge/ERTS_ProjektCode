@@ -9,6 +9,7 @@
 #include "xgpio.h"
 #include "RNG.h"
 #include "TimerClass.h"
+#include "Population.h"
 
 GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
 	// Inherit constructor from base class
@@ -18,11 +19,22 @@ GenerationMaker::~GenerationMaker() {
 	// TODO Auto-generated destructor stub
 }
 
+void GenerationMaker::NewGenerationReady(){
+	// Update state.
+	this->pSysContext->setState(this->pSysContext->generationReadyState);
+}
+
 void GenerationMaker::onEnter() {
 
+	xil_printf("Entered GenerationMaker.\r\n");
 
+	// For timing
 	this->pSysContext->timer->reloadTimer();
+
+	// Create a new generation
 	this->createNewGeneration();
+
+	// Write timing info
 	int cycles_createNewGeneration = this->pSysContext->timer->getElapsedCycles();
 	xil_printf("Cycles spent on creating new generation: ");
 	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
@@ -31,8 +43,8 @@ void GenerationMaker::onEnter() {
 	xil_printf("seconds.\r\n");
 	xil_printf("\r\n");
 
-
-	this->pSysContext->setState(this->pSysContext->generationReadyState);
+	this->pSysContext->epoch_no++;
+	NewGenerationReady();
 }
 
 void GenerationMaker::onExit() {
@@ -49,21 +61,21 @@ void GenerationMaker::createNewGeneration()
 	for (int i = 0 ; i < POPULATION_SIZE/2 ; i++){
 		// get 2 random parents from population, that are different from each other.
 		// TODO: Get random indice from population, based on fitness
-		unsigned int indexA = getRandomUnsignedIntInRange(0,POPULATION_SIZE);
+		unsigned int indexA = GetIndexOfParentChromosome();
 		unsigned int indexB;
 		do
 		{
-			indexB = getRandomUnsignedIntInRange(0,POPULATION_SIZE);
+			indexB = GetIndexOfParentChromosome();
 		}
 		while(indexB == indexA);
 
 		// TODO: Get random index for crossover point
 		unsigned int crossoverPoint = getRandomUnsignedIntInRange(0+1,NUM_COORDS-1);
-
+/*
 		xil_printf("Doing crossover at index: ");
 		xil_printf(std::to_string(crossoverPoint).c_str());
 		xil_printf("\r\n");
-
+*/
 		// Create new children.
 		createChildren(indexA, indexB, crossoverPoint, 2*i, 2*i+1);
 	}
@@ -92,7 +104,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Get parent chromosomes
 	std::string parentA = getParentAtIndex(parentIndexA);
 	std::string parentB = getParentAtIndex(parentIndexB);
-
+/*
 	std::string str_A = "Parent A: ";
 	str_A += parentA;
 	xil_printf(str_A.c_str());
@@ -102,7 +114,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	str_B += parentB;
 	xil_printf(str_B.c_str());
 	xil_printf("\r\n");
-
+*/
 	// Get first part of both parent chromosomes
 	std::string stringChildA = parentA.substr(0,crossoverPoint);
 	std::string stringChildB = parentB.substr(0,crossoverPoint);
@@ -132,6 +144,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 			}
 		}
 	}
+/*
 
 	str_A = "Child A pre mutation: ";
 	str_A += stringChildA;
@@ -142,7 +155,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	str_B += stringChildB;
 	xil_printf(str_B.c_str());
 	xil_printf("\r\n");
-
+*/
 
 	// In correspondence to mutation rate, do mutation.
 	float mutation_rate = 0.5;
@@ -150,7 +163,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Mutation for child A
 	bool doMutationA = getRandomFloat(0,1) < mutation_rate;
 	if (doMutationA) {
-		xil_printf("Doing mutation for Child A\r\n");
+		//xil_printf("Doing mutation for Child A\r\n");
 		// Swap two chromosomes at random
 		// TODO: get random indice of chromosomes to swap
 		unsigned int swapIndexA = getRandomUnsignedIntInRange(0,NUM_COORDS);
@@ -167,7 +180,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Mutation for child B
 	bool doMutationB = getRandomFloat(0,1) < mutation_rate;
 	if (doMutationB) {
-		xil_printf("Doing mutation for Child B\r\n");
+		//xil_printf("Doing mutation for Child B\r\n");
 		// Swap two chromosomes at random
 		// TODO: get random indice of chromosomes to swap
 		unsigned int swapIndexA = getRandomUnsignedIntInRange(0,NUM_COORDS);
@@ -180,6 +193,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 		std::swap(stringChildB[swapIndexA], stringChildB[swapIndexB]);
 	}
 
+	/*
 	str_A = "Child A post mutation: ";
 	str_A += stringChildA;
 	xil_printf(str_A.c_str());
@@ -189,10 +203,31 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	str_B += stringChildB;
 	xil_printf(str_B.c_str());
 	xil_printf("\r\n");
-
+*/
 
 	// Write new chromosomes to new generation pointer
 	overWriteChildChromosomeAtIndex(childIndexA, stringChildA);
 	overWriteChildChromosomeAtIndex(childIndexB, stringChildB);
+}
 
+int GenerationMaker::GetIndexOfParentChromosome(){
+	Population* pop = this->pSysContext->getOldGenerationPointer();
+
+	float Sum_of_fitness = 0;
+
+	for(unsigned int i = 0; i < POPULATION_SIZE; i++)
+	{
+		Sum_of_fitness += pop->fitnesses[i];
+	}
+
+	float rand_number = getRandomFloat(0,Sum_of_fitness);
+
+	int j = 0;
+	do {
+		rand_number = rand_number - pop->fitnesses[j];
+		j++;
+	}
+	while(rand_number > 0);
+
+	return j-1;
 }
