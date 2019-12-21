@@ -10,7 +10,6 @@
 
 #include "SystemContext.h"
 
-/*
 class GenerationReady : BaseState {
 public:
 	GenerationReady(SystemContext* pSC);
@@ -26,5 +25,5 @@ public:
 	SystemContext* _pSC;
 
 };
-*/
+
 #endif /* GENERATIONREADY_H_ */

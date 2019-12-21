@@ -10,7 +10,6 @@
 #include <string>
 #include <cmath>
 
-/*
 GenerationReady::GenerationReady(SystemContext pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
 }
@@ -62,4 +61,3 @@ void GenerationReady::OnExit(){
 void GenerationReady::FitnessCalculated(){
 
 }
-*/
