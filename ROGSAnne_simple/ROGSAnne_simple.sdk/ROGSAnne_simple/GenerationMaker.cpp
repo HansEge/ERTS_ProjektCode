@@ -54,43 +54,37 @@ void GenerationMaker::createNewGeneration()
 	}
 }
 
-Chromosome GenerationMaker::getParentAtIndex(int index){
+//Chromosome GenerationMaker::getParentAtIndex(int index){
+std::string GenerationMaker::getParentAtIndex(int index){
 	return this->getSystemContext()->getOldGenerationPointer()->chromosomes[index];
 }
 
 void GenerationMaker::overWriteChildChromosomeAtIndex(int index, std::string data){
-	this->pNewGen->chromosomes[index].data = data;
+	//this->pNewGen->chromosomes[index].data = data;
+	this->pNewGen->chromosomes[index] = data;
 }
 
 void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int crossoverPoint ,int childIndexA, int childIndexB){
 	// Get parent chromosomes
-	Chromosome parentA = getParentAtIndex(parentIndexA);
-	Chromosome parentB = getParentAtIndex(parentIndexB);
+	std::string parentA = getParentAtIndex(parentIndexA);
+	std::string parentB = getParentAtIndex(parentIndexB);
 
 	std::string str_A = "Parent A: ";
-	str_A += parentA.data;
+	str_A += parentA;
 	xil_printf(str_A.c_str());
-
-	int n = str_A.length();
-	// declaring character array
-	char char_array[n + 1];
-
-	// copying the contents of the
-	// string to char array
-	strcpy(char_array, str_A.c_str());
-
-	xil_printf(char_array);
+	xil_printf("\r\n");
 
 	std::string str_B = "Parent B: ";
-	str_B += parentB.data;
+	str_B += parentB;
 	xil_printf(str_B.c_str());
+	xil_printf("\r\n");
 
 	// Get first part of both parent chromosomes
-	std::string stringChildA = parentA.data.substr(0,crossoverPoint);
-	std::string stringChildB = parentB.data.substr(0,crossoverPoint);
+	std::string stringChildA = parentA.substr(0,crossoverPoint);
+	std::string stringChildB = parentB.substr(0,crossoverPoint);
 
 	// Get length of chromosomes
-	int desiredChromosomeLength = parentA.data.length();
+	int desiredChromosomeLength = parentA.length();
 	int currentChromosomeLength = stringChildA.length();
 
 	// Fill remaining places with IDs that are not yet in string
@@ -100,8 +94,8 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 		// Add that letter to child A
 		for (int j = 0 ; j < desiredChromosomeLength ; j++)
 		{
-			if (stringChildA.find(parentB.data[j]) == std::string::npos) {
-				stringChildA += parentB.data[j];
+			if (stringChildA.find(parentB[j]) == std::string::npos) {
+				stringChildA += parentB[j];
 			}
 		}
 
@@ -109,11 +103,22 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 		// Add that letter to child B
 		for (int j = 0 ; j < desiredChromosomeLength ; j++)
 		{
-			if (stringChildB.find(parentA.data[j]) == std::string::npos) {
-				stringChildB += parentA.data[j];
+			if (stringChildB.find(parentA[j]) == std::string::npos) {
+				stringChildB += parentA[j];
 			}
 		}
 	}
+
+	str_A = "Child A pre mutation: ";
+	str_A += stringChildA;
+	xil_printf(str_A.c_str());
+	xil_printf("\r\n");
+
+	str_B = "Child B pre mutation: ";
+	str_B += stringChildB;
+	xil_printf(str_B.c_str());
+	xil_printf("\r\n");
+
 
 	// In correspondence to mutation rate, do mutation.
 
@@ -137,7 +142,19 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 			std::swap(stringChildB[swapIndexA], stringChildB[swapIndexB]);
 		}
 
+	str_A = "Child A post mutation: ";
+	str_A += stringChildA;
+	xil_printf(str_A.c_str());
+	xil_printf("\r\n");
+
+	str_B = "Child B post mutation: ";
+	str_B += stringChildB;
+	xil_printf(str_B.c_str());
+	xil_printf("\r\n");
+
+
 	// Write new chromosomes to new generation pointer
 	overWriteChildChromosomeAtIndex(childIndexA, stringChildA);
 	overWriteChildChromosomeAtIndex(childIndexB, stringChildB);
+
 }

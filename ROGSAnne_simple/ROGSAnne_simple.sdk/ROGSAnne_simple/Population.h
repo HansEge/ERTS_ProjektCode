@@ -5,7 +5,7 @@
  *      Author: stinu
  */
 
-
+#include <string>
 #ifndef POPULATION_H_
 #define POPULATION_H_
 
@@ -19,9 +19,11 @@ public:
 	Population();
 	~Population();
 
-	Chromosome chromosomes[POPULATION_SIZE];
-	float fitnesses[POPULATION_SIZE];
-	float distances[POPULATION_SIZE];
+	//Chromosome chromosomes[POPULATION_SIZE];
+	std::string chromosomes[POPULATION_SIZE] = {""};
+	//std::string *pChromosomes;
+	float fitnesses[POPULATION_SIZE] = {-1};
+	float distances[POPULATION_SIZE] = {-1};
 };
 
 #endif /* POPULATION_H_ */

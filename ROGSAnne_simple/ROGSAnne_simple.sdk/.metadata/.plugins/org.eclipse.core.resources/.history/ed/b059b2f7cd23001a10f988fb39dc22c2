@@ -1,0 +1,18 @@
+/*
+ * RNG.cpp
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#include "RNG.h"
+
+RNG::RNG() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RNG::~RNG() {
+	// TODO Auto-generated destructor stub
+}
+

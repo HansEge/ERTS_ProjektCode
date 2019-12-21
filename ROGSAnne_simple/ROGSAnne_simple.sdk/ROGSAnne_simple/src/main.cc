@@ -5,6 +5,7 @@
 #include "../BaseState.h"
 #include "../Setup.h"
 #include "../GenerationMaker.h"
+#include "../RNG.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
 #endif
@@ -19,6 +20,14 @@ int main (void)
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
 	  Setup* setup = new Setup(sys);
+	  /*
+	  while(1)
+	  {
+		  unsigned int r = getRandomUnsignedIntInRange(0,5);
+		  xil_printf(std::to_string(r).c_str());
+		  xil_printf("\r\n");
+	  }
+	  */
 	  GenerationMaker* generationMaker = new GenerationMaker(sys);
 	  setup->onEnter();
 	  generationMaker->onEnter();

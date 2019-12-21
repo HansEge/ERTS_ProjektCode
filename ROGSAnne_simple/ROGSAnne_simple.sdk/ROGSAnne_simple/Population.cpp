@@ -9,6 +9,7 @@
 
 Population::Population() {
 	// TODO Auto-generated constructor stub
+	//pChromosomes = chromosomes;
 }
 
 Population::~Population() {

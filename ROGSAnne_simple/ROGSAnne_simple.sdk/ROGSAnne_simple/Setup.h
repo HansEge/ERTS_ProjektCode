@@ -13,8 +13,6 @@
 #include "SystemContext.h"
 #include "xgpio.h"
 
-
-
 class Setup : public BaseState {
 public:
 	Setup(SystemContext* pSC);
@@ -24,11 +22,11 @@ public:
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void SetupDone();
+	//unsigned int RNG(void);
+	//unsigned int ConvertRandNum(float newMin, float newMax);
 
 private:
 	void InitialPop(void);
-	unsigned int RNG(void);
-	unsigned int ConvertRandNum(void);
 };
 
 #endif /* SETUP_H_ */
