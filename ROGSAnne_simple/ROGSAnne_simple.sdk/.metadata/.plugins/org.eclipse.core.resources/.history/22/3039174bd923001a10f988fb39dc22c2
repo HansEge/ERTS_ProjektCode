@@ -19,7 +19,6 @@ GenerationMaker::~GenerationMaker() {
 
 void GenerationMaker::onEnter() {
 	this->createNewGeneration();
-	this->pSysContext->setState(this->pSysContext->generationReadyState);
 }
 
 void GenerationMaker::onExit() {

@@ -17,12 +17,12 @@ Evaluator::~Evaluator() {
 
 void Evaluator::onEnter() {
 
-	checkStopCondition();
+	//stopCondition();
 	if(stopConditionMet == true){
-		stopCondtionMet();
+		//stopCondtionMet();
 	}
 	else {
-		stopConditionNotMet();
+		//stopConditionNotMet();
 	}
 }
 
@@ -31,16 +31,14 @@ void Evaluator::onExit(){
 
 void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
-	xil_printf("Stop condition met. \r\n");
 }
 
 
 void Evaluator::stopConditionNotMet(){
-	xil_printf("Stop condition not met. Creating another generation. \r\n");
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
-void Evaluator::checkStopCondition() {
+void Evaluator::stopCondition() {
 
 	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();

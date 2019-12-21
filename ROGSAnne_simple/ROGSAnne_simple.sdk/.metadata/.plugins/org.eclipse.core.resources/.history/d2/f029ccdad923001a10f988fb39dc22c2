@@ -36,7 +36,6 @@ void Evaluator::stopCondtionMet() {
 
 
 void Evaluator::stopConditionNotMet(){
-	xil_printf("Stop condition not met. Creating another generation. \r\n");
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
