@@ -5,6 +5,7 @@
 #include "../BaseState.h"
 #include "../Setup.h"
 #include "../GenerationMaker.h"
+#include "../GenerationReady.h"
 #include "../RNG.h"
 //#include "../TimerClass.h"
 #ifdef MULTIBOOT
@@ -23,6 +24,7 @@ int main (void)
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
 	  Setup* setup = new Setup(sys);
+	  GenerationReady* genReady = new GenerationReady(sys);
 	  /*
 	  while(1)
 	  {
@@ -33,7 +35,10 @@ int main (void)
 	  */
 	  GenerationMaker* generationMaker = new GenerationMaker(sys);
 	  setup->onEnter();
+	  genReady->ComputeCost();
+	  genReady->ComputeFitness();
 	  generationMaker->onEnter();
+
 
       XGpio sw, led;
 	  int i, pshb_check, sw_check;

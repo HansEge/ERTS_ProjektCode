@@ -12,7 +12,7 @@
 #include "BaseState.h"
 #include "Population.h"
 
-/*
+
 class GenerationReady : public BaseState {
 public:
 	GenerationReady(SystemContext* pSC);
@@ -21,12 +21,12 @@ public:
 	void ComputeCost();
 	void ComputeFitness();
 
-	virtual void OnEnter();
-	virtual void OnExit();
-	void FitnessCalculated();
+	virtual void onEnter();
+	virtual void onExit();
+	virtual void FitnessCalculated();
 
 	SystemContext* _pSC;
 
 };
-*/
+
 #endif /* GENERATIONREADY_H_ */

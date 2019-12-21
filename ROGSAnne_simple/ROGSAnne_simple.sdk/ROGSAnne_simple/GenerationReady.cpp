@@ -9,8 +9,8 @@
 #include <string>
 #include <cmath>
 
-/*
-GenerationReady::GenerationReady(SystemContext pSC) : BaseState(pSC) {
+
+GenerationReady::GenerationReady(SystemContext* pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
 }
 
@@ -21,7 +21,7 @@ GenerationReady::~GenerationReady() {
 
 
 void GenerationReady::ComputeCost(){
-	Population* pop = this->_pSC->getNewGenerationPointer();
+	Population* pop = this->_pSC->getOldGenerationPointer();
 
 	std::string candidateSol = "";
 	int x[NUM_COORDS], y[NUM_COORDS] = {};
@@ -29,36 +29,59 @@ void GenerationReady::ComputeCost(){
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
-		candidateSol = pop->chromosomes[k];	//Delete data
+		candidateSol = pop->chromosomes[k];
 
+		// Get coordinates for candidate solution
 		for(int i = 0; i < NUM_COORDS; i++)
 			{
 				x[i] = this->_pSC->coordinates.find(candidateSol[i])->second->x;
 				y[i] = this->_pSC->coordinates.find(candidateSol[i])->second->y;
 			}
+		// Calculate total distance^2
 		for(int i = 0; i < NUM_COORDS; i++)
 		{
 			distance2 += pow((y[i]-x[i]), 2);
 		}
 
+		// Calculate distance
 		pop->distances[k] = sqrt(distance2);
 	}
 }
 
 
 void GenerationReady::ComputeFitness(){
+	Population* pop = this->_pSC->getOldGenerationPointer();
 
+	float sumFitness = 0;
+
+	// Calculate fitness
+	for(int i = 0; i < POPULATION_SIZE; i++)
+	{
+		pop->fitnesses[i] = 1/pop->distances[i];
+	}
+
+	// Normalize fitness
+	for(int i = 0; i < POPULATION_SIZE; i++)
+	{
+		sumFitness += pop->fitnesses[i];
+	}
+	for(int i = 0; i < POPULATION_SIZE; i++)
+	{
+		pop->fitnesses[i] = pop->fitnesses[i]/sumFitness;
+	}
 }
 
-void GenerationReady::OnEnter(){
-
+void GenerationReady::onEnter(){
+	ComputeCost();
+	ComputeFitness();
+	FitnessCalculated();
 }
 
-void GenerationReady::OnExit(){
+void GenerationReady::onExit(){
 
 }
 
 void GenerationReady::FitnessCalculated(){
-
+	this->_pSC->setState(this->_pSC->EvaluatorState);
 }
-*/
+
