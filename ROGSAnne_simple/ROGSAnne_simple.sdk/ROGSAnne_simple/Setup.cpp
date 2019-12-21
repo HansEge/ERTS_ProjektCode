@@ -24,7 +24,6 @@ void Setup::InitialPop(){
 
 	int uniqueflag = 0;
 	unsigned int random;
-	//unsigned int numArray[NUM_COORDS] = {std::numeric_limits<unsigned int>::max()};
 
 
 
@@ -40,7 +39,6 @@ void Setup::InitialPop(){
 			        //Assume things are unique. reset uniqueflag if not.
 			        uniqueflag = 1;
 
-			        random = getRandomUnsignedIntInRange(0,NUM_COORDS);
 			        random = getRandomUnsignedIntInRange(0,NUM_COORDS);
 			        // Check if number already in array
 
@@ -73,46 +71,15 @@ void Setup::InitialPop(){
 		xil_printf(char_array);
 		xil_printf("\r\n");
 
-	    //this->_pSC->popA->chromosomes[i].data = coords;       // Convert to a character from a-z
 	    this->_pSC->popA->chromosomes[i] = coords;       // Convert to a character from a-z
-	    //this->_pSC->popA->chromosomes[i] = "test";       // Convert to a character from a-z
 	}
 
 }
 
-//returns a random number between 0:2^32
-// Source: https://stackoverflow.com/questions/1167253/implementation-of-rand/1167298
-/*
-unsigned int Setup::RNG(void)
-{
-   //static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
-
-}
-*/
-
-/*
-unsigned int Setup::ConvertRandNum(float newMin, float newMax){
-
-	unsigned int OldMax, OldMin, OldValue, OldRange;
-	float NewRange, NewValue = 0;
-
-	//OldMax = std::numeric_limits<unsigned int>::max();
-	OldMax = std::numeric_limits<unsigned int>::max();
-	OldMin = 0;
-	OldValue = RNG();
-
-	OldRange = (OldMax - OldMin);
-	NewRange = (newMax - newMin);
-	NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + newMin;
-
-	return (unsigned int)(NewValue);
-
-}
-*/
-
 void Setup::onEnter(){
+	xil_printf("Entered Setup.\r\n");
 	InitialPop();
-	//SetupDone();
+	SetupDone();
 }
 
 void Setup::onExit(){

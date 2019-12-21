@@ -15,33 +15,16 @@ SystemContext::SystemContext() {
 	this->initializeCoordinates();
 
 	this->setupState = new Setup(this);
-	//this->EvaluatorState = new Evaluator(this);
+	this->EvaluatorState = new Evaluator(this);
 	this->GenerationMakerState = new GenerationMaker(this);
-	//this->generationReadyState = new GenerationReady(this);
+	this->generationReadyState = new GenerationReady(this);
 
 	this->whichPopulationIsOldGen = A;
 
-	// Create map iterator
-	std::map<char, Coordinate*>::iterator it = this->coordinates.begin();
+	timer = new myTimer();
 
-	// Iterate over the map using Iterator till end.
-		while (it != coordinates.end())
-		{
-			// Accessing KEY from element pointed by it.
-			char key = it->first;
-
-			// Accessing VALUE from element pointed by it.
-			Coordinate* val = it->second;
-
-			//const char *cstr = key.c_str();
-			xil_printf(cstr);
-			//xil_printf(key + " (%d,%d)\r\n",val->x,val->y);
-
-			// Increment the Iterator to point to next entry
-			it++;
-		}
-		xil_printf("\r\n");
-		timer = new myTimer();
+	this->curState = setupState;
+	this->curState->onEnter();
 }
 
 SystemContext::~SystemContext() {
@@ -50,10 +33,15 @@ SystemContext::~SystemContext() {
 
 void SystemContext::initializeCoordinates(){
 	this->coordinates['A'] = new Coordinate(1,2);
-	this->coordinates['B'] = new Coordinate(3,7);
-	this->coordinates['C'] = new Coordinate(3,1);
-	this->coordinates['D'] = new Coordinate(2,1);
-	this->coordinates['E'] = new Coordinate(4,2);
+	this->coordinates['B'] = new Coordinate(4,7);
+	this->coordinates['C'] = new Coordinate(4,1);
+	this->coordinates['D'] = new Coordinate(4,2);
+	this->coordinates['E'] = new Coordinate(4,99);
+	this->coordinates['F'] = new Coordinate(9,24);
+	this->coordinates['G'] = new Coordinate(14,44);
+	this->coordinates['H'] = new Coordinate(18,55);
+	this->coordinates['I'] = new Coordinate(24,99);
+	this->coordinates['J'] = new Coordinate(0,99);
 }
 
 void SystemContext::setState(BaseState* newState){
@@ -61,7 +49,7 @@ void SystemContext::setState(BaseState* newState){
 	this->curState->onExit();
 
 	// Change state
-	this->setState(newState);
+	this->curState = newState;
 
 	// Call onEnter for "new" state
 	this->curState->onEnter();

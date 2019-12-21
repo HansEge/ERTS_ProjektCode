@@ -11,13 +11,14 @@
 #include "BaseState.h"
 #include "Population.h"
 #include "SystemContext.h"
+#include <limits>
 
 class Evaluator : public BaseState {
 public:
 	Evaluator(SystemContext* pSC);
 	virtual ~Evaluator();
 
-	SystemContext* _pSC;
+	//SystemContext* _pSC;
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void stopCondtionMet();
@@ -25,8 +26,8 @@ public:
 
 private:
 	Population* pNewGen;
-	int numOfIterationsStopCondition=10;
-	int oldBestCandidateSolution=0;
+	int numOfIterationsStopCondition = 50;
+	float currentBestCandidateSolution = std::numeric_limits<float>::max();
 	int conditionIndex;
 	bool stopConditionMet = false;
 	void checkStopCondition();

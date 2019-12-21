@@ -20,9 +20,14 @@ static int iPinNumber = 7; /*Led LD9 on ZedBoard and LD4 on Zybo is connected to
 
 int main (void)
 {
-	  //initTimer();
-	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
+
+	  while(1);
+	//initTimer();
+	  xil_printf("----------------------------\r\n");
+
+
+
 	  Setup* setup = new Setup(sys);
 	  GenerationReady* genReady = new GenerationReady(sys);
 	  /*

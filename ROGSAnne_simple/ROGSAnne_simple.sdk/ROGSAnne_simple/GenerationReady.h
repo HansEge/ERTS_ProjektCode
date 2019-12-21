@@ -21,9 +21,6 @@ public:
 
 	void ComputeCost();
 	void ComputeFitness();
-
-	int GetIndexOfParrentCromosome();
-
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void FitnessCalculated();
