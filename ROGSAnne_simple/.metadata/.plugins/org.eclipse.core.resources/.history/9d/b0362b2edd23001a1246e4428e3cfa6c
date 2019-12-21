@@ -10,7 +10,7 @@
 #include <cmath>
 
 
-GenerationReady::GenerationReady(SystemContext* pSC) : BaseState(pSC) {
+GenerationReady::GenerationReady(SystemContext pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
 }
 

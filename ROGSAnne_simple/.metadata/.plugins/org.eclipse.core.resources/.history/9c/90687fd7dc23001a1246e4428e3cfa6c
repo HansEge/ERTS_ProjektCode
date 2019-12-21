@@ -5,7 +5,6 @@
 #include "../BaseState.h"
 #include "../Setup.h"
 #include "../GenerationMaker.h"
-#include "../GenerationReady.h"
 #include "../RNG.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
