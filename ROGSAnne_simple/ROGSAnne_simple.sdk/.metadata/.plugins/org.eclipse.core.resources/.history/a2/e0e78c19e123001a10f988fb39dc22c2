@@ -1,0 +1,28 @@
+/*
+ * Timer.h
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#ifndef TIMERCLASS_H_
+#define TIMERCLASS_H_
+
+
+#define ONE_SECOND 325000000 // half of the CPU clock speed
+
+#include "XScuTimer.h"
+
+class myTimer{
+public:
+	void reloadTimer();
+	int getTimerValue();
+	int getElapsedCycles();
+private:
+	XScuTimer timer; /* Cortex A9 SCU Private Timer Instance */
+	XScuTimer *TimerInstancePtr = &myTimer;
+	XScuTimer_Config *ConfigPtr;
+};
+
+
+#endif /* TIMERCLASS_H_ */

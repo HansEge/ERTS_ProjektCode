@@ -24,7 +24,6 @@ SystemContext::SystemContext() {
 	// Create map iterator
 	std::map<char, Coordinate*>::iterator it = this->coordinates.begin();
 
-	/*
 	// Iterate over the map using Iterator till end.
 		while (it != coordinates.end())
 		{
@@ -42,8 +41,7 @@ SystemContext::SystemContext() {
 			it++;
 		}
 		xil_printf("\r\n");
-
-	*/
+		timer = new myTimer();
 }
 
 SystemContext::~SystemContext() {

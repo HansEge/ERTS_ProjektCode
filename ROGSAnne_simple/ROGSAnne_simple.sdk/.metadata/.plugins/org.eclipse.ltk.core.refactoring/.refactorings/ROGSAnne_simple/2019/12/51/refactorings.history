@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ROGSAnne_simple/Timer.h&apos; to &apos;TimerClass.h&apos;" description="Rename resource &apos;Timer.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Timer.h" name="TimerClass.h" stamp="1576925555312" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ROGSAnne_simple/Timer.cpp&apos; to &apos;TimerClass.cpp&apos;" description="Rename resource &apos;Timer.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Timer.cpp" name="TimerClass.cpp" stamp="1576925567236" updateReferences="true"/>
+</session>
