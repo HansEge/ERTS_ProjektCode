@@ -11,7 +11,6 @@
 #include <limits>
 #include <algorithm>
 
-#define NUM_COORDS 5
 
 Setup::Setup(SystemContext* pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
