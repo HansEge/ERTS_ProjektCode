@@ -9,11 +9,8 @@
 #define GENERATIONREADY_H_
 
 #include "SystemContext.h"
-#include "BaseState.h"
-#include "Population.h"
 
-/*
-class GenerationReady : public BaseState {
+class GenerationReady : BaseState {
 public:
 	GenerationReady(SystemContext* pSC);
 	virtual ~GenerationReady();
@@ -21,12 +18,12 @@ public:
 	void ComputeCost();
 	void ComputeFitness();
 
-	virtual void onEnter();
-	virtual void onExit();
-	virtual void FitnessCalculated();
+	virtual void OnEnter();
+	virtual void OnExit();
+	void FitnessCalculated();
 
 	SystemContext* _pSC;
 
 };
-*/
+
 #endif /* GENERATIONREADY_H_ */

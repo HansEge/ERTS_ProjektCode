@@ -19,7 +19,6 @@ GenerationMaker::~GenerationMaker() {
 
 void GenerationMaker::onEnter() {
 	this->createNewGeneration();
-	this->pSysContext->setState(this->pSysContext->generationReadyState);
 }
 
 void GenerationMaker::onExit() {
@@ -137,7 +136,6 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Mutation for child A
 	bool doMutationA = getRandomFloat(0,1) < mutation_rate;
 	if (doMutationA) {
-		xil_printf("Doing mutation for Child A\r\n");
 		// Swap two chromosomes at random
 		// TODO: get random indice of chromosomes to swap
 		unsigned int swapIndexA = getRandomUnsignedIntInRange(0,NUM_COORDS);
@@ -154,7 +152,6 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Mutation for child B
 	bool doMutationB = getRandomFloat(0,1) < mutation_rate;
 	if (doMutationB) {
-		xil_printf("Doing mutation for Child B\r\n");
 		// Swap two chromosomes at random
 		// TODO: get random indice of chromosomes to swap
 		unsigned int swapIndexA = getRandomUnsignedIntInRange(0,NUM_COORDS);

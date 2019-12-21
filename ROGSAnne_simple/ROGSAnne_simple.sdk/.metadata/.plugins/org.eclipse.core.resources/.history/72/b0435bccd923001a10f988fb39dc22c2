@@ -19,7 +19,7 @@ void Evaluator::onEnter() {
 
 	checkStopCondition();
 	if(stopConditionMet == true){
-		stopCondtionMet();
+		//stopCondtionMet();
 	}
 	else {
 		stopConditionNotMet();
@@ -31,12 +31,10 @@ void Evaluator::onExit(){
 
 void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
-	xil_printf("Stop condition met. \r\n");
 }
 
 
 void Evaluator::stopConditionNotMet(){
-	xil_printf("Stop condition not met. Creating another generation. \r\n");
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
