@@ -13,7 +13,7 @@
 #include "Population.h"
 
 
-class GenerationReady : public BaseState {
+class GenerationReady : BaseState {
 public:
 	GenerationReady(SystemContext* pSC);
 	virtual ~GenerationReady();

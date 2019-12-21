@@ -30,7 +30,7 @@ void GenerationReady::ComputeCost(){
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
-		candidateSol = pop->chromosomes[k];	//Delete data
+		candidateSol = pop->chromosomes[k].data;	//Delete data
 
 		for(int i = 0; i < NUM_COORDS; i++)
 			{

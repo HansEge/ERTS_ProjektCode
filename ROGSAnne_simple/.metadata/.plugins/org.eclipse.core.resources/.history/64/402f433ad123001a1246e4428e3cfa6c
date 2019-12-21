@@ -9,8 +9,6 @@
 #include <string>
 #include <cmath>
 
-#include "Setup.h"
-
 GenerationReady::GenerationReady(SystemContext* pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
 }
@@ -30,12 +28,12 @@ void GenerationReady::ComputeCost(){
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
-		candidateSol = pop->chromosomes[k];	//Delete data
+		candidateSol = pop->chromosomes[i];
 
 		for(int i = 0; i < NUM_COORDS; i++)
 			{
-				x[i] = this->_pSC->coordinates.find(candidateSol[i])->second->x;
-				y[i] = this->_pSC->coordinates.find(candidateSol[i])->second->y;
+				x[i] = this->_pSC->coordinates[candidateSol[i]].x;
+				y[i] = this->_pSC->coordinates[candidateSol[i]].y;
 			}
 		for(int i = 0; i < NUM_COORDS; i++)
 		{

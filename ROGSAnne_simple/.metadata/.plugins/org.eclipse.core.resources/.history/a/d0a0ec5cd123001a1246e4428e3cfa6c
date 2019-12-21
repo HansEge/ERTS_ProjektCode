@@ -9,6 +9,7 @@
 #include <string>
 #include <limits>
 
+#define NUM_COORDS 5
 
 Setup::Setup(SystemContext* pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
