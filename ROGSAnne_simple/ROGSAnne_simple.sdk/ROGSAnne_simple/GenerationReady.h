@@ -11,6 +11,7 @@
 #include "SystemContext.h"
 #include "BaseState.h"
 #include "Population.h"
+#include "RNG.h"
 
 
 class GenerationReady : public BaseState {
@@ -20,6 +21,8 @@ public:
 
 	void ComputeCost();
 	void ComputeFitness();
+
+	int GetIndexOfParrentCromosome();
 
 	virtual void onEnter();
 	virtual void onExit();

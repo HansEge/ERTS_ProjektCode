@@ -1,0 +1,21 @@
+/*
+ * Timer.h
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#ifndef TIMER_H_
+#define TIMER_H_
+
+#define ONE_SECOND 325000000 // half of the CPU clock speed
+
+static XScuTimer Timer; /* Cortex A9 SCU Private Timer Instance */
+
+// PS Timer related definitions
+static XScuTimer_Config *ConfigPtr;
+static XScuTimer *TimerInstancePtr = &Timer;
+
+static void initTimer();
+
+#endif /* TIMER_H_ */
