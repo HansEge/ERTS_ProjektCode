@@ -16,13 +16,6 @@ Evaluator::~Evaluator() {
 }
 
 void Evaluator::onEnter() {
-	int epochNo = this->pSysContext->epoch_no;
-	if (epochNo % 1 == 0)
-	{
-		xil_printf("Epoch no:");
-		xil_printf(std::to_string(epochNo).c_str());
-		xil_printf("\r\n");
-	}
 	//xil_printf("Entered Evaluator.\r\n");
 
 	/*xil_printf("Epoch no:");
@@ -43,9 +36,7 @@ void Evaluator::onExit(){
 
 void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
-	xil_printf("Stop condition met after ");
-	xil_printf(std::to_string(this->pSysContext->epoch_no).c_str());
-	xil_printf(" iterations.");
+	xil_printf("Stop condition met. \r\n");
 }
 
 
@@ -88,11 +79,9 @@ void Evaluator::checkStopCondition() {
 		// A new and better solution was found, set iteration to zero, and stop condition not met
 		conditionIndex = 0;
 		stopConditionMet = false;
-		/*
 		xil_printf("Found new shorter distance: ");
 		xil_printf(std::to_string(newBestCandSolution).c_str());
 		xil_printf("\r\n");
-		*/
 		// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 		currentBestCandidateSolution = newBestCandSolution;
 	}

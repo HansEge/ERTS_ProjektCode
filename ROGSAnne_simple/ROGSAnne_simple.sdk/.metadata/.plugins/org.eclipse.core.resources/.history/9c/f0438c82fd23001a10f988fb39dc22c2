@@ -35,8 +35,8 @@ void SystemContext::initializeCoordinates(){
 	this->coordinates['A'] = new Coordinate(1,2);
 	this->coordinates['B'] = new Coordinate(4,7);
 	this->coordinates['C'] = new Coordinate(4,1);
-	this->coordinates['D'] = new Coordinate(4,2);
-	this->coordinates['E'] = new Coordinate(4,99);
+	this->coordinates['D'] = new Coordinate(4,1);
+	this->coordinates['E'] = new Coordinate(4,2);
 	this->coordinates['F'] = new Coordinate(9,24);
 	this->coordinates['G'] = new Coordinate(14,44);
 	this->coordinates['H'] = new Coordinate(18,55);

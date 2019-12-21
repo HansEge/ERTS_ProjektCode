@@ -17,7 +17,7 @@ Evaluator::~Evaluator() {
 
 void Evaluator::onEnter() {
 	int epochNo = this->pSysContext->epoch_no;
-	if (epochNo % 1 == 0)
+	if (epochNo % 10 == 0)
 	{
 		xil_printf("Epoch no:");
 		xil_printf(std::to_string(epochNo).c_str());

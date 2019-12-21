@@ -75,7 +75,7 @@ void GenerationReady::ComputeFitness(){
 }
 
 void GenerationReady::onEnter(){
-	//xil_printf("Entered GenerationReady.\r\n");
+	xil_printf("Entered GenerationReady.\r\n");
 	ComputeCost();
 	ComputeFitness();
 	FitnessCalculated();

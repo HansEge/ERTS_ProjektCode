@@ -771,6 +771,7 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.552783242;xilinx.gnu.armv7.exe.debug.552783242.;xilinx.gnu.armv7.cxx.toolchain.compiler.debug.972351692;xilinx.gnu.armv7.cxx.compiler.input.1751921235">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __THUMBEL__" removed="true"/>
 <includePath path="#undef __ARM_FP" removed="true"/>
 <includePath path="#undef __ARM_FP16_FORMAT_IEEE" removed="true"/>
 <includePath path="#undef __ARM_FP16_ARGS" removed="true"/>
