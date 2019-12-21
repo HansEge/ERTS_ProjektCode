@@ -22,6 +22,7 @@ public:
 	virtual void onExit();
 	virtual void stopCondtionMet();
 	virtual void stopConditionNotMet();
+	virtual void stopCondition();
 
 private:
 	Population* pNewGen;
@@ -29,7 +30,6 @@ private:
 	int oldBestCandidateSolution=0;
 	int conditionIndex;
 	bool stopConditionMet = false;
-	void stopCondition();
 
 };
 

@@ -19,36 +19,33 @@ void Evaluator::onEnter() {
 
 	//stopCondition();
 	if(stopConditionMet == true){
-		//stopCondtionMet();
+		stopCondtionMet();
 	}
 	else {
-		//stopConditionNotMet();
+		stopConditionNotMet();
 	}
-}
-
-void Evaluator::onExit(){
 }
 
 void Evaluator::stopCondtionMet() {
 	//this->_pSC->setState(this->_pSC->??);
 }
 
-
+/*
 void Evaluator::stopConditionNotMet(){
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
-void Evaluator::stopCondition() {
+bool Evaluator::stopCondition() {
 
 	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
-	float* newDistances = pNewGen->distances;
+	float newDistances = pNewGen->distances;
 
 	//find shortest distance out of population
 	int newBestCandSolution = newDistances[0];
 	for(int i=0; i<POPULATION_SIZE; i++) {
-	      if(newBestCandSolution>newDistances[i]) {
-	    	  newBestCandSolution=newDistances[i];
+	      if(newBestCandSolution>costFuncArr[i]) {
+	    	  newBestCandSolution=costFuncArr[i];
 	   }
 	}
 
@@ -73,3 +70,4 @@ void Evaluator::stopCondition() {
 	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 	oldBestCandidateSolution = newBestCandSolution;
 }
+*/

@@ -71,16 +71,6 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	str_A += parentA.data;
 	xil_printf(str_A.c_str());
 
-	int n = str_A.length();
-	// declaring character array
-	char char_array[n + 1];
-
-	// copying the contents of the
-	// string to char array
-	strcpy(char_array, str_A.c_str());
-
-	xil_printf(char_array);
-
 	std::string str_B = "Parent B: ";
 	str_B += parentB.data;
 	xil_printf(str_B.c_str());

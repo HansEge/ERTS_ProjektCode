@@ -11,10 +11,6 @@
 #include "BaseState.h"
 #include "Population.h"
 #include "Coordinate.h"
-#include "Setup.h"
-#include "GenerationReady.h"
-#include "Evaluator.h"
-#include "GenerationMaker.h"
 #include <string>
 #include <map>
 

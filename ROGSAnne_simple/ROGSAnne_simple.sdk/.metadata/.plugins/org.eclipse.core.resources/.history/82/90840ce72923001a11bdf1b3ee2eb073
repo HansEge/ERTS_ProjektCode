@@ -77,8 +77,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 
 	// copying the contents of the
 	// string to char array
-	strcpy(char_array, str_A.c_str());
-
+	strcpy(char_array, coords.c_str_A());
 	xil_printf(char_array);
 
 	std::string str_B = "Parent B: ";

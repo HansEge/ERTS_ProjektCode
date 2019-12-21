@@ -38,11 +38,11 @@ void Evaluator::stopConditionNotMet(){
 	this->_pSC->setState(this->_pSC->GenerationMakerState);
 }
 
-void Evaluator::stopCondition() {
+bool Evaluator::stopCondition() {
 
 	//Get the current new population distances
 	this->pNewGen = this->pSysContext->getNewGenerationPointer();
-	float* newDistances = pNewGen->distances;
+	float newDistances = pNewGen->distances;
 
 	//find shortest distance out of population
 	int newBestCandSolution = newDistances[0];
