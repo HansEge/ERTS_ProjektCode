@@ -1,0 +1,16 @@
+/*
+ * RNG.h
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#ifndef RNG_H_
+#define RNG_H_
+
+static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
+static unsigned int getRandomUnsignedInt();
+unsigned int getRandomUnsignedIntInRange(unsigned int min, unsigned int max);
+static float getRandomFloat(float min, float max);
+
+#endif /* RNG_H_ */

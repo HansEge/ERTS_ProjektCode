@@ -24,7 +24,8 @@ private:
 	Population* pOldGen;
 
 	void createChildren(int parentIndexA, int parentIndexB, int crossoverPoint,int childIndexA, int childIndexB);
-	Chromosome getParentAtIndex(int index);
+	//Chromosome getParentAtIndex(int index);
+	std::string getParentAtIndex(int index);
 	void overWriteChildChromosomeAtIndex(int index, std::string data);
 };
 

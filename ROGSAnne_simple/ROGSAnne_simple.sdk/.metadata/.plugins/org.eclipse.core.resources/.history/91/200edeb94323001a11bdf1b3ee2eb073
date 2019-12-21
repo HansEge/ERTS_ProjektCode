@@ -1,0 +1,35 @@
+/*
+ * Setup.h
+ *
+ *  Created on: 19 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef SETUP_H_
+#define SETUP_H_
+
+#include "Population.h"
+#include "BaseState.h"
+#include "SystemContext.h"
+#include "xgpio.h"
+
+
+
+class Setup : public BaseState {
+public:
+	Setup(SystemContext* pSC);
+	~Setup();
+
+	SystemContext* _pSC;
+	virtual void onEnter();
+	virtual void onExit();
+	virtual void SetupDone();
+
+private:
+	void InitialPop(void);
+	unsigned int RNG(void);
+	unsigned int ConvertRandNum(void);
+	static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
+};
+
+#endif /* SETUP_H_ */

@@ -6,6 +6,7 @@
  */
 
 #include "Setup.h"
+#include "RNG.h"
 #include <string>
 #include <limits>
 
@@ -23,7 +24,8 @@ void Setup::InitialPop(){
 	int uniqueflag = 0;
 	unsigned int random;
 	std::string coords = "";
-	unsigned int numArray[NUM_COORDS] = {};
+	coords.reserve(NUM_COORDS);
+	unsigned int numArray[NUM_COORDS] = {std::numeric_limits<unsigned int>::max()};
 
 
 
@@ -31,26 +33,30 @@ void Setup::InitialPop(){
 	{
 
 		for(int l = 0; l < NUM_COORDS; l++) {
+
 			     do {
 			        //Assume things are unique. reset uniqueflag if not.
 			        uniqueflag = 1;
-			        random = ConvertRandNum();
+
+			        random = getRandomUnsignedIntInRange(0,NUM_COORDS);
+			        // Check if number already in array
 
 			        //This loop checks for uniqueness
-			        for (int j = 0; j < l && uniqueflag == 1; j++) {
+			        for (int j = 0; j < l; j++) {
 			           if (numArray[j] == random) {
 			              uniqueflag = 0;
+			              break;
 			           }
 			        }
 			     } while (uniqueflag != 1);
 			     numArray[l] = random;
 			}
 
-		for(int k = 0; k <= NUM_COORDS; k++)
+		for(int k = 0; k < NUM_COORDS; k++)
 		{
-			coords[k] = 'A' + numArray[k];
+			coords += 'A' + numArray[k];
 		}
-
+		coords[NUM_COORDS] = '\0';
 		int n = coords.length();
 
 		// declaring character array
@@ -64,50 +70,46 @@ void Setup::InitialPop(){
 		xil_printf(char_array);
 		xil_printf("\r\n");
 
-	    this->_pSC->popA->chromosomes[i].data = coords;       // Convert to a character from a-z
+	    //this->_pSC->popA->chromosomes[i].data = coords;       // Convert to a character from a-z
+	    this->_pSC->popA->chromosomes[i] = coords;       // Convert to a character from a-z
+	    //this->_pSC->popA->chromosomes[i] = "test";       // Convert to a character from a-z
 	}
 
 }
 
 //returns a random number between 0:2^32
+// Source: https://stackoverflow.com/questions/1167253/implementation-of-rand/1167298
+/*
 unsigned int Setup::RNG(void)
 {
-   static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
-   unsigned int b;
+   //static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
 
-   b  = ((z1 << 6) ^ z1) >> 13;
-   z1 = ((z1 & 4294967294U) << 18) ^ b;
-   b  = ((z2 << 2) ^ z2) >> 27;
-   z2 = ((z2 & 4294967288U) << 2) ^ b;
-   b  = ((z3 << 13) ^ z3) >> 21;
-   z3 = ((z3 & 4294967280U) << 7) ^ b;
-   b  = ((z4 << 3) ^ z4) >> 12;
-   z4 = ((z4 & 4294967168U) << 13) ^ b;
-
-   return (z1 ^ z2 ^ z3 ^ z4);
 }
+*/
 
-unsigned int Setup::ConvertRandNum(){
+/*
+unsigned int Setup::ConvertRandNum(float newMin, float newMax){
 
-	float OldRange, OldMax, OldMin, OldValue, NewMax, NewMin, NewRange, NewValue = 0;
+	unsigned int OldMax, OldMin, OldValue, OldRange;
+	float NewRange, NewValue = 0;
 
+	//OldMax = std::numeric_limits<unsigned int>::max();
 	OldMax = std::numeric_limits<unsigned int>::max();
 	OldMin = 0;
-	NewMax = NUM_COORDS;
-	NewMin = 0;
 	OldValue = RNG();
 
 	OldRange = (OldMax - OldMin);
-	NewRange = (NewMax - NewMin);
-	NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+	NewRange = (newMax - newMin);
+	NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + newMin;
 
-	return (unsigned int)NewValue;
+	return (unsigned int)(NewValue);
 
 }
+*/
 
 void Setup::onEnter(){
 	InitialPop();
-	SetupDone();
+	//SetupDone();
 }
 
 void Setup::onExit(){

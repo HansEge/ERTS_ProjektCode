@@ -1,0 +1,17 @@
+/*
+ * RNG.h
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#ifndef RNG_H_
+#define RNG_H_
+
+class RNG {
+public:
+	RNG();
+	virtual ~RNG();
+};
+
+#endif /* RNG_H_ */

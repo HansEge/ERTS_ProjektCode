@@ -26,11 +26,11 @@ public:
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void SetupDone();
+	//unsigned int RNG(void);
+	//unsigned int ConvertRandNum(float newMin, float newMax);
 
 private:
 	void InitialPop(void);
-	unsigned int RNG(void);
-	unsigned int ConvertRandNum(void);
 };
 
 #endif /* SETUP_H_ */
