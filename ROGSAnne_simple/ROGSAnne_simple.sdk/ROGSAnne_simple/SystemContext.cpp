@@ -22,18 +22,19 @@ SystemContext::SystemContext() {
 	this->whichPopulationIsOldGen = A;
 
 	// Create map iterator
-	std::map<std::string, Coordinate*>::iterator it = this->coordinates.begin();
+	std::map<char, Coordinate*>::iterator it = this->coordinates.begin();
 
+	/*
 	// Iterate over the map using Iterator till end.
 		while (it != coordinates.end())
 		{
 			// Accessing KEY from element pointed by it.
-			std::string key = it->first;
+			char key = it->first;
 
 			// Accessing VALUE from element pointed by it.
 			Coordinate* val = it->second;
 
-			const char *cstr = key.c_str();
+			//const char *cstr = key.c_str();
 			xil_printf(cstr);
 			//xil_printf(key + " (%d,%d)\r\n",val->x,val->y);
 
@@ -41,6 +42,8 @@ SystemContext::SystemContext() {
 			it++;
 		}
 		xil_printf("\r\n");
+
+	*/
 }
 
 SystemContext::~SystemContext() {
@@ -48,11 +51,11 @@ SystemContext::~SystemContext() {
 }
 
 void SystemContext::initializeCoordinates(){
-	this->coordinates["A"] = new Coordinate(1,2);
-	this->coordinates["B"] = new Coordinate(3,7);
-	this->coordinates["C"] = new Coordinate(3,1);
-	this->coordinates["D"] = new Coordinate(2,1);
-	this->coordinates["E"] = new Coordinate(4,2);
+	this->coordinates['A'] = new Coordinate(1,2);
+	this->coordinates['B'] = new Coordinate(3,7);
+	this->coordinates['C'] = new Coordinate(3,1);
+	this->coordinates['D'] = new Coordinate(2,1);
+	this->coordinates['E'] = new Coordinate(4,2);
 }
 
 void SystemContext::setState(BaseState* newState){

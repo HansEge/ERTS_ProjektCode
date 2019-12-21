@@ -22,7 +22,7 @@ GenerationReady::~GenerationReady() {
 
 
 void GenerationReady::ComputeCost(){
-	Population* pop = this->_pSC->getNewGenerationPointer();
+	Population* pop = this->_pSC->getOldGenerationPointer();
 
 	std::string candidateSol = "";
 	int x[NUM_COORDS], y[NUM_COORDS] = {};
@@ -30,7 +30,9 @@ void GenerationReady::ComputeCost(){
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
-		candidateSol = pop->chromosomes[k];	//Delete data
+		candidateSol = pop->chromosomes[k];
+
+		xil_printf("Data: %c \n\r", candidateSol[k]);
 
 		for(int i = 0; i < NUM_COORDS; i++)
 			{
@@ -48,14 +50,23 @@ void GenerationReady::ComputeCost(){
 
 
 void GenerationReady::ComputeFitness(){
+	Population* pop = this->_pSC->getOldGenerationPointer();
+
+	float fitness = 0;
+
+
+	for(int i = 0; i < POPULATION_SIZE; i++)
+	{
+		pop->distances[i];
+	}
 
 }
 
-void GenerationReady::OnEnter(){
+void GenerationReady::onEnter(){
 
 }
 
-void GenerationReady::OnExit(){
+void GenerationReady::onExit(){
 
 }
 

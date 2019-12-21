@@ -27,7 +27,7 @@ public:
 	void initializeCoordinates();
 
 	// Mapping from strings to coordinate
-	std::map<std::string, Coordinate*> coordinates;
+	std::map<char, Coordinate*> coordinates;
 
 	// Current state of system
 	BaseState* curState;

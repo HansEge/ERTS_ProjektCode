@@ -21,9 +21,9 @@ public:
 	void ComputeCost();
 	void ComputeFitness();
 
-	virtual void OnEnter();
-	virtual void OnExit();
-	void FitnessCalculated();
+	virtual void onEnter();
+	virtual void onExit();
+	virtual void FitnessCalculated();
 
 	SystemContext* _pSC;
 
