@@ -27,7 +27,7 @@ public:
 private:
 	Population* pNewGen;
 	int numOfIterationsStopCondition=10;
-	float oldBestCandidateSolution = std::numeric_limits<float>::max();
+	float currentBestCandidateSolution = std::numeric_limits<float>::max();
 	int conditionIndex;
 	bool stopConditionMet = false;
 	void checkStopCondition();

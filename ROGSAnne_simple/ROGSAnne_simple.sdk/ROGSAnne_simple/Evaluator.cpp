@@ -61,7 +61,7 @@ void Evaluator::checkStopCondition() {
 		xil_printf("\r\n");
 
 	// Compare the new best candidate solution with the old best
-	if (newBestCandSolution >= oldBestCandidateSolution){
+	if (newBestCandSolution >= currentBestCandidateSolution){
 		conditionIndex ++;
 		// Stop condition is ten iterations without a better solution found
 		if (conditionIndex == numOfIterationsStopCondition){
@@ -79,8 +79,9 @@ void Evaluator::checkStopCondition() {
 		xil_printf("Found new shorter distance: ");
 		xil_printf(std::to_string(newBestCandSolution).c_str());
 		xil_printf("\r\n");
+		// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
+		currentBestCandidateSolution = newBestCandSolution;
 	}
 
-	// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
-	oldBestCandidateSolution = newBestCandSolution;
+
 }
