@@ -8,6 +8,7 @@
 #include "GenerationReady.h"
 #include <string>
 #include <cmath>
+#include <array>
 
 
 GenerationReady::GenerationReady(SystemContext* pSC) : BaseState(pSC) {
@@ -83,5 +84,27 @@ void GenerationReady::onExit(){
 
 void GenerationReady::FitnessCalculated(){
 	this->_pSC->setState(this->_pSC->EvaluatorState);
+}
+
+int GenerationReady::GetIndexOfParrentCromosome(){
+	Population* pop = this->_pSC->getOldGenerationPointer();
+
+	int Sum_of_fitness = 0;
+
+	for(unsigned int i = 0; i > sizeof(pop->fitnesses); i++)
+	{
+		Sum_of_fitness += pop->fitnesses[i];
+	}
+
+	float rand_number = getRandomFloat(0,Sum_of_fitness);
+
+	int j = 0;
+	do {
+		rand_number = rand_number - pop->fitnesses[j];
+		j++;
+	}
+	while(rand_number > 0);
+
+	return j;
 }
 
