@@ -20,10 +20,6 @@ public:
 
 	virtual void OnEnter();
 	virtual void OnExit();
-	void FitnessCalculated();
-
-	SystemContext* _pSC;
-
 };
 
 #endif /* GENERATIONREADY_H_ */

@@ -8,7 +8,6 @@
 #include "GenerationReady.h"
 #include "Population.h"
 #include <string>
-#include <cmath>
 
 GenerationReady::GenerationReady(SystemContext pSC) : BaseState(pSC) {
 	this->_pSC = pSC;
@@ -25,7 +24,6 @@ void GenerationReady::ComputeCost(){
 
 	std::string candidateSol = "";
 	int x[NUM_COORDS], y[NUM_COORDS] = {};
-	float distance2 = 0;
 
 	for(int k = 0; k < POPULATION_SIZE; k++)
 	{
@@ -35,16 +33,10 @@ void GenerationReady::ComputeCost(){
 			{
 				x[i] = this->_pSC->coordinates[candidateSol[i]].x;
 				y[i] = this->_pSC->coordinates[candidateSol[i]].y;
-			}
-		for(int i = 0; i < NUM_COORDS; i++)
-		{
-			distance2 += pow((y[i]-x[i]), 2);
-		}
 
-		pop->distances[k] = sqrt(distance2);
+			}
 	}
 }
-
 
 void GenerationReady::ComputeFitness(){
 
