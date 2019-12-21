@@ -6,6 +6,7 @@
 #include "../Setup.h"
 #include "../GenerationMaker.h"
 #include "../RNG.h"
+//#include "../TimerClass.h"
 #ifdef MULTIBOOT
 #include "xdevcfg.h"
 #endif
@@ -13,10 +14,12 @@
 static XGpioPs psGpioInstancePtr;
 static int iPinNumber = 7; /*Led LD9 on ZedBoard and LD4 on Zybo is connected to MIO pin 7*/
 
+
 //====================================================
 
 int main (void)
 {
+	  //initTimer();
 	  xil_printf("----------------------------\r\n");
 	  SystemContext* sys = new SystemContext();
 	  Setup* setup = new Setup(sys);

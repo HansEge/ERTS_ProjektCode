@@ -41,6 +41,8 @@ SystemContext::SystemContext() {
 			it++;
 		}
 		xil_printf("\r\n");
+
+		timer = new myTimer();
 }
 
 SystemContext::~SystemContext() {

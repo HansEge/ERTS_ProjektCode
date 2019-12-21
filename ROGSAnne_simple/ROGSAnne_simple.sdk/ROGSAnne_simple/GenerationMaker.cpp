@@ -8,6 +8,7 @@
 #include "GenerationMaker.h"
 #include "xgpio.h"
 #include "RNG.h"
+#include "TimerClass.h"
 
 GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
 	// Inherit constructor from base class
@@ -18,7 +19,19 @@ GenerationMaker::~GenerationMaker() {
 }
 
 void GenerationMaker::onEnter() {
+
+
+	this->pSysContext->timer->reloadTimer();
 	this->createNewGeneration();
+	int cycles_createNewGeneration = this->pSysContext->timer->getElapsedCycles();
+	xil_printf("Cycles spent on creating new generation: ");
+	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
+	xil_printf(" = ");
+	xil_printf(std::to_string((float)cycles_createNewGeneration/ONE_SECOND).c_str());
+	xil_printf("seconds.\r\n");
+	xil_printf("\r\n");
+
+
 	this->pSysContext->setState(this->pSysContext->generationReadyState);
 }
 

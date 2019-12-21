@@ -17,6 +17,7 @@
 #include "GenerationMaker.h"
 #include <string>
 #include <map>
+#include "TimerClass.h"
 
 enum PopulationEnum{A,B};
 
@@ -48,6 +49,8 @@ public:
 
 	// Used to track which of the populations buffers that contain the old pupolation.
 	PopulationEnum whichPopulationIsOldGen;
+	myTimer* timer;
+
 private:
 };
 

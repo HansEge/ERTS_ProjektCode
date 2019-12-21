@@ -1,0 +1,33 @@
+/*
+ * Timer.cpp
+ *
+ *  Created on: Dec 21, 2019
+ *      Author: Mathi
+ */
+
+#include "TimerClass.h"
+
+void initTimer(){
+	  //initialize timer
+	  ConfigPtr = XScuTimer_LookupConfig (XPAR_PS7_SCUTIMER_0_DEVICE_ID);
+	  s32 Status = XScuTimer_CfgInitialize (TimerInstancePtr, ConfigPtr, ConfigPtr->BaseAddr);
+	  if (Status != XST_SUCCESS){
+		  xil_printf("Timer init() failed\r\n");
+	  return XST_FAILURE;
+	  }
+
+	  XScuTimer_LoadTimer(TimerInstancePtr,ONE_SECOND); 	// Setup timer to countdown from ONE_SECOND
+}
+
+void reloadTimer(){
+	XScuTimer_RestartTimer(TimerInstancePtr); 	// Start the timer
+}
+
+int getTimerValue(){
+	return XScuTimer_GetCounterValue(TimerInstancePtr); // Get elapsed time in clock cycles
+}
+
+int getElapsedCycles(){
+	return ONE_SECOND - getTimerValue();
+}
+
