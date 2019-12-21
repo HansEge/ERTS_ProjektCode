@@ -54,7 +54,6 @@ void GenerationReady::ComputeFitness(){
 
 	float sumFitness = 0;
 
-	// Calculate fitness
 	for(int i = 0; i < POPULATION_SIZE; i++)
 	{
 		pop->fitnesses[i] = 1/pop->distances[i];
@@ -69,6 +68,26 @@ void GenerationReady::ComputeFitness(){
 	{
 		pop->fitnesses[i] = pop->fitnesses[i]/sumFitness;
 	}
+
+
+
+
+	/*
+
+	// Calculate mean distance
+	for(int i = 0; i < POPULATION_SIZE; i++)
+	{
+		meanDistance += pop->distances[i];
+	}
+	meanDistance = meanDistance/POPULATION_SIZE;
+
+	//Calculate fitness for each population
+	for(int i = 0; i < POPULATION_SIZE; i++)
+		{
+			pop->fitnesses[i] = pop->distances[i]/meanDistance;
+		}
+
+	*/
 }
 
 void GenerationReady::onEnter(){

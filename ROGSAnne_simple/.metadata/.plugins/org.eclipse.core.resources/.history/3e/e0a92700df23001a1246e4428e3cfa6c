@@ -33,7 +33,6 @@ int main (void)
 	  GenerationMaker* generationMaker = new GenerationMaker(sys);
 	  setup->onEnter();
 	  genReady->ComputeCost();
-	  genReady->ComputeFitness();
 	  generationMaker->onEnter();
 
 

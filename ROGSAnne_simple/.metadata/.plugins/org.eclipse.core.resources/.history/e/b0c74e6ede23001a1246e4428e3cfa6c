@@ -31,19 +31,18 @@ void GenerationReady::ComputeCost(){
 	{
 		candidateSol = pop->chromosomes[k];
 
-		// Get coordinates for candidate solution
+		xil_printf("Data: %c \n\r", candidateSol[k]);
+
 		for(int i = 0; i < NUM_COORDS; i++)
 			{
 				x[i] = this->_pSC->coordinates.find(candidateSol[i])->second->x;
 				y[i] = this->_pSC->coordinates.find(candidateSol[i])->second->y;
 			}
-		// Calculate total distance^2
 		for(int i = 0; i < NUM_COORDS; i++)
 		{
 			distance2 += pow((y[i]-x[i]), 2);
 		}
 
-		// Calculate distance
 		pop->distances[k] = sqrt(distance2);
 	}
 }
@@ -52,23 +51,20 @@ void GenerationReady::ComputeCost(){
 void GenerationReady::ComputeFitness(){
 	Population* pop = this->_pSC->getOldGenerationPointer();
 
-	float sumFitness = 0;
+	float fitness, meanDistance = 0;
 
-	// Calculate fitness
+	// Calculate mean distance
 	for(int i = 0; i < POPULATION_SIZE; i++)
 	{
-		pop->fitnesses[i] = 1/pop->distances[i];
+		meanDistance += pop->distances[i];
 	}
+	meanDistance = meanDistance/POPULATION_SIZE;
 
-	// Normalize fitness
+	//Calculate fitness for each population
 	for(int i = 0; i < POPULATION_SIZE; i++)
-	{
-		sumFitness += pop->fitnesses[i];
-	}
-	for(int i = 0; i < POPULATION_SIZE; i++)
-	{
-		pop->fitnesses[i] = pop->fitnesses[i]/sumFitness;
-	}
+		{
+			pop->fitnesses[i] = pop->distances[i]/meanDistance;
+		}
 }
 
 void GenerationReady::onEnter(){
