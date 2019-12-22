@@ -40,8 +40,8 @@ void SystemContext::initializeCoordinates(){
 	this->coordinates['F'] = new Coordinate(9,24);
 	this->coordinates['G'] = new Coordinate(14,44);
 	this->coordinates['H'] = new Coordinate(18,55);
-	//this->coordinates['I'] = new Coordinate(24,99);
-	//this->coordinates['J'] = new Coordinate(0,99);
+	this->coordinates['I'] = new Coordinate(24,99);
+	this->coordinates['J'] = new Coordinate(0,99);
 }
 
 void SystemContext::setState(BaseState* newState){
