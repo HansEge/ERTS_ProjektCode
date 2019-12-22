@@ -1,0 +1,17 @@
+/*
+ * GLOBAL.h
+ *
+ *  Created on: 22 Dec 2019
+ *      Author: stinu
+ */
+
+#ifndef SRC_GLOBAL_H_
+#define SRC_GLOBAL_H_
+
+class GLOBAL {
+public:
+	GLOBAL();
+	virtual ~GLOBAL();
+};
+
+#endif /* SRC_GLOBAL_H_ */
