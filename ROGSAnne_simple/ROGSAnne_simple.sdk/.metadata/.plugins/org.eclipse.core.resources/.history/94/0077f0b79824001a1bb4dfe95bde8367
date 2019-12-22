@@ -88,11 +88,11 @@ void Evaluator::checkStopCondition() {
 		// A new and better solution was found, set iteration to zero, and stop condition not met
 		conditionIndex = 0;
 		stopConditionMet = false;
-
+		/*
 		xil_printf("Found new shorter distance: ");
 		xil_printf(std::to_string(newBestCandSolution).c_str());
 		xil_printf("\r\n");
-
+		*/
 		// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 		currentBestCandidateSolution = newBestCandSolution;
 	}

@@ -13,7 +13,7 @@
 #include "SystemContext.h"
 #include "xgpio.h"
 
-#define NUM_COORDS 8
+#define NUM_COORDS 10
 
 
 

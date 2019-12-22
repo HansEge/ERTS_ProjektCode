@@ -35,6 +35,7 @@ t_distances = mean(timing(:,1));
 t_fitness = mean(timing(:,2));
 t_generation = mean(timing(:,3));
 
+%%
 figure(1);
 X = [t_distances, t_fitness, t_generation]
 labels = {'Calculate Distances','Calculate fitnesses','Create new generation'};
@@ -52,3 +53,17 @@ disp('Average time spent on calculating distances:'); disp(t_distances);
 disp('Average time spent on calculating fitness:'); disp(t_fitness);
 disp('Average time spent on creating a new generation:'); disp(t_generation);
 disp('Adds up to:'); disp(t_distances + t_fitness + t_generation);
+
+%%
+p1 = [1;3];
+p2 = [2;2];
+p3 = [3;1];
+
+dist = norm(p2-p1) + norm(p3-p2)
+
+
+p1 = [1;3];
+p2 = [3;2];
+p3 = [5;6];
+
+dist = norm(p2-p1) + norm(p3-p2)

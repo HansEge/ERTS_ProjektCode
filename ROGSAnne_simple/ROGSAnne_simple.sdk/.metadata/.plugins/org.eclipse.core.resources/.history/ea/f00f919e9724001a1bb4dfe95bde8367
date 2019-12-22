@@ -37,14 +37,13 @@ void GenerationMaker::onEnter() {
 	// Write timing info
 	int cycles_createNewGeneration = this->pSysContext->timer->getElapsedCycles();
 
-	/*
 	xil_printf("Cycles spent on creating new generation: ");
 	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
 	xil_printf(" = ");
 	xil_printf(std::to_string((float)cycles_createNewGeneration/ONE_SECOND).c_str());
 	xil_printf("seconds.\r\n");
 	xil_printf("\r\n");
-*/
+
 
 	this->pSysContext->epoch_no++;
 	NewGenerationReady();
