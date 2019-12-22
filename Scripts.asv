@@ -21,8 +21,6 @@ text(number_of_points+0.1,number_of_solutions, NoS_string)
 %% Plot showing timing
 ONE_SECOND = 325000000;
 
-% Data without any hardware acceleration.
-% One row is [t_distances,t_fitness, t_generation]
 timing = [
     127018, 462, 32915;
     125672, 526, 37054;
@@ -48,7 +46,7 @@ name = {'Calculate Distances'; 'Calculate fitnesses'; 'Create new generation'};
 ylabel('Clock cycles spent');
 set(gca,'xticklabel',name)
 
-disp('Average time spent on calculating distances:'); disp(t_distances);
-disp('Average time spent on calculating fitness:'); disp(t_fitness);
-disp('Average time spent on creating a new generation:'); disp(t_generation);
-disp('Adds up to:'); disp(t_distances + t_fitness + t_generation);
+disp('Average time spent on calculating distances'); disp(t_distances);
+disp('Average time spent on calculating fitness'); disp(t_fitness);
+disp('Average time spent on creating a new generation'); disp(t_generation);
+disp('Adds up to:')

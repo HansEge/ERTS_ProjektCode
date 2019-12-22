@@ -85,10 +85,10 @@ void GenerationReady::onEnter(){
 	// Write timing info
 	int cycles_ComputeCost = this->pSysContext->timer->getElapsedCycles();
 
-	xil_printf("Cycles spent on computing distances: ");
-	xil_printf(std::to_string(cycles_ComputeCost).c_str());
+	xil_printf("Cycles spent on creating new generation: ");
+	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
 	xil_printf(" = ");
-	xil_printf(std::to_string((float)cycles_ComputeCost/ONE_SECOND).c_str());
+	xil_printf(std::to_string((float)cycles_createNewGeneration/ONE_SECOND).c_str());
 	xil_printf("seconds.\r\n");
 	xil_printf("\r\n");
 
@@ -100,12 +100,12 @@ void GenerationReady::onEnter(){
 	ComputeFitness();
 
 	// Write timing info
-	int cycles_ComputeFitness = this->pSysContext->timer->getElapsedCycles();
+	int cycles_createNewGeneration = this->pSysContext->timer->getElapsedCycles();
 
-	xil_printf("Cycles spent on computing fitnesses: ");
-	xil_printf(std::to_string(cycles_ComputeFitness).c_str());
+	xil_printf("Cycles spent on creating new generation: ");
+	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
 	xil_printf(" = ");
-	xil_printf(std::to_string((float)cycles_ComputeFitness/ONE_SECOND).c_str());
+	xil_printf(std::to_string((float)cycles_createNewGeneration/ONE_SECOND).c_str());
 	xil_printf("seconds.\r\n");
 	xil_printf("\r\n");
 
