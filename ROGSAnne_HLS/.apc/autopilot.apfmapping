@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="DistCalc.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalc.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_DistCalc.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\tb_DistCalc.cpp"/>
+    <originFiles name="DistCalcDriver.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalcDriver.cpp"/>
+    <originFiles name="DistCalcDriver.h" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalcDriver.h"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

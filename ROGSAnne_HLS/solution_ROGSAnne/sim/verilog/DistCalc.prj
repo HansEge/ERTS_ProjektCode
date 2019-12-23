@@ -1,0 +1,13 @@
+vhdl xil_defaultlib "ip/xil_defaultlib/DistCalc_ap_dadd_6_full_dsp_64.vhd"
+vhdl xil_defaultlib "ip/xil_defaultlib/DistCalc_ap_dsqrt_55_no_dsp_64.vhd"
+vhdl xil_defaultlib "ip/xil_defaultlib/DistCalc_ap_fptrunc_0_no_dsp_64.vhd"
+vhdl xil_defaultlib "ip/xil_defaultlib/DistCalc_ap_sitodp_4_no_dsp_32.vhd"
+sv xil_defaultlib "DistCalc.autotb.v"
+sv xil_defaultlib "DistCalc.v"
+sv xil_defaultlib "DistCalc_dadd_64ncud.v"
+sv xil_defaultlib "DistCalc_DistCalcThread.v"
+sv xil_defaultlib "DistCalc_dsqrt_64eOg.v"
+sv xil_defaultlib "DistCalc_fptrunc_bkb.v"
+sv xil_defaultlib "DistCalc_mul_32s_fYi.v"
+sv xil_defaultlib "DistCalc_sitodp_3dEe.v"
+

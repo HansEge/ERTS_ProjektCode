@@ -1,5 +1,5 @@
 $date
-     Dec 22, 2019       13:39:19
+     Dec 23, 2019       12:09:50
 $end
 
 $version
@@ -24,9 +24,9 @@ $end
 
 $dumpvars
 1aaaaa
-0aaaab
+1aaaab
 b11 aaaac
-r2.828427076339722 aaaad
+r0 aaaad
 $end
 
 #5
@@ -34,21 +34,23 @@ $end
 
 #10
 1aaaaa
-1aaaab
+0aaaab
+r2.828427076339722 aaaad
 
 #15
 0aaaaa
 
 #20
 1aaaaa
-0aaaab
-r6.708203792572021 aaaad
+1aaaab
 
 #25
 0aaaaa
 
 #30
 1aaaaa
+0aaaab
+r6.708203792572021 aaaad
 
 #35
 0aaaaa

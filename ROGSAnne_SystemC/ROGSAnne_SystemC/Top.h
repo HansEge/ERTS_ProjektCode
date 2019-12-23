@@ -17,6 +17,9 @@ SC_MODULE(TOP)
 	// Clock driving modules
 	sc_clock clock;
 
+	// Reset signal
+	sc_signal<bool> s_reset;
+
 	// Signals
 	sc_signal<bool> s_ready;
 	sc_signal<sc_uint<32>> s_numberOfPoints;
