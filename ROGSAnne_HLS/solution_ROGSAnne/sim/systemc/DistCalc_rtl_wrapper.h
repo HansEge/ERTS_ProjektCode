@@ -11,6 +11,8 @@ SC_MODULE(DistCalc_rtl_wrapper) {
 
     sc_in<bool > reset;
 
+    sc_out<bool > busy;
+
     sc_in<int > numberOfPoints;
 
     sc_in<bool > ready;
@@ -25,6 +27,8 @@ SC_MODULE(DistCalc_rtl_wrapper) {
 
 
     sc_signal<sc_logic > rtl_reset;
+
+    sc_signal<sc_logic > rtl_busy;
 
     sc_signal<sc_lv<32> > rtl_numberOfPoints;
 
@@ -60,7 +64,7 @@ DistCalc* DistCalc_inst;
 
         SC_METHOD(signal_connection);
 
-        sensitive<<clk<<reset<<numberOfPoints<<ready<<x_dout_t<<y_dout_t<<rtl_outputDist;
+        sensitive<<clk<<reset<<rtl_busy<<numberOfPoints<<ready<<x_dout_t<<y_dout_t<<rtl_outputDist;
 
     }
 
@@ -86,6 +90,8 @@ DistCalc* DistCalc_inst;
         x_inFifo_tr->rst(rtl_reset);
 
         y_inFifo_tr->rst(rtl_reset);
+
+        DistCalc_inst->busy(rtl_busy);
 
         DistCalc_inst->numberOfPoints(rtl_numberOfPoints);
 
@@ -133,6 +139,13 @@ DistCalc* DistCalc_inst;
 
         rtl_reset.write((sc_logic)(reset.read()));
 
+        
+
+        bool aesl_tmp_0 = (rtl_busy.read() == SC_LOGIC_1);
+
+        busy.write(aesl_tmp_0);
+
+
         rtl_numberOfPoints.write((sc_int<32>)(numberOfPoints.read()));
 
         rtl_ready.write((sc_logic)(ready.read()));
@@ -141,10 +154,10 @@ DistCalc* DistCalc_inst;
 
         y_dout.write((sc_int<32>)(y_dout_t.read()));
 
-        float aesl_tmp_0 ;
-*(int *)&aesl_tmp_0 = rtl_outputDist.read().to_uint64();
+        float aesl_tmp_1 ;
+*(int *)&aesl_tmp_1 = rtl_outputDist.read().to_uint64();
 
-        outputDist.write(aesl_tmp_0);
+        outputDist.write(aesl_tmp_1);
 
 
     }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'DistCalc'" level="0">
-<item name = "Date">Mon Dec 23 12:15:29 2019
+<item name = "Date">Sat Dec 28 12:54:04 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ROGSAnne_HLS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">8.00, 6.91, 1.00</column>
+<column name="ap_clk">8.00, 8.35, 1.00</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, none</column>
+<column name="">0, 144, 1, 145, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_DistCalc_DistCalcThread_fu_74">DistCalc_DistCalcThread, ?, ?, ?, ?, none</column>
+<column name="grp_DistCalc_DistCalcThread_fu_70">DistCalc_DistCalcThread, 3, 143, 3, 143, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,19 +50,19 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, 11, 5956, 4914</column>
+<column name="Instance">-, 19, 7385, 6230</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, -</column>
-<column name="Register">-, -, 32, -</column>
+<column name="Register">-, -, 33, -</column>
 <specialColumn name="Available">120, 80, 35200, 17600</specialColumn>
-<specialColumn name="Utilization (%)">0, 13, 17, 27</specialColumn>
+<specialColumn name="Utilization (%)">0, 23, 21, 35</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_DistCalc_DistCalcThread_fu_74">DistCalc_DistCalcThread, 0, 11, 5956, 4914</column>
+<column name="grp_DistCalc_DistCalcThread_fu_70">DistCalc_DistCalcThread, 0, 19, 7385, 6230</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -87,6 +87,7 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="busy">1, 0, 1, 0</column>
 <column name="outputDist">32, 0, 32, 0</column>
 </table>
 </item>
@@ -99,6 +100,7 @@
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
 <column name="clk">in, 1, ap_ctrl_hs, DistCalc::DistCalc, return value</column>
 <column name="reset">in, 1, ap_ctrl_hs, DistCalc::DistCalc, return value</column>
+<column name="busy">out, 1, ap_vld, busy, pointer</column>
 <column name="numberOfPoints">in, 32, ap_none, numberOfPoints, pointer</column>
 <column name="ready">in, 1, ap_none, ready, pointer</column>
 <column name="x_dout">in, 32, ap_fifo, x, pointer</column>

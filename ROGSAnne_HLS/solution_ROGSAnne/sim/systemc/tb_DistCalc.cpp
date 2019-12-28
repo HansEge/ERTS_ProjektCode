@@ -29,6 +29,7 @@ int sc_main(int argc, char *argv[])
 	sc_fifo<int> s_x;
 	sc_fifo<int> s_y;
 	sc_signal<float> s_result;
+	sc_signal<bool> s_busy;
 
 	// Create a 10ns period clock signal
 	sc_clock s_clk("s_clk", 10, SC_NS);
@@ -50,6 +51,7 @@ int sc_main(int argc, char *argv[])
 	// Trace signals
 	sc_trace(tracefile, s_clk, "clock");
 	sc_trace(tracefile, s_ready, "ready");
+	sc_trace(tracefile, s_busy, "busy");
 	sc_trace(tracefile, s_numberOfPoints, "numberOfPoints");
 	sc_trace(tracefile, s_result, "distResult");
 	//sc_trace(tracefile, s_x, "x");
@@ -60,6 +62,7 @@ int sc_main(int argc, char *argv[])
 	DUT.reset(s_reset);
 	DUT.numberOfPoints(s_numberOfPoints);
 	DUT.ready(s_ready);
+	DUT.busy(s_busy);
 	DUT.x(s_x);
 	DUT.y(s_y);
 	DUT.outputDist(s_result);
@@ -69,6 +72,7 @@ int sc_main(int argc, char *argv[])
 	driver.reset(s_reset);
 	driver.numberOfPoints(s_numberOfPoints);
 	driver.ready(s_ready);
+	driver.busy(s_busy);
 	driver.x(s_x);
 	driver.y(s_y);
 	driver.outputDist(s_result);

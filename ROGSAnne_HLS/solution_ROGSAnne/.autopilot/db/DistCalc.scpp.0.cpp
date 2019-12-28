@@ -35367,6 +35367,9 @@ struct DistCalc : ::sc_core::sc_module
  //RESET
  sc_in <bool > reset;
 #pragma empty_line
+ // BUSY SIGNAL
+ sc_out<bool > busy;
+#pragma empty_line
  //INPUTS
  // Unsigned int, indicating how many points are to be read
  sc_in<int> numberOfPoints;
@@ -35398,16 +35401,14 @@ struct DistCalc : ::sc_core::sc_module
 #pragma empty_line
 void DistCalc::DistCalcThread(void)
 {
-_ssdm_op_SpecResource(&numberOfPoints, "", "AXI4LiteS", "", -1, "", "", "", "", "-bus_bundle slv0");
-_ssdm_op_SpecResource(&ready, "", "AXI4LiteS", "", -1, "", "", "", "", "-bus_bundle slv0");
-//# pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = x
-//# pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = y
-_ssdm_op_SpecResource(&outputDist, "", "AXI4LiteS", "", -1, "", "", "", "", "-bus_bundle slv0");
- // Simulate ready going low for 3 cycles, then high for 3 cycles, etc..
+ // Start as "not busy"
+ busy.write(false);
  while (1)
  {
   if (ready.read())
   {
+   // Set busy
+   busy.write(true);
    cout << "New coordinate ready." << endl;
 #pragma empty_line
 #pragma empty_line
@@ -35418,21 +35419,22 @@ _ssdm_op_SpecResource(&outputDist, "", "AXI4LiteS", "", -1, "", "", "", "", "-bu
    int x0 = x.read();
    int y0 = y.read();
 #pragma empty_line
-   for (int i = 1; i < nPoints; i++)
+   for (int i = 1; i < 10; i++)
    {
-    int x1 = x.read();
+_ssdm_Unroll(1, 0, 9, "");
+ int x1 = x.read();
     int y1 = y.read();
-    totalDist += sqrt((x1-x0) * (x1-x0) + (y1 - y0) * (y1 - y0));
+    if (i< nPoints)
+     totalDist += sqrt((x1-x0) * (x1-x0) + (y1 - y0) * (y1 - y0));
 #pragma empty_line
     // Overwrite "old" coordinates
     x0 = x1;
     y0 = y1;
    }
 #pragma empty_line
-   outputDist.write(totalDist); // Don't know if this works?
+   outputDist.write(totalDist);
+   busy.write(false); // Indicate that answer is ready.
   }
-#pragma empty_line
   wait();
-  //wait(clk.posedge_event());
  }
 };

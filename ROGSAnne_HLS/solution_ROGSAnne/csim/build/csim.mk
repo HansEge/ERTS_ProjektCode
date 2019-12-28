@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp
+HLS_SOURCES = ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp
 
 TARGET := csim.exe
 
@@ -70,17 +70,17 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/DistCalcDriver.o: ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/DistCalcDriver.d
-
 $(ObjDir)/tb_DistCalc.o: ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/tb_DistCalc.d
+
+$(ObjDir)/DistCalcDriver.o: ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/DistCalcDriver.d
 
 $(ObjDir)/DistCalc.o: ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

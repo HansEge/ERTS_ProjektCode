@@ -15,6 +15,9 @@ SC_MODULE(DistCalc)
 	//RESET
 	sc_in <bool > reset;
 
+	// BUSY SIGNAL
+	sc_out<bool > busy;
+
 	//INPUTS
 	// Unsigned int, indicating how many points are to be read
 	sc_in<int> numberOfPoints;

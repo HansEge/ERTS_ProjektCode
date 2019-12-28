@@ -22,6 +22,7 @@ SC_MODULE(DistCalcDriver) {
 
 	//INPUTS
 	sc_in<float> outputDist;
+	sc_in<bool> busy;
 
 	int retval;
 

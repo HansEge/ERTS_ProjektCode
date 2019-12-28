@@ -1,5 +1,5 @@
 $date
-     Dec 23, 2019       12:09:50
+     Dec 28, 2019       12:26:36
 $end
 
 $version
@@ -13,8 +13,9 @@ $end
 $scope module SystemC $end
 $var wire    1  aaaaa  clock       $end
 $var wire    1  aaaab  ready       $end
-$var wire   32  aaaac  numberOfPoints [31:0]  $end
-$var real    1  aaaad  distResult       $end
+$var wire    1  aaaac  busy       $end
+$var wire   32  aaaad  numberOfPoints [31:0]  $end
+$var real    1  aaaae  distResult       $end
 $upscope $end
 $enddefinitions  $end
 
@@ -24,9 +25,10 @@ $end
 
 $dumpvars
 1aaaaa
-1aaaab
-b11 aaaac
-r0 aaaad
+0aaaab
+0aaaac
+b0 aaaad
+r0 aaaae
 $end
 
 #5
@@ -34,8 +36,6 @@ $end
 
 #10
 1aaaaa
-0aaaab
-r2.828427076339722 aaaad
 
 #15
 0aaaaa
@@ -43,6 +43,7 @@ r2.828427076339722 aaaad
 #20
 1aaaaa
 1aaaab
+b1010 aaaad
 
 #25
 0aaaaa
@@ -50,19 +51,22 @@ r2.828427076339722 aaaad
 #30
 1aaaaa
 0aaaab
-r6.708203792572021 aaaad
+r12.7279224395752 aaaae
 
 #35
 0aaaaa
 
 #40
 1aaaaa
+1aaaab
 
 #45
 0aaaaa
 
 #50
 1aaaaa
+0aaaab
+r25.45584487915039 aaaae
 
 #55
 0aaaaa

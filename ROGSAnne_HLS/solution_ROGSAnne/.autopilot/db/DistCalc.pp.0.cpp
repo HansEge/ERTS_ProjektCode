@@ -35351,6 +35351,9 @@ struct DistCalc : ::sc_core::sc_module
  //RESET
  sc_in <bool > reset;
 
+ // BUSY SIGNAL
+ sc_out<bool > busy;
+
  //INPUTS
  // Unsigned int, indicating how many points are to be read
  sc_in<int> numberOfPoints;
@@ -35382,16 +35385,14 @@ struct DistCalc : ::sc_core::sc_module
 
 void DistCalc::DistCalcThread(void)
 {
-#pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = numberOfPoints
-#pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = ready
-//# pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = x
-//# pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = y
-#pragma HLS resource core = AXI4LiteS metadata ="-bus_bundle slv0" variable = outputDist
- // Simulate ready going low for 3 cycles, then high for 3 cycles, etc..
+ // Start as "not busy"
+ busy.write(false);
  while (1)
  {
   if (ready.read())
   {
+   // Set busy
+   busy.write(true);
    cout << "New coordinate ready." << endl;
 
 
@@ -35402,21 +35403,22 @@ void DistCalc::DistCalcThread(void)
    int x0 = x.read();
    int y0 = y.read();
 
-   for (int i = 1; i < nPoints; i++)
+   for (int i = 1; i < 10; i++)
    {
-    int x1 = x.read();
+#pragma HLS unroll factor = 9
+ int x1 = x.read();
     int y1 = y.read();
-    totalDist += sqrt((x1-x0) * (x1-x0) + (y1 - y0) * (y1 - y0));
+    if (i< nPoints)
+     totalDist += sqrt((x1-x0) * (x1-x0) + (y1 - y0) * (y1 - y0));
 
     // Overwrite "old" coordinates
     x0 = x1;
     y0 = y1;
    }
 
-   outputDist.write(totalDist); // Don't know if this works?
+   outputDist.write(totalDist);
+   busy.write(false); // Indicate that answer is ready.
   }
-
   wait();
-  //wait(clk.posedge_event());
  }
 };

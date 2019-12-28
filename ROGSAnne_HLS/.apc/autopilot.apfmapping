@@ -5,7 +5,7 @@
   </source>
   <testbench>
     <originFiles name="tb_DistCalc.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\tb_DistCalc.cpp"/>
-    <originFiles name="DistCalcDriver.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalcDriver.cpp"/>
     <originFiles name="DistCalcDriver.h" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalcDriver.h"/>
+    <originFiles name="DistCalcDriver.cpp" path="C:\Users\Mathi\Desktop\Skole\ERTS\project\ERTS_ProjektCode\ROGSAnne_SystemC\ROGSAnne_SystemC\DistCalcDriver.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

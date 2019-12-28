@@ -16,9 +16,10 @@
 namespace ap_rtl {
 
 struct DistCalc : public sc_module {
-    // Port declarations 11
+    // Port declarations 12
     sc_in_clk clk;
     sc_in< sc_logic > reset;
+    sc_out< sc_logic > busy;
     sc_in< sc_lv<32> > numberOfPoints;
     sc_in< sc_logic > ready;
     sc_in< sc_lv<32> > x_dout;
@@ -40,19 +41,23 @@ struct DistCalc : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
-    DistCalc_DistCalcThread* grp_DistCalc_DistCalcThread_fu_74;
-    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_74_x1_read;
-    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_74_y2_read;
-    sc_signal< sc_lv<32> > grp_DistCalc_DistCalcThread_fu_74_outputDist;
-    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_74_outputDist_ap_vld;
+    DistCalc_DistCalcThread* grp_DistCalc_DistCalcThread_fu_70;
+    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_70_busy;
+    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_70_busy_ap_vld;
+    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_70_x_read;
+    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_70_y_read;
+    sc_signal< sc_lv<32> > grp_DistCalc_DistCalcThread_fu_70_outputDist;
+    sc_signal< sc_logic > grp_DistCalc_DistCalcThread_fu_70_outputDist_ap_vld;
     sc_signal< sc_lv<2> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     static const sc_logic ap_const_logic_1;
+    static const sc_lv<1> ap_const_lv1_0;
     static const sc_lv<32> ap_const_lv32_1;
     static const sc_lv<2> ap_const_lv2_0;
     static const sc_logic ap_const_logic_0;
     static const bool ap_const_boolean_1;
     // Thread declarations
+    void thread_busy();
     void thread_outputDist();
     void thread_ap_CS_fsm();
     void thread_ap_CS_fsm_state2();

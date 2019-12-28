@@ -113,20 +113,34 @@ Ltmp18:
 Ltmp19:
 	.cfi_def_cfa_register %ebp
 	andl	$-8, %esp
-	subl	$64, %esp
+	subl	$80, %esp
 	movl	8(%ebp), %eax
-	movl	%eax, 60(%esp)
-	movl	60(%esp), %eax
+	leal	75(%esp), %ecx
+	movl	%eax, 76(%esp)
+	movl	76(%esp), %eax
+	movl	%eax, %edx
+	addl	$264, %edx
+	movb	$0, 75(%esp)
+	movl	%edx, (%esp)
+	movl	%ecx, 4(%esp)
 	movl	%eax, 12(%esp)
+	calll	__ZN7sc_core8sc_inoutIbE5writeERKb
 LBB4_1:
 	movl	12(%esp), %eax
-	addl	$336, %eax
+	addl	$420, %eax
 	movl	%eax, (%esp)
 	calll	__ZNK7sc_core5sc_inIbE4readEv
 	testb	$1, (%eax)
 	jne	LBB4_2
-	jmp	LBB4_7
+	jmp	LBB4_9
 LBB4_2:
+	leal	74(%esp), %eax
+	movl	12(%esp), %ecx
+	addl	$264, %ecx
+	movb	$1, 74(%esp)
+	movl	%ecx, (%esp)
+	movl	%eax, 4(%esp)
+	calll	__ZN7sc_core8sc_inoutIbE5writeERKb
 	leal	__ZSt4cout, %eax
 	leal	L_.str, %ecx
 	movl	%eax, (%esp)
@@ -137,48 +151,50 @@ LBB4_2:
 	movl	%ecx, 4(%esp)
 	calll	__ZNSolsEPFRSoS_E
 	movl	12(%esp), %ecx
-	addl	$264, %ecx
+	addl	$348, %ecx
 	movl	%ecx, (%esp)
 	movl	%eax, 8(%esp)
 	calll	__ZNK7sc_core5sc_inIiE4readEv
 	xorps	%xmm0, %xmm0
 	movl	(%eax), %eax
-	movl	%eax, 56(%esp)
-	movsd	%xmm0, 48(%esp)
+	movl	%eax, 68(%esp)
+	movsd	%xmm0, 56(%esp)
 	movl	12(%esp), %eax
-	addl	$416, %eax
+	addl	$500, %eax
 	movl	%eax, (%esp)
 	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
-	movl	%eax, 44(%esp)
+	movl	%eax, 52(%esp)
 	movl	12(%esp), %eax
-	addl	$480, %eax
+	addl	$564, %eax
+	movl	%eax, (%esp)
+	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
+	movl	%eax, 48(%esp)
+	movl	$1, 44(%esp)
+LBB4_3:
+	cmpl	$10, 44(%esp)
+	jge	LBB4_8
+	movl	12(%esp), %eax
+	addl	$500, %eax
 	movl	%eax, (%esp)
 	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
 	movl	%eax, 40(%esp)
-	movl	$1, 36(%esp)
-LBB4_3:
-	movl	36(%esp), %eax
-	cmpl	56(%esp), %eax
+	movl	12(%esp), %eax
+	addl	$564, %eax
+	movl	%eax, (%esp)
+	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
+	movl	%eax, 36(%esp)
+	movl	44(%esp), %eax
+	cmpl	68(%esp), %eax
 	jae	LBB4_6
-	movl	12(%esp), %eax
-	addl	$416, %eax
-	movl	%eax, (%esp)
-	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
-	movl	%eax, 32(%esp)
-	movl	12(%esp), %eax
-	addl	$480, %eax
-	movl	%eax, (%esp)
-	calll	__ZN7sc_core10sc_fifo_inIiE4readEv
-	movl	%eax, 28(%esp)
-	movl	32(%esp), %eax
-	subl	44(%esp), %eax
-	movl	32(%esp), %ecx
-	subl	44(%esp), %ecx
+	movl	40(%esp), %eax
+	subl	52(%esp), %eax
+	movl	40(%esp), %ecx
+	subl	52(%esp), %ecx
 	imull	%ecx, %eax
-	movl	28(%esp), %ecx
-	subl	40(%esp), %ecx
-	movl	28(%esp), %edx
-	subl	40(%esp), %edx
+	movl	36(%esp), %ecx
+	subl	48(%esp), %ecx
+	movl	36(%esp), %edx
+	subl	48(%esp), %edx
 	imull	%edx, %ecx
 	addl	%ecx, %eax
 	cvtsi2sd	%eax, %xmm0
@@ -186,31 +202,79 @@ LBB4_3:
 	calll	_sqrt
 	fstpl	16(%esp)
 	movsd	16(%esp), %xmm0
-	movsd	48(%esp), %xmm1
+	movsd	56(%esp), %xmm1
 	addsd	%xmm0, %xmm1
-	movsd	%xmm1, 48(%esp)
-	movl	32(%esp), %eax
-	movl	%eax, 44(%esp)
-	movl	28(%esp), %eax
-	movl	%eax, 40(%esp)
-	movl	36(%esp), %eax
-	addl	$1, %eax
-	movl	%eax, 36(%esp)
-	jmp	LBB4_3
+	movsd	%xmm1, 56(%esp)
 LBB4_6:
-	leal	24(%esp), %eax
+	movl	40(%esp), %eax
+	movl	%eax, 52(%esp)
+	movl	36(%esp), %eax
+	movl	%eax, 48(%esp)
+	movl	44(%esp), %eax
+	addl	$1, %eax
+	movl	%eax, 44(%esp)
+	jmp	LBB4_3
+LBB4_8:
+	leal	32(%esp), %eax
 	movl	12(%esp), %ecx
-	addl	$544, %ecx
-	cvtsd2ss	48(%esp), %xmm0
-	movss	%xmm0, 24(%esp)
+	addl	$628, %ecx
+	cvtsd2ss	56(%esp), %xmm0
+	movss	%xmm0, 32(%esp)
 	movl	%ecx, (%esp)
 	movl	%eax, 4(%esp)
 	calll	__ZN7sc_core8sc_inoutIfE5writeERKf
-LBB4_7:
+	leal	31(%esp), %eax
+	movl	12(%esp), %ecx
+	addl	$264, %ecx
+	movb	$0, 31(%esp)
+	movl	%ecx, (%esp)
+	movl	%eax, 4(%esp)
+	calll	__ZN7sc_core8sc_inoutIbE5writeERKb
+LBB4_9:
 	movl	12(%esp), %eax
 	movl	%eax, (%esp)
 	calll	__ZN7sc_core9sc_module4waitEv
 	jmp	LBB4_1
+	.cfi_endproc
+
+	.def	 __ZN7sc_core8sc_inoutIbE5writeERKb;
+	.scl	2;
+	.type	32;
+	.endef
+	.section	.text$_ZN7sc_core8sc_inoutIbE5writeERKb,"xr"
+	.linkonce discard
+	.globl	__ZN7sc_core8sc_inoutIbE5writeERKb
+	.align	16, 0x90
+__ZN7sc_core8sc_inoutIbE5writeERKb:
+Lllvm$workaround$fake$stub$__ZN7sc_core8sc_inoutIbE5writeERKb:
+	.cfi_startproc
+	pushl	%ebp
+Ltmp22:
+	.cfi_def_cfa_offset 8
+Ltmp23:
+	.cfi_offset %ebp, -8
+	movl	%esp, %ebp
+Ltmp24:
+	.cfi_def_cfa_register %ebp
+	subl	$16, %esp
+	movl	12(%ebp), %eax
+	movl	8(%ebp), %ecx
+	movl	%ecx, -4(%ebp)
+	movl	%eax, -8(%ebp)
+	movl	-4(%ebp), %eax
+	movl	%eax, (%esp)
+	calll	__ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv
+	movl	%eax, %ecx
+	addl	$4, %ecx
+	movl	4(%eax), %eax
+	movl	16(%eax), %eax
+	movl	-8(%ebp), %edx
+	movl	%ecx, (%esp)
+	movl	%edx, 4(%esp)
+	calll	*%eax
+	addl	$16, %esp
+	popl	%ebp
+	ret
 	.cfi_endproc
 
 	.def	 __ZNK7sc_core5sc_inIbE4readEv;
@@ -225,12 +289,12 @@ __ZNK7sc_core5sc_inIbE4readEv:
 Lllvm$workaround$fake$stub$__ZNK7sc_core5sc_inIbE4readEv:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp22:
+Ltmp27:
 	.cfi_def_cfa_offset 8
-Ltmp23:
+Ltmp28:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp24:
+Ltmp29:
 	.cfi_def_cfa_register %ebp
 	subl	$8, %esp
 	movl	8(%ebp), %eax
@@ -258,12 +322,12 @@ __ZNK7sc_core5sc_inIiE4readEv:
 Lllvm$workaround$fake$stub$__ZNK7sc_core5sc_inIiE4readEv:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp27:
+Ltmp32:
 	.cfi_def_cfa_offset 8
-Ltmp28:
+Ltmp33:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp29:
+Ltmp34:
 	.cfi_def_cfa_register %ebp
 	subl	$8, %esp
 	movl	8(%ebp), %eax
@@ -291,12 +355,12 @@ __ZN7sc_core10sc_fifo_inIiE4readEv:
 Lllvm$workaround$fake$stub$__ZN7sc_core10sc_fifo_inIiE4readEv:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp32:
+Ltmp37:
 	.cfi_def_cfa_offset 8
-Ltmp33:
+Ltmp38:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp34:
+Ltmp39:
 	.cfi_def_cfa_register %ebp
 	subl	$8, %esp
 	movl	8(%ebp), %eax
@@ -326,12 +390,12 @@ __ZN7sc_core8sc_inoutIfE5writeERKf:
 Lllvm$workaround$fake$stub$__ZN7sc_core8sc_inoutIfE5writeERKf:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp37:
+Ltmp42:
 	.cfi_def_cfa_offset 8
-Ltmp38:
+Ltmp43:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp39:
+Ltmp44:
 	.cfi_def_cfa_register %ebp
 	subl	$16, %esp
 	movl	12(%ebp), %eax
@@ -366,12 +430,12 @@ __ZN7sc_core9sc_module4waitEv:
 Lllvm$workaround$fake$stub$__ZN7sc_core9sc_module4waitEv:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp42:
+Ltmp47:
 	.cfi_def_cfa_offset 8
-Ltmp43:
+Ltmp48:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp44:
+Ltmp49:
 	.cfi_def_cfa_register %ebp
 	subl	$8, %esp
 	movl	8(%ebp), %eax
@@ -398,12 +462,12 @@ __ZN7sc_core18sc_process_monitorD1Ev:
 Lllvm$workaround$fake$stub$__ZN7sc_core18sc_process_monitorD1Ev:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp47:
+Ltmp52:
 	.cfi_def_cfa_offset 8
-Ltmp48:
+Ltmp53:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp49:
+Ltmp54:
 	.cfi_def_cfa_register %ebp
 	subl	$8, %esp
 	movl	8(%ebp), %eax
@@ -428,36 +492,36 @@ __ZN7sc_core18sc_process_monitorD0Ev:
 Lllvm$workaround$fake$stub$__ZN7sc_core18sc_process_monitorD0Ev:
 	.cfi_startproc
 	.cfi_personality 0, ___gxx_personality_v0
-Leh_func_begin11:
-	.cfi_lsda 0, Lexception11
+Leh_func_begin12:
+	.cfi_lsda 0, Lexception12
 	pushl	%ebp
-Ltmp55:
+Ltmp60:
 	.cfi_def_cfa_offset 8
-Ltmp56:
+Ltmp61:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp57:
+Ltmp62:
 	.cfi_def_cfa_register %ebp
 	subl	$20, %esp
 	movl	8(%ebp), %eax
 	movl	%eax, -4(%ebp)
 	movl	%eax, %ecx
-Ltmp50:
+Ltmp55:
 	movl	%esp, %edx
 	movl	%eax, (%edx)
 	movl	%ecx, -16(%ebp)
 	calll	__ZN7sc_core18sc_process_monitorD1Ev
-Ltmp51:
-	jmp	LBB11_1
-LBB11_1:
+Ltmp56:
+	jmp	LBB12_1
+LBB12_1:
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
 	calll	__ZdlPv
 	addl	$20, %esp
 	popl	%ebp
 	ret
-LBB11_2:
-Ltmp52:
+LBB12_2:
+Ltmp57:
 	movl	%eax, -8(%ebp)
 	movl	%edx, -12(%ebp)
 	movl	-16(%ebp), %eax
@@ -467,26 +531,26 @@ Ltmp52:
 	movl	%eax, (%esp)
 	calll	__Unwind_Resume
 	.cfi_endproc
-Leh_func_end11:
+Leh_func_end12:
 	.section	.gcc_except_table,"r"
 	.align	4
-GCC_except_table11:
-Lexception11:
+GCC_except_table12:
+Lexception12:
 	.byte	255
 	.byte	0
 	.asciz	 "\234"
 	.byte	3
 	.byte	26
-Lset0 = Ltmp50-Leh_func_begin11
+Lset0 = Ltmp55-Leh_func_begin12
 	.long	Lset0
-Lset1 = Ltmp51-Ltmp50
+Lset1 = Ltmp56-Ltmp55
 	.long	Lset1
-Lset2 = Ltmp52-Leh_func_begin11
+Lset2 = Ltmp57-Leh_func_begin12
 	.long	Lset2
 	.byte	0
-Lset3 = Ltmp51-Leh_func_begin11
+Lset3 = Ltmp56-Leh_func_begin12
 	.long	Lset3
-Lset4 = Leh_func_end11-Ltmp51
+Lset4 = Leh_func_end12-Ltmp56
 	.long	Lset4
 	.long	0
 	.byte	0
@@ -502,47 +566,6 @@ Lset4 = Leh_func_end11-Ltmp51
 	.align	16, 0x90
 __ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIfEEEptEv:
 Lllvm$workaround$fake$stub$__ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIfEEEptEv:
-	.cfi_startproc
-	pushl	%ebp
-Ltmp60:
-	.cfi_def_cfa_offset 8
-Ltmp61:
-	.cfi_offset %ebp, -8
-	movl	%esp, %ebp
-Ltmp62:
-	.cfi_def_cfa_register %ebp
-	subl	$20, %esp
-	movl	8(%ebp), %eax
-	movl	%eax, -4(%ebp)
-	movl	-4(%ebp), %eax
-	cmpl	$0, 48(%eax)
-	movl	%eax, -8(%ebp)
-	jne	LBB12_2
-	leal	__ZN7sc_core13SC_ID_GET_IF_E, %eax
-	leal	L_.str2, %ecx
-	movl	-8(%ebp), %edx
-	movl	%edx, (%esp)
-	movl	%eax, 4(%esp)
-	movl	%ecx, 8(%esp)
-	calll	__ZNK7sc_core12sc_port_base12report_errorEPKcS2_
-LBB12_2:
-	movl	-8(%ebp), %eax
-	movl	48(%eax), %eax
-	addl	$20, %esp
-	popl	%ebp
-	ret
-	.cfi_endproc
-
-	.def	 __ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv;
-	.scl	2;
-	.type	32;
-	.endef
-	.section	.text$_ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv,"xr"
-	.linkonce discard
-	.globl	__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv
-	.align	16, 0x90
-__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv:
-Lllvm$workaround$fake$stub$__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv:
 	.cfi_startproc
 	pushl	%ebp
 Ltmp65:
@@ -574,16 +597,16 @@ LBB13_2:
 	ret
 	.cfi_endproc
 
-	.def	 __ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv;
+	.def	 __ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv;
 	.scl	2;
 	.type	32;
 	.endef
-	.section	.text$_ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv,"xr"
+	.section	.text$_ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv,"xr"
 	.linkonce discard
-	.globl	__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv
+	.globl	__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv
 	.align	16, 0x90
-__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv:
-Lllvm$workaround$fake$stub$__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv:
+__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv:
+Lllvm$workaround$fake$stub$__ZN7sc_core9sc_port_bINS_13sc_fifo_in_ifIiEEEptEv:
 	.cfi_startproc
 	pushl	%ebp
 Ltmp70:
@@ -608,6 +631,47 @@ Ltmp72:
 	movl	%ecx, 8(%esp)
 	calll	__ZNK7sc_core12sc_port_base12report_errorEPKcS2_
 LBB14_2:
+	movl	-8(%ebp), %eax
+	movl	48(%eax), %eax
+	addl	$20, %esp
+	popl	%ebp
+	ret
+	.cfi_endproc
+
+	.def	 __ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv;
+	.scl	2;
+	.type	32;
+	.endef
+	.section	.text$_ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv,"xr"
+	.linkonce discard
+	.globl	__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv
+	.align	16, 0x90
+__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv:
+Lllvm$workaround$fake$stub$__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIiEEEptEv:
+	.cfi_startproc
+	pushl	%ebp
+Ltmp75:
+	.cfi_def_cfa_offset 8
+Ltmp76:
+	.cfi_offset %ebp, -8
+	movl	%esp, %ebp
+Ltmp77:
+	.cfi_def_cfa_register %ebp
+	subl	$20, %esp
+	movl	8(%ebp), %eax
+	movl	%eax, -4(%ebp)
+	movl	-4(%ebp), %eax
+	cmpl	$0, 48(%eax)
+	movl	%eax, -8(%ebp)
+	jne	LBB15_2
+	leal	__ZN7sc_core13SC_ID_GET_IF_E, %eax
+	leal	L_.str2, %ecx
+	movl	-8(%ebp), %edx
+	movl	%edx, (%esp)
+	movl	%eax, 4(%esp)
+	movl	%ecx, 8(%esp)
+	calll	__ZNK7sc_core12sc_port_base12report_errorEPKcS2_
+LBB15_2:
 	movl	-8(%ebp), %eax
 	movl	48(%eax), %eax
 	addl	$20, %esp
@@ -661,12 +725,12 @@ __ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIbEEEptEv:
 Lllvm$workaround$fake$stub$__ZNK7sc_core9sc_port_bINS_15sc_signal_in_ifIbEEEptEv:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp75:
+Ltmp80:
 	.cfi_def_cfa_offset 8
-Ltmp76:
+Ltmp81:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp77:
+Ltmp82:
 	.cfi_def_cfa_register %ebp
 	subl	$20, %esp
 	movl	8(%ebp), %eax
@@ -674,7 +738,7 @@ Ltmp77:
 	movl	-4(%ebp), %eax
 	cmpl	$0, 48(%eax)
 	movl	%eax, -8(%ebp)
-	jne	LBB17_2
+	jne	LBB18_2
 	leal	__ZN7sc_core13SC_ID_GET_IF_E, %eax
 	leal	L_.str2, %ecx
 	movl	-8(%ebp), %edx
@@ -682,7 +746,48 @@ Ltmp77:
 	movl	%eax, 4(%esp)
 	movl	%ecx, 8(%esp)
 	calll	__ZNK7sc_core12sc_port_base12report_errorEPKcS2_
-LBB17_2:
+LBB18_2:
+	movl	-8(%ebp), %eax
+	movl	48(%eax), %eax
+	addl	$20, %esp
+	popl	%ebp
+	ret
+	.cfi_endproc
+
+	.def	 __ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv;
+	.scl	2;
+	.type	32;
+	.endef
+	.section	.text$_ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv,"xr"
+	.linkonce discard
+	.globl	__ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv
+	.align	16, 0x90
+__ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv:
+Lllvm$workaround$fake$stub$__ZN7sc_core9sc_port_bINS_18sc_signal_inout_ifIbEEEptEv:
+	.cfi_startproc
+	pushl	%ebp
+Ltmp85:
+	.cfi_def_cfa_offset 8
+Ltmp86:
+	.cfi_offset %ebp, -8
+	movl	%esp, %ebp
+Ltmp87:
+	.cfi_def_cfa_register %ebp
+	subl	$20, %esp
+	movl	8(%ebp), %eax
+	movl	%eax, -4(%ebp)
+	movl	-4(%ebp), %eax
+	cmpl	$0, 48(%eax)
+	movl	%eax, -8(%ebp)
+	jne	LBB19_2
+	leal	__ZN7sc_core13SC_ID_GET_IF_E, %eax
+	leal	L_.str2, %ecx
+	movl	-8(%ebp), %edx
+	movl	%edx, (%esp)
+	movl	%eax, 4(%esp)
+	movl	%ecx, 8(%esp)
+	calll	__ZNK7sc_core12sc_port_base12report_errorEPKcS2_
+LBB19_2:
 	movl	-8(%ebp), %eax
 	movl	48(%eax), %eax
 	addl	$20, %esp
@@ -699,12 +804,12 @@ LBB17_2:
 __GLOBAL__I_a:
 	.cfi_startproc
 	pushl	%ebp
-Ltmp80:
+Ltmp90:
 	.cfi_def_cfa_offset 8
-Ltmp81:
+Ltmp91:
 	.cfi_offset %ebp, -8
 	movl	%esp, %ebp
-Ltmp82:
+Ltmp92:
 	.cfi_def_cfa_register %ebp
 	calll	___cxx_global_var_init
 	calll	___cxx_global_var_init1

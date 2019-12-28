@@ -543,11 +543,9 @@
 #pragma line 2 "C:/Xilinx/Vivado_HLS/2017.2/common/technology/autopilot/ap_sysc\\systemc.h" 2 ::: 34399
 #pragma line 2 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.h" 2 ::: 34401
 #pragma line 10 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.h" ::: 34410
-#pragma line 40 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.h" ::: 34443
-#pragma line 2 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" 2 ::: 34448
-#pragma line 4 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34451
-#pragma line 6 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34469
-#pragma line 7 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34471
-#pragma line 10 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34473
-#pragma line 13 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34475
-#pragma line 43 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34508
+#pragma line 43 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.h" ::: 34446
+#pragma line 2 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" 2 ::: 34451
+#pragma line 4 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34454
+#pragma line 7 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34474
+#pragma line 9 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34476
+#pragma line 42 "ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp" ::: 34512

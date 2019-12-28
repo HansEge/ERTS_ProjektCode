@@ -3,7 +3,7 @@ set TopModule "DistCalc"
 set ClockPeriod "8.000000"
 set ClockList {clk}
 set multiClockList {}
-set PortClockMap {reset clk numberOfPoints clk ready clk x clk y clk outputDist clk}
+set PortClockMap {reset clk busy clk numberOfPoints clk ready clk x clk y clk outputDist clk}
 set CombLogicFlag 0
 set PipelineFlag 0
 set DataflowTaskPipelineFlag  1
@@ -44,7 +44,7 @@ set TargetInfo "xc7z010:clg400:-1"
 set SourceFiles {sc ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalc.cpp c {}}
 set SourceFlags {sc {{}} c {}}
 set DirectiveFile {C:/Users/Mathi/Desktop/Skole/ERTS/project/ERTS_ProjektCode/ROGSAnne_HLS/solution_ROGSAnne/solution_ROGSAnne.directive}
-set TBFiles {verilog {../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp} bc {../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp} vhdl {../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp} sc {../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp} cas {../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp} c {}}
+set TBFiles {verilog {../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp} bc {../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp} vhdl {../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp} sc {../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp} cas {../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.cpp ../../ROGSAnne_SystemC/ROGSAnne_SystemC/DistCalcDriver.h ../../ROGSAnne_SystemC/ROGSAnne_SystemC/tb_DistCalc.cpp} c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

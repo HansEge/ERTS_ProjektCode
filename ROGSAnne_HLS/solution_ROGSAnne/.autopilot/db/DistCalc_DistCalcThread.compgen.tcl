@@ -333,70 +333,18 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-# Adapter definition:
-set corename slv0
-set opts {
-    {
-        id 6
-        name numberOfPoints
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 32
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-    {
-        id 7
-        name ready
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir I
-        width 1
-        mode SIG_IN_VLD_OFF:SIG_IN_ACC_OFF
-    }
-    {
-        id 10
-        name outputDist
-        reset_level 1
-        sync_rst true
-        type scalar
-        dir O
-        width 32
-        mode SIG_OUT_VLD_ON:SIG_OUT_ACC_OFF
-    }
-}
-set portmap { }
-set metadata { -bus_bundle slv0}
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::axi_slave_int_gen] == "::AESL_LIB_XILADAPTER::axi_slave_int_gen"} {
-eval "::AESL_LIB_XILADAPTER::axi_slave_int_gen { \
-    corename ${corename} \
-    reset_level 1 \
-    sync_rst true \
-    opts {${opts}} \
-    portmap {${portmap}} \
-    metadata {${metadata}} \
-}"
-} else {
-puts "@W Can not find gen function '::AESL_LIB_XILADAPTER::axi_slave_int_gen' in the library. Ignored generation of adapter for '${corename}'"
-}
-}
-
-
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 8 \
-    name x1 \
-    type fifo \
-    dir I \
+    name busy \
+    type other \
+    dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_x1 \
+    corename dc_busy \
     op interface \
-    ports { x1_dout { I 32 vector } x1_empty_n { I 1 bit } x1_read { O 1 bit } } \
+    ports { busy { O 1 bit } busy_ap_vld { O 1 bit } } \
 } "
 }
 
@@ -404,14 +352,74 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 9 \
-    name y2 \
+    name numberOfPoints \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_numberOfPoints \
+    op interface \
+    ports { numberOfPoints { I 32 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 10 \
+    name ready \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_ready \
+    op interface \
+    ports { ready { I 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 11 \
+    name x \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_y2 \
+    corename dc_x \
     op interface \
-    ports { y2_dout { I 32 vector } y2_empty_n { I 1 bit } y2_read { O 1 bit } } \
+    ports { x_dout { I 32 vector } x_empty_n { I 1 bit } x_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 12 \
+    name y \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_y \
+    op interface \
+    ports { y_dout { I 32 vector } y_empty_n { I 1 bit } y_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 13 \
+    name outputDist \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_outputDist \
+    op interface \
+    ports { outputDist { O 32 vector } outputDist_ap_vld { O 1 bit } } \
 } "
 }
 

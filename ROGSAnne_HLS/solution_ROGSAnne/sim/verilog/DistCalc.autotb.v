@@ -22,6 +22,7 @@ reg  [31:0]   x_dout;
 reg           x_empty_n;
 reg  [31:0]   y_dout;
 reg           y_empty_n;
+wire          busy;
 wire          x_read;
 wire          y_read;
 wire [31:0]   outputDist;
@@ -32,6 +33,7 @@ reg  [31:0]   __aesl__x_dout;
 reg           __aesl__x_empty_n;
 reg  [31:0]   __aesl__y_dout;
 reg           __aesl__y_empty_n;
+reg           __aesl__busy;
 reg           __aesl__x_read;
 reg           __aesl__y_read;
 reg  [31:0]   __aesl__outputDist;
@@ -40,6 +42,7 @@ integer __aesl__err;
 DistCalc DistCalc_inst (
     .clk            ( __aesl__clock0 ),
     .reset          ( reset ),
+    .busy           ( busy ),
     .numberOfPoints ( numberOfPoints ),
     .ready          ( ready ),
     .x_dout         ( x_dout ),
@@ -508,7 +511,35 @@ initial begin : __aesl__check_process
         end
         read_token(__aesl__fp, __aesl__token);
         while (__aesl__token != "}") begin
-                if ((__aesl__token[55 : 8] == "x_read") && (__aesl__token[63 : 56] == 34) && (__aesl__token[7 : 0] == 34)) begin
+                if ((__aesl__token[39 : 8] == "busy") && (__aesl__token[47 : 40] == 34) && (__aesl__token[7 : 0] == 34)) begin
+                    read_token(__aesl__fp, __aesl__token);
+                    if (__aesl__token != ":") begin  // illegal format
+                        $display("Illegal tv format of file \"%s\"!", TV_OUT);
+                        $display("ERROR: Simulation using HLS TB failed.");
+                        $fdisplay(__aesl__err, "Cycle #%0d: Failed to open file \"%s\"!", __aesl__cid, TV_OUT);
+                        $finish;
+                    end
+                    read_token(__aesl__fp, __aesl__token);
+                    rm_quoation(__aesl__token);
+                    __aesl__ret = $sscanf(__aesl__token, "%b", __aesl__busy);
+                    if (__aesl__ret != 1) begin
+                        $display("Failed to parse token!");
+                        $display("ERROR: Simulation using HLS TB failed.");
+                        $fdisplay(__aesl__err, "Cycle #%0d: Failed to open file \"%s\"!", __aesl__cid, TV_OUT);
+                        $finish;
+                    end
+                    if (!__aesl__ig0) begin
+                        __aesl__ok = 1;
+                        if (__aesl__busy === 0 && busy !== 0 ||
+                            __aesl__busy === 1 && busy !== 1) begin
+                            __aesl__ok = 0;
+                        end
+                        if (!__aesl__ok) begin
+                            $fdisplay(__aesl__err, "Cycle #%0d: signal \"busy\": %0b -- %0b (expected) unmatched.", __aesl__cid, busy, __aesl__busy);
+                        end
+                    end
+                end
+                else if ((__aesl__token[55 : 8] == "x_read") && (__aesl__token[63 : 56] == 34) && (__aesl__token[7 : 0] == 34)) begin
                     read_token(__aesl__fp, __aesl__token);
                     if (__aesl__token != ":") begin  // illegal format
                         $display("Illegal tv format of file \"%s\"!", TV_OUT);

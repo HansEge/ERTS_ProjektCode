@@ -7,11 +7,12 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="DistCalc,hls_ip_2017_2,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z010clg400-1,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=6.912000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=11,HLS_SYN_FF=5988,HLS_SYN_LUT=4914}" *)
+(* CORE_GENERATION_INFO="DistCalc,hls_ip_2017_2,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z010clg400-1,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.354100,HLS_SYN_LAT=37,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=19,HLS_SYN_FF=7418,HLS_SYN_LUT=6230}" *)
 
 module DistCalc (
         clk,
         reset,
+        busy,
         numberOfPoints,
         ready,
         x_dout,
@@ -26,6 +27,7 @@ module DistCalc (
 
 input   clk;
 input   reset;
+output   busy;
 input  [31:0] numberOfPoints;
 input   ready;
 input  [31:0] x_dout;
@@ -36,33 +38,48 @@ input   y_empty_n;
 output   y_read;
 output  [31:0] outputDist;
 
+reg busy = 1'd0;
 reg[31:0] outputDist;
 
-wire    grp_DistCalc_DistCalcThread_fu_74_x1_read;
-wire    grp_DistCalc_DistCalcThread_fu_74_y2_read;
-wire   [31:0] grp_DistCalc_DistCalcThread_fu_74_outputDist;
-wire    grp_DistCalc_DistCalcThread_fu_74_outputDist_ap_vld;
+wire    grp_DistCalc_DistCalcThread_fu_70_busy;
+wire    grp_DistCalc_DistCalcThread_fu_70_busy_ap_vld;
+wire    grp_DistCalc_DistCalcThread_fu_70_x_read;
+wire    grp_DistCalc_DistCalcThread_fu_70_y_read;
+wire   [31:0] grp_DistCalc_DistCalcThread_fu_70_outputDist;
+wire    grp_DistCalc_DistCalcThread_fu_70_outputDist_ap_vld;
 wire   [1:0] ap_CS_fsm;
 wire    ap_CS_fsm_state2;
 
-DistCalc_DistCalcThread grp_DistCalc_DistCalcThread_fu_74(
+DistCalc_DistCalcThread grp_DistCalc_DistCalcThread_fu_70(
     .ap_clk(clk),
     .ap_rst(reset),
+    .busy(grp_DistCalc_DistCalcThread_fu_70_busy),
+    .busy_ap_vld(grp_DistCalc_DistCalcThread_fu_70_busy_ap_vld),
     .numberOfPoints(numberOfPoints),
     .ready(ready),
-    .x1_dout(x_dout),
-    .x1_empty_n(x_empty_n),
-    .x1_read(grp_DistCalc_DistCalcThread_fu_74_x1_read),
-    .y2_dout(y_dout),
-    .y2_empty_n(y_empty_n),
-    .y2_read(grp_DistCalc_DistCalcThread_fu_74_y2_read),
-    .outputDist(grp_DistCalc_DistCalcThread_fu_74_outputDist),
-    .outputDist_ap_vld(grp_DistCalc_DistCalcThread_fu_74_outputDist_ap_vld)
+    .x_dout(x_dout),
+    .x_empty_n(x_empty_n),
+    .x_read(grp_DistCalc_DistCalcThread_fu_70_x_read),
+    .y_dout(y_dout),
+    .y_empty_n(y_empty_n),
+    .y_read(grp_DistCalc_DistCalcThread_fu_70_y_read),
+    .outputDist(grp_DistCalc_DistCalcThread_fu_70_outputDist),
+    .outputDist_ap_vld(grp_DistCalc_DistCalcThread_fu_70_outputDist_ap_vld)
 );
 
 always @ (posedge clk) begin
-    if ((1'b1 == grp_DistCalc_DistCalcThread_fu_74_outputDist_ap_vld)) begin
-        outputDist <= grp_DistCalc_DistCalcThread_fu_74_outputDist;
+    if (reset == 1'b0) begin
+        busy <= 1'd0;
+    end else begin
+        if ((1'b1 == grp_DistCalc_DistCalcThread_fu_70_busy_ap_vld)) begin
+            busy <= grp_DistCalc_DistCalcThread_fu_70_busy;
+        end
+    end
+end
+
+always @ (posedge clk) begin
+    if ((1'b1 == grp_DistCalc_DistCalcThread_fu_70_outputDist_ap_vld)) begin
+        outputDist <= grp_DistCalc_DistCalcThread_fu_70_outputDist;
     end
 end
 
@@ -70,8 +87,8 @@ assign ap_CS_fsm = 2'd0;
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign x_read = grp_DistCalc_DistCalcThread_fu_74_x1_read;
+assign x_read = grp_DistCalc_DistCalcThread_fu_70_x_read;
 
-assign y_read = grp_DistCalc_DistCalcThread_fu_74_y2_read;
+assign y_read = grp_DistCalc_DistCalcThread_fu_70_y_read;
 
 endmodule //DistCalc

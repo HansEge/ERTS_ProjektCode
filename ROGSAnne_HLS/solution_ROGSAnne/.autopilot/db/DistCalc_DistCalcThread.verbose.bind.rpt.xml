@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'DistCalc_DistCalcThread'" level="0">
-<item name = "Date">Mon Dec 23 12:15:29 2019
+<item name = "Date">Sat Dec 28 12:54:02 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">ROGSAnne_HLS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">8.00, 6.91, 1.00</column>
+<column name="ap_clk">8.00, 8.35, 1.00</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, none</column>
+<column name="">3, 143, 3, 143, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">?, ?, ?, -, -, inf, no</column>
-<column name=" + Loop 1.1">?, ?, 75, -, -, ?, no</column>
+<column name="- Loop 1">2, 142, 2 ~ 142, -, -, inf, no</column>
 </table>
 </item>
 </section>

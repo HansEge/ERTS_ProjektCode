@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="DistCalc.wdb" id="1">
+         <top_modules>
+            <top_module name="AUTOTB_TOP" />
+            <top_module name="aesl_sim_components" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+   </zoom_setting>
+   <column_width_setting>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject fp_name="group1" type="group">
+      <obj_property name="label">Design Top Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group2" type="group">
+         <obj_property name="label">C Outputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group3" type="group">
+            <obj_property name="label">outputDist(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/outputDist" type="array">
+               <obj_property name="ElementShortName">outputDist[31:0]</obj_property>
+               <obj_property name="ObjectShortName">outputDist[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group5" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group6" type="group">
+            <obj_property name="label">y(fifo)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/y_read" type="logic">
+               <obj_property name="ElementShortName">y_read</obj_property>
+               <obj_property name="ObjectShortName">y_read</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/y_empty_n" type="logic">
+               <obj_property name="ElementShortName">y_empty_n</obj_property>
+               <obj_property name="ObjectShortName">y_empty_n</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/y_dout" type="array">
+               <obj_property name="ElementShortName">y_dout[31:0]</obj_property>
+               <obj_property name="ObjectShortName">y_dout[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group10" type="group">
+            <obj_property name="label">x(fifo)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/x_read" type="logic">
+               <obj_property name="ElementShortName">x_read</obj_property>
+               <obj_property name="ObjectShortName">x_read</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/x_empty_n" type="logic">
+               <obj_property name="ElementShortName">x_empty_n</obj_property>
+               <obj_property name="ObjectShortName">x_empty_n</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/x_dout" type="array">
+               <obj_property name="ElementShortName">x_dout[31:0]</obj_property>
+               <obj_property name="ObjectShortName">x_dout[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group14" type="group">
+            <obj_property name="label">ready(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/ready" type="logic">
+               <obj_property name="ElementShortName">ready</obj_property>
+               <obj_property name="ObjectShortName">ready</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group16" type="group">
+            <obj_property name="label">numberOfPoints(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/DUT_INST/numberOfPoints" type="array">
+               <obj_property name="ElementShortName">numberOfPoints[31:0]</obj_property>
+               <obj_property name="ObjectShortName">numberOfPoints[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group18" type="group">
+         <obj_property name="label">Reset</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/AUTOTB_TOP/DUT_INST/reset" type="logic">
+            <obj_property name="ElementShortName">reset</obj_property>
+            <obj_property name="ObjectShortName">reset</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group20" type="group">
+         <obj_property name="label">Clock</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/AUTOTB_TOP/DUT_INST/clk" type="logic">
+            <obj_property name="ElementShortName">clk</obj_property>
+            <obj_property name="ObjectShortName">clk</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group22" type="group">
+      <obj_property name="label">Test Bench Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="group23" type="group">
+         <obj_property name="label">C Outputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group24" type="group">
+            <obj_property name="label">outputDist(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/outputDist" type="array">
+               <obj_property name="ElementShortName">outputDist[31:0]</obj_property>
+               <obj_property name="ObjectShortName">outputDist[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group26" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group27" type="group">
+            <obj_property name="label">y(fifo)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/y_read" type="logic">
+               <obj_property name="ElementShortName">y_read</obj_property>
+               <obj_property name="ObjectShortName">y_read</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/y_empty_n" type="logic">
+               <obj_property name="ElementShortName">y_empty_n</obj_property>
+               <obj_property name="ObjectShortName">y_empty_n</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/y_dout" type="array">
+               <obj_property name="ElementShortName">y_dout[31:0]</obj_property>
+               <obj_property name="ObjectShortName">y_dout[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group31" type="group">
+            <obj_property name="label">x(fifo)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/x_read" type="logic">
+               <obj_property name="ElementShortName">x_read</obj_property>
+               <obj_property name="ObjectShortName">x_read</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/x_empty_n" type="logic">
+               <obj_property name="ElementShortName">x_empty_n</obj_property>
+               <obj_property name="ObjectShortName">x_empty_n</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/AUTOTB_TOP/x_dout" type="array">
+               <obj_property name="ElementShortName">x_dout[31:0]</obj_property>
+               <obj_property name="ObjectShortName">x_dout[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group35" type="group">
+            <obj_property name="label">ready(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/ready" type="logic">
+               <obj_property name="ElementShortName">ready</obj_property>
+               <obj_property name="ObjectShortName">ready</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group37" type="group">
+            <obj_property name="label">numberOfPoints(wire)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/AUTOTB_TOP/numberOfPoints" type="array">
+               <obj_property name="ElementShortName">numberOfPoints[31:0]</obj_property>
+               <obj_property name="ObjectShortName">numberOfPoints[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>
