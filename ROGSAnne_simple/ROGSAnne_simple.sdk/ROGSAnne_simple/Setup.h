@@ -12,8 +12,9 @@
 #include "BaseState.h"
 #include "SystemContext.h"
 #include "xgpio.h"
+#include "GLOBAL.h"
 
-#define NUM_COORDS 10
+#define NUM_COORDS 8
 
 
 

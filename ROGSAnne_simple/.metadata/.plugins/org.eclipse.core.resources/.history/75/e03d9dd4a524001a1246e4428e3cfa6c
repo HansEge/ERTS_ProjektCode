@@ -1,0 +1,18 @@
+/*
+ * GLOBAL.cpp
+ *
+ *  Created on: 22 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GLOBAL.h"
+
+GLOBAL::GLOBAL() {
+	// TODO Auto-generated constructor stub
+
+}
+
+GLOBAL::~GLOBAL() {
+	// TODO Auto-generated destructor stub
+}
+

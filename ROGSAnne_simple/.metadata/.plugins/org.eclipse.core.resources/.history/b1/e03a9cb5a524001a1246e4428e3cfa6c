@@ -1,0 +1,18 @@
+/*
+ * GLOBALS.cpp
+ *
+ *  Created on: 22 Dec 2019
+ *      Author: stinu
+ */
+
+#include "GLOBALS.h"
+
+GLOBALS::GLOBALS() {
+	// TODO Auto-generated constructor stub
+
+}
+
+GLOBALS::~GLOBALS() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -1,0 +1,13 @@
+#include "Distance.h"
+
+float Distance(int x[NUM_COORDS], int y[NUM_COORDS]){
+		
+		float distance = 0;
+		// Calculate total distance
+		for(int i = 0; i < NUM_COORDS-1; i++)
+		{
+			distance += sqrt(pow(x[i+1]-x[i],2) + pow(y[i+1]-y[i],2));
+		}
+		return distance;
+
+}

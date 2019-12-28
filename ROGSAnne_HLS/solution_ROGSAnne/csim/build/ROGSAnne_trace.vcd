@@ -1,0 +1,153 @@
+$date
+     Dec 23, 2019       12:14:41
+$end
+
+$version
+              SystemC 2.3.0-ASI --- Jul  4 2013 11:46:47
+$end
+
+$timescale
+     1 ns
+$end
+
+$scope module SystemC $end
+$var wire    1  aaa  clock       $end
+$var wire    1  aab  ready       $end
+$var wire   32  aac  numberOfPoints [31:0]  $end
+$var real    1  aad  distResult       $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+1aaa
+1aab
+b11 aac
+r0 aad
+$end
+
+#5
+0aaa
+
+#10
+1aaa
+0aab
+r2.828427076339722 aad
+
+#15
+0aaa
+
+#20
+1aaa
+1aab
+
+#25
+0aaa
+
+#30
+1aaa
+0aab
+r6.708203792572022 aad
+
+#35
+0aaa
+
+#40
+1aaa
+
+#45
+0aaa
+
+#50
+1aaa
+
+#55
+0aaa
+
+#60
+1aaa
+
+#65
+0aaa
+
+#70
+1aaa
+
+#75
+0aaa
+
+#80
+1aaa
+
+#85
+0aaa
+
+#90
+1aaa
+
+#95
+0aaa
+
+#100
+1aaa
+
+#105
+0aaa
+
+#110
+1aaa
+
+#115
+0aaa
+
+#120
+1aaa
+
+#125
+0aaa
+
+#130
+1aaa
+
+#135
+0aaa
+
+#140
+1aaa
+
+#145
+0aaa
+
+#150
+1aaa
+
+#155
+0aaa
+
+#160
+1aaa
+
+#165
+0aaa
+
+#170
+1aaa
+
+#175
+0aaa
+
+#180
+1aaa
+
+#185
+0aaa
+
+#190
+1aaa
+
+#195
+0aaa
+
