@@ -1,6 +1,7 @@
 /*
  * BaseState.h
- *
+ *	BaseState is an abstract class all the States inherits
+ *	BaseState implements all the events in the system
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */

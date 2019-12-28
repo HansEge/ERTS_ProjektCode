@@ -1,6 +1,6 @@
 /*
  * RNG.cpp
- *
+ *	RNG class generates random unsigned int and floats.
  *  Created on: Dec 21, 2019
  *      Author: Mathi
  */
@@ -8,6 +8,7 @@
 #include "RNG.h"
 #include <limits>
 
+// generates and returns a random unsigned int
 unsigned int getRandomUnsignedInt(){
 	unsigned int b;
 
@@ -23,6 +24,7 @@ unsigned int getRandomUnsignedInt(){
 	   return (z1 ^ z2 ^ z3 ^ z4);
 };
 
+// generates and returns a random float in range
 float getRandomFloat(float min, float max){
 	unsigned int OldMax, OldMin, OldValue, OldRange;
 	float NewRange, NewValue = 0;
@@ -37,6 +39,7 @@ float getRandomFloat(float min, float max){
 	return NewValue;
 };
 
+// generates and returns a unsigned int in range
 unsigned int getRandomUnsignedIntInRange(unsigned int min, unsigned int max){
 	unsigned int r = getRandomUnsignedInt();
 	unsigned int range = max - min;

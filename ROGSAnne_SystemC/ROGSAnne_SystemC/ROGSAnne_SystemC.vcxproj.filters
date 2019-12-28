@@ -18,13 +18,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DistanceCalculator.h">
+    <ClInclude Include="DistCalc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DistanceCalculatorDriver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Top.h">
+    <ClInclude Include="DistCalcDriver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,16 +29,13 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DistanceCalculator.cpp">
+    <ClCompile Include="DistCalc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DistanceCalculatorDriver.cpp">
+    <ClCompile Include="DistCalcDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Top.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tb_DistanceCalculator.cpp">
+    <ClCompile Include="tb_DistCalc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

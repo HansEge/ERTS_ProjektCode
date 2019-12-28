@@ -1,6 +1,6 @@
 /*
  * Timer.cpp
- *
+ *	Timer class is used to time the system
  *  Created on: Dec 21, 2019
  *      Author: Mathi
  */
@@ -16,17 +16,19 @@ myTimer::myTimer()
 	  xil_printf("Timer init() failed\r\n");
 	}
 
-	XScuTimer_LoadTimer(TimerInstancePtr,TIMER_MAX); 	// Setup timer to countdown from ONE_SECOND
+	// Setup timer to countdown from ONE_SECOND
+	XScuTimer_LoadTimer(TimerInstancePtr,TIMER_MAX);
 	XScuTimer_Start(TimerInstancePtr);
 }
 
 void myTimer::reloadTimer(){
-	//XScuTimer_Start(TimerInstancePtr);
-	XScuTimer_RestartTimer(TimerInstancePtr); 	// Start the timer
+	// Start the timer
+	XScuTimer_RestartTimer(TimerInstancePtr);
 }
 
 int myTimer::getTimerValue(){
-	return XScuTimer_GetCounterValue(TimerInstancePtr); // Get elapsed time in clock cycles
+	// Get elapsed time in clock cycles
+	return XScuTimer_GetCounterValue(TimerInstancePtr);
 }
 
 int myTimer::getElapsedCycles(){

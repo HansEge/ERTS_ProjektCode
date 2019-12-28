@@ -1,9 +1,11 @@
 /*
  * Evaluator.cpp
- *
+ *	Evaluator class checks if the stop condition for the algorithm is met
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */
+
+
 
 #include "Evaluator.h"
 
@@ -12,9 +14,9 @@ Evaluator::Evaluator(SystemContext* pSC) : BaseState(pSC){
 }
 
 Evaluator::~Evaluator() {
-	// TODO Auto-generated destructor stub
 }
 
+//OnEnter is called by SystemContext class when the current state is changes to EvaluatorState
 void Evaluator::onEnter() {
 	int epochNo = this->pSysContext->epoch_no;
 	if (epochNo % 1 == 0)
@@ -23,12 +25,6 @@ void Evaluator::onEnter() {
 		xil_printf(std::to_string(epochNo).c_str());
 		xil_printf("\r\n");
 	}
-	//xil_printf("Entered Evaluator.\r\n");
-
-	/*xil_printf("Epoch no:");
-	xil_printf(std::to_string(this->pSysContext->epoch_no).c_str());
-	xil_printf("\r\n");
-	*/
 	checkStopCondition();
 	if(stopConditionMet == true){
 		stopCondtionMet();
@@ -41,19 +37,21 @@ void Evaluator::onEnter() {
 void Evaluator::onExit(){
 }
 
+//Is called when the stop condition is met
+//Prints the number of iterations it took to met the stop condition.
 void Evaluator::stopCondtionMet() {
-	//this->_pSC->setState(this->_pSC->??);
 	xil_printf("Stop condition met after ");
 	xil_printf(std::to_string(this->pSysContext->epoch_no).c_str());
 	xil_printf(" iterations.");
 }
 
-
+//Is called when the stop condition is not yet met
+//Changes the current state to GenerationMakerState
 void Evaluator::stopConditionNotMet(){
-	//xil_printf("Stop condition not met. Creating another generation. \r\n");
 	this->pSysContext->setState(this->pSysContext->GenerationMakerState);
 }
 
+//Check if the stop condition is met
 void Evaluator::checkStopCondition() {
 
 	//Get the current new population distances
@@ -67,11 +65,7 @@ void Evaluator::checkStopCondition() {
 	    	  newBestCandSolution=newDistances[i];
 	   }
 	}
-	/*
-	xil_printf("Iteration best:");
-	xil_printf(std::to_string(newBestCandSolution).c_str());
-	xil_printf("\r\n");
-*/
+
 	// Compare the new best candidate solution with the old best
 	if (newBestCandSolution >= currentBestCandidateSolution){
 		conditionIndex ++;
@@ -89,6 +83,7 @@ void Evaluator::checkStopCondition() {
 		conditionIndex = 0;
 		stopConditionMet = false;
 
+		// Used for debugging
 		xil_printf("Found new shorter distance: ");
 		xil_printf(std::to_string(newBestCandSolution).c_str());
 		xil_printf("\r\n");
@@ -96,6 +91,5 @@ void Evaluator::checkStopCondition() {
 		// Set new best candidate solution to old best candidate solution, to make it ready for next evaluation.
 		currentBestCandidateSolution = newBestCandSolution;
 	}
-
 
 }

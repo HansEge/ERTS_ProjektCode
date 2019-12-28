@@ -11,12 +11,14 @@ TOP::TOP(sc_module_name nm) :
 
 	// Conncect driver to DUT
 	driver->ready(s_ready);
+	driver->reset(s_reset);
 	driver->numberOfPoints(s_numberOfPoints);
 	driver->outputDist(s_result);
 	driver->x(s_x);
 	driver->y(s_y);
 
 	dut->ready(s_ready);
+	dut->reset(s_reset);
 	dut->numberOfPoints(s_numberOfPoints);
 	dut->outputDist(s_result);
 	dut->x(s_x);
