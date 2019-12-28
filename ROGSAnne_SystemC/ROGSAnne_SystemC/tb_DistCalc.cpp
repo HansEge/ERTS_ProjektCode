@@ -5,8 +5,8 @@
 #ifdef __RTL_SIMULATION__
 #include "DistCalc_rtl_wrapper.h"
 #define DistCalc DistCalc_rtl_wrapper
-// if not, the c-simulation is being run, and the c-version is used instead.
 #else
+// if not, the c-simulation is being run, and the c-version is used instead.
 #include "DistCalc.h"
 #endif
 
@@ -16,11 +16,11 @@
 
 int sc_main(int argc, char *argv[])
 {
+	// Setup for trace file
 	sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", SC_DO_NOTHING);
 	sc_report_handler::set_actions(SC_ID_LOGIC_X_TO_BOOL_, SC_LOG);
 	sc_report_handler::set_actions(SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, SC_LOG);
 	//sc_report_handler::set_actions(SC_ID_OBJECT_EXISTS_, SC_LOG);
-
 	sc_trace_file *tracefile;
 
 	// Test signals
@@ -37,7 +37,7 @@ int sc_main(int argc, char *argv[])
 	// Reset signal
 	sc_signal<bool> s_reset;
 
-	// DUT and driver
+	// Create DUT and driver
 	DistCalc DUT("dCalc");
 	DistCalcDriver driver("driver");
 
@@ -54,9 +54,7 @@ int sc_main(int argc, char *argv[])
 	sc_trace(tracefile, s_busy, "busy");
 	sc_trace(tracefile, s_numberOfPoints, "numberOfPoints");
 	sc_trace(tracefile, s_result, "distResult");
-	//sc_trace(tracefile, s_x, "x");
-	//sc_trace(tracefile, s_y, "y");
-
+	
 	// Connect the DUT to the signals
 	DUT.clk(s_clk);
 	DUT.reset(s_reset);
@@ -77,7 +75,7 @@ int sc_main(int argc, char *argv[])
 	driver.y(s_y);
 	driver.outputDist(s_result);
 	
-	// Simulate for 200
+	// Simulate for 200ns
 	int end_time = 200;
 	std::cout << "INFO: Simulating" << std::endl;
 	// start simulation

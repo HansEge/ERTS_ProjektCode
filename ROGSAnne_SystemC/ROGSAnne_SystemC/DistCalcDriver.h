@@ -2,8 +2,6 @@
 #define __DIST_CALC_DRIVER__
 #include <systemc.h>
 
-#define NUM_BITS 4
-
 SC_MODULE(DistCalcDriver) {
 
 	//CLOCK
@@ -34,7 +32,6 @@ SC_MODULE(DistCalcDriver) {
 
 		//Process Registration
 		SC_CTHREAD(test,clk.pos());
-		//sensitive << clk.pos();
 	}
 };
 

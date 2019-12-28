@@ -2,7 +2,6 @@
 
 void DistCalcDriver::test() {
 
-
 	//Variables
 	bool isReady;
 	int _numberOfPoints = 10;
@@ -15,10 +14,10 @@ void DistCalcDriver::test() {
 	int ys_2[10] = {19, 17, 15, 13, 11, 9, 7, 5, 3, 1};
 
 	float result_1;
-	float expectedResult_1 = 12.7279;
+	float expectedResult_1 = 12.7279; // Calculated in MATLAB
 
 	float result_2;
-	float expectedResult_2 = 25.4558;
+	float expectedResult_2 = 25.4558; // Calculated in MATLAB
 
 	// Wait for reset
 	wait();
@@ -81,7 +80,8 @@ void DistCalcDriver::test() {
 
 
 	// Compare output to expected value.
-	if ( (abs(result_1 - expectedResult_1) < 0.001) && (abs(result_2 - expectedResult_2) < 0.001)) // Written like this to tolerate a bit of rounding error in result.
+	// Written like this to tolerate a bit of rounding error in result.
+	if ( (abs(result_1 - expectedResult_1) < 0.001) && (abs(result_2 - expectedResult_2) < 0.001))
 		retval = 0;
 	else
 		retval = 1;
