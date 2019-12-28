@@ -1,6 +1,6 @@
 /*
  * GenerationMaker.cpp
- *
+ *	GenerationMaker class generates a new population based on the computed fitness from the old population.
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */
@@ -16,7 +16,6 @@ GenerationMaker::GenerationMaker(SystemContext* pSC) : BaseState(pSC){
 }
 
 GenerationMaker::~GenerationMaker() {
-	// TODO Auto-generated destructor stub
 }
 
 void GenerationMaker::NewGenerationReady(){
@@ -26,8 +25,6 @@ void GenerationMaker::NewGenerationReady(){
 
 void GenerationMaker::onEnter() {
 
-	//xil_printf("Entered GenerationMaker.\r\n");
-
 	// For timing
 	this->pSysContext->timer->reloadTimer();
 
@@ -36,15 +33,6 @@ void GenerationMaker::onEnter() {
 
 	// Write timing info
 	int cycles_createNewGeneration = this->pSysContext->timer->getElapsedCycles();
-
-	/*
-	xil_printf("Cycles spent on creating new generation: ");
-	xil_printf(std::to_string(cycles_createNewGeneration).c_str());
-	xil_printf(" = ");
-	xil_printf(std::to_string((float)cycles_createNewGeneration/ONE_SECOND).c_str());
-	xil_printf("seconds.\r\n");
-	xil_printf("\r\n");
-*/
 
 	this->pSysContext->epoch_no++;
 	NewGenerationReady();
@@ -74,11 +62,7 @@ void GenerationMaker::createNewGeneration()
 
 		// TODO: Get random index for crossover point
 		unsigned int crossoverPoint = getRandomUnsignedIntInRange(0+1,NUM_COORDS-1);
-/*
-		xil_printf("Doing crossover at index: ");
-		xil_printf(std::to_string(crossoverPoint).c_str());
-		xil_printf("\r\n");
-*/
+
 		// Create new children.
 		createChildren(indexA, indexB, crossoverPoint, 2*i, 2*i+1);
 	}
@@ -93,13 +77,11 @@ void GenerationMaker::createNewGeneration()
 	}
 }
 
-//Chromosome GenerationMaker::getParentAtIndex(int index){
 std::string GenerationMaker::getParentAtIndex(int index){
 	return this->getSystemContext()->getOldGenerationPointer()->chromosomes[index];
 }
 
 void GenerationMaker::overWriteChildChromosomeAtIndex(int index, std::string data){
-	//this->pNewGen->chromosomes[index].data = data;
 	this->pNewGen->chromosomes[index] = data;
 }
 
@@ -107,17 +89,7 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 	// Get parent chromosomes
 	std::string parentA = getParentAtIndex(parentIndexA);
 	std::string parentB = getParentAtIndex(parentIndexB);
-/*
-	std::string str_A = "Parent A: ";
-	str_A += parentA;
-	xil_printf(str_A.c_str());
-	xil_printf("\r\n");
 
-	std::string str_B = "Parent B: ";
-	str_B += parentB;
-	xil_printf(str_B.c_str());
-	xil_printf("\r\n");
-*/
 	// Get first part of both parent chromosomes
 	std::string stringChildA = parentA.substr(0,crossoverPoint);
 	std::string stringChildB = parentB.substr(0,crossoverPoint);
@@ -147,19 +119,6 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 			}
 		}
 	}
-/*
-
-	str_A = "Child A pre mutation: ";
-	str_A += stringChildA;
-	xil_printf(str_A.c_str());
-	xil_printf("\r\n");
-
-	str_B = "Child B pre mutation: ";
-	str_B += stringChildB;
-	xil_printf(str_B.c_str());
-	xil_printf("\r\n");
-*/
-
 	// In correspondence to mutation rate, do mutation.
 	float mutation_rate = 0.5;
 
@@ -179,11 +138,9 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 		std::swap(stringChildA[swapIndexA], stringChildA[swapIndexB]);
 	}
 
-
 	// Mutation for child B
 	bool doMutationB = getRandomFloat(0,1) < mutation_rate;
 	if (doMutationB) {
-		//xil_printf("Doing mutation for Child B\r\n");
 		// Swap two chromosomes at random
 		// TODO: get random indice of chromosomes to swap
 		unsigned int swapIndexA = getRandomUnsignedIntInRange(0,NUM_COORDS);
@@ -196,23 +153,12 @@ void GenerationMaker::createChildren(int parentIndexA, int parentIndexB, int cro
 		std::swap(stringChildB[swapIndexA], stringChildB[swapIndexB]);
 	}
 
-	/*
-	str_A = "Child A post mutation: ";
-	str_A += stringChildA;
-	xil_printf(str_A.c_str());
-	xil_printf("\r\n");
-
-	str_B = "Child B post mutation: ";
-	str_B += stringChildB;
-	xil_printf(str_B.c_str());
-	xil_printf("\r\n");
-*/
-
 	// Write new chromosomes to new generation pointer
 	overWriteChildChromosomeAtIndex(childIndexA, stringChildA);
 	overWriteChildChromosomeAtIndex(childIndexB, stringChildB);
 }
 
+// Returns the index of parent chromosome based on the computed fitness
 int GenerationMaker::GetIndexOfParentChromosome(){
 	Population* pop = this->pSysContext->getOldGenerationPointer();
 

@@ -1,5 +1,6 @@
 /*
  * Evaluator.h
+ * Evaluator class checks if the stop condition for the algorithm is met
  *
  *  Created on: 19 Dec 2019
  *      Author: stinu
@@ -18,7 +19,6 @@ public:
 	Evaluator(SystemContext* pSC);
 	virtual ~Evaluator();
 
-	//SystemContext* _pSC;
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void stopCondtionMet();

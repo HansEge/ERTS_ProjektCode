@@ -1,6 +1,6 @@
 /*
  * Timer.h
- *
+ *	Timer class is used to time the system
  *  Created on: Dec 21, 2019
  *      Author: Mathi
  */

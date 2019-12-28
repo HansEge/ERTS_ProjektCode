@@ -1,6 +1,6 @@
 /*
  * RNG.h
- *
+ *	RNG class generates random unsigned int and floats.
  *  Created on: Dec 21, 2019
  *      Author: Mathi
  */

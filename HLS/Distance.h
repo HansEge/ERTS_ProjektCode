@@ -4,7 +4,8 @@
 #include <cmath>
 
 #define NUM_COORDS 10
+#define HW_COSIM
 
-float Distance(int x[NUM_COORDS], int y[NUM_COORDS]);
 
+float distCalc(int x[], int y[]);
 #endif

@@ -1,6 +1,6 @@
 /*
  * Population.cpp
- *
+ *	Holds the Chromosomes, calculated distance and calculated fitness for each population.
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */

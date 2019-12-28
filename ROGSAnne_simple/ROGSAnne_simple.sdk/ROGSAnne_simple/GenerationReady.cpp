@@ -1,6 +1,6 @@
 /*
  * GenerationReady.cpp
- *
+ *	GenerationReady Class computes the distance and the fitness for each candidate solution in a generation.
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */
@@ -16,12 +16,12 @@ GenerationReady::GenerationReady(SystemContext* pSC) : BaseState(pSC) {
 }
 
 GenerationReady::~GenerationReady() {
-	// TODO Auto-generated destructor stub
 }
 
 
-
+//Computes the cost for each candidate solution
 void GenerationReady::ComputeCost(){
+	//Get current population
 	Population* pop = this->_pSC->getOldGenerationPointer();
 
 	std::string candidateSol = "";
@@ -42,17 +42,16 @@ void GenerationReady::ComputeCost(){
 		for(int i = 0; i < NUM_COORDS-1; i++)
 		{
 			distance2 += sqrt(pow(x[i+1]-x[i],2) + pow(y[i+1]-y[i],2));
-			//distance2 += pow((y[i]-x[i]), 2);
 		}
 
 		// Calculate distance
 		pop->distances[k] = distance2;
-		//pop->distances[k] = sqrt(distance2);
 	}
 }
 
-
+// Computes the fitness for each candidate solution in population
 void GenerationReady::ComputeFitness(){
+	//Get current population
 	Population* pop = this->_pSC->getOldGenerationPointer();
 
 	float sumFitness = 0;
@@ -74,25 +73,16 @@ void GenerationReady::ComputeFitness(){
 	}
 }
 
+//OnEnter is called by SystemContext class when the current state is changes to generationReadyState
 void GenerationReady::onEnter(){
-	//xil_printf("Entered GenerationReady.\r\n");
 	// For timing
 	this->pSysContext->timer->reloadTimer();
 
 	// Compute distances
 	ComputeCost();
 
-	// Write timing info
+	// Write timing info (For testing)
 	int cycles_ComputeCost = this->pSysContext->timer->getElapsedCycles();
-
-	/*
-	xil_printf("Cycles spent on computing distances: ");
-	xil_printf(std::to_string(cycles_ComputeCost).c_str());
-	xil_printf(" = ");
-	xil_printf(std::to_string((float)cycles_ComputeCost/ONE_SECOND).c_str());
-	xil_printf("seconds.\r\n");
-	xil_printf("\r\n");
-	*/
 
 	// For timing
 	this->pSysContext->timer->reloadTimer();
@@ -100,19 +90,8 @@ void GenerationReady::onEnter(){
 	// Compute fitnesses
 	ComputeFitness();
 
-	// Write timing info
+	// Write timing info (For testing)
 	int cycles_ComputeFitness = this->pSysContext->timer->getElapsedCycles();
-
-	/*
-	xil_printf("Cycles spent on computing fitnesses: ");
-	xil_printf(std::to_string(cycles_ComputeFitness).c_str());
-	xil_printf(" = ");
-	xil_printf(std::to_string((float)cycles_ComputeFitness/ONE_SECOND).c_str());
-	xil_printf("seconds.\r\n");
-	xil_printf("\r\n");
-	*/
-
-
 
 	FitnessCalculated();
 }
@@ -121,6 +100,7 @@ void GenerationReady::onExit(){
 
 }
 
+//Changes the current state to EvaluatorState
 void GenerationReady::FitnessCalculated(){
 	this->_pSC->setState(this->_pSC->EvaluatorState);
 }

@@ -1,6 +1,6 @@
 /*
  * GenerationReady.h
- *
+ *	GenerationReady Class computes the distance and the fitness for each candidate solution in a generation.
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */

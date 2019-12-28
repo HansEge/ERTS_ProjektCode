@@ -1,6 +1,6 @@
 /*
  * Coordinate.cpp
- *
+ *	Coordinate contains a X and an Y value for at 2 dimensions point
  *  Created on: Dec 19, 2019
  *      Author: Mathi
  */

@@ -1,6 +1,6 @@
 /*
  * GLOBAL.h
- *
+ *	Global class contains global variables
  *  Created on: 22 Dec 2019
  *      Author: stinu
  */
