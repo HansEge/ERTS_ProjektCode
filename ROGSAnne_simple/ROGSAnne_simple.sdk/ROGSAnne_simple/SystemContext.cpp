@@ -1,6 +1,6 @@
 /*
- * SystemContext.cpp
- *
+ *	SystemContext.cpp
+ *	SystemCoxtext holds the current state of the system and calls onEnter and onExit on all states.
  *  Created on: Dec 19, 2019
  *      Author: Mathi
  */
@@ -31,6 +31,7 @@ SystemContext::~SystemContext() {
 	// TODO Auto-generated destructor stub
 }
 
+// Initializes the Coordinates
 void SystemContext::initializeCoordinates(){
 	this->coordinates['A'] = new Coordinate(1,2);
 	this->coordinates['B'] = new Coordinate(4,7);

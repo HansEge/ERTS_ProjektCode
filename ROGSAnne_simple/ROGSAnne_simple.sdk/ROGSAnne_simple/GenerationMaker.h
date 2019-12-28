@@ -1,6 +1,6 @@
 /*
  * GenerationMaker.h
- *
+ *	GenerationMaker class generates a new population based on the computed fitness from the old population.
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */

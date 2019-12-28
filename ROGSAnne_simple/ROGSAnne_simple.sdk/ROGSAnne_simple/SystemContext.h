@@ -1,6 +1,6 @@
 /*
  * SystemContext.h
- *
+ *	SystemCoxtext holds the current state of the system and calls onEnter and onExit on all states.
  *  Created on: Dec 19, 2019
  *      Author: Mathi
  */

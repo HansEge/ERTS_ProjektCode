@@ -1,6 +1,6 @@
 /*
  * Setup.cpp
- *
+ *	Setup class sets up the system by initializing the first population
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */
@@ -17,16 +17,15 @@ Setup::Setup(SystemContext* pSC) : BaseState(pSC) {
 }
 
 Setup::~Setup() {
-	// TODO Auto-generated destructor stub
 }
 
+// Initializing the first population
 void Setup::InitialPop(){
 
 	int uniqueflag = 0;
 	unsigned int random;
 
-
-
+	// Generates a population equal to the size of POPULATION_SIZE
 	for(int i = 0; i < POPULATION_SIZE; i++)
 	{
 		unsigned int numArray[NUM_COORDS];
@@ -67,15 +66,18 @@ void Setup::InitialPop(){
 		// string to char array
 		strcpy(char_array, coords.c_str());
 
+		// Used for debugging
 		xil_printf("Initial coordinate: ");
 		xil_printf(char_array);
 		xil_printf("\r\n");
 
-	    this->_pSC->popA->chromosomes[i] = coords;       // Convert to a character from a-z
+		// Convert to a character from a-z
+	    this->_pSC->popA->chromosomes[i] = coords;
 	}
 
 }
 
+// OnEnter is called by SystemContext class when the current state is changes to setupState
 void Setup::onEnter(){
 	xil_printf("Entered Setup.\r\n");
 	InitialPop();
@@ -85,6 +87,7 @@ void Setup::onEnter(){
 void Setup::onExit(){
 }
 
+//Changes the current state to generationReadyState
 void Setup::SetupDone(){
 	this->_pSC->setState(this->_pSC->generationReadyState);
 }

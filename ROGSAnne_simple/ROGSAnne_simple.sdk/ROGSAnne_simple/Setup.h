@@ -1,6 +1,6 @@
 /*
  * Setup.h
- *
+ *	Setup class sets up the system by initializing the first population
  *  Created on: 19 Dec 2019
  *      Author: stinu
  */
@@ -27,8 +27,6 @@ public:
 	virtual void onEnter();
 	virtual void onExit();
 	virtual void SetupDone();
-	//unsigned int RNG(void);
-	//unsigned int ConvertRandNum(float newMin, float newMax);
 
 private:
 	void InitialPop(void);
